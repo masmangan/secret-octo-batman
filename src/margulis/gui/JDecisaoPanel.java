@@ -1,4 +1,4 @@
-package simulador.gui;
+package margulis.gui;
 
 
 import java.awt.CardLayout;
@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import simulador.pojo.Decisao;
+import margulis.pojo.Decisao;
 
 
 	/**

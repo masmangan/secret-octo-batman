@@ -1,4 +1,4 @@
-package DAO;
+package margulis.dao;
 import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,16 +6,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Properties;
 
-import simulador.pojo.Empresa;
+import margulis.pojo.Empresa;
 
 
 
 
-public class EmpresaDAO {
+public class MargulisDAO {
 	
 	public Empresa findEmpresaByNome(String nome) {
 		Empresa emp = null;
-		String cmd = "select * from xxxx where nome= ?";
+		String cmd = "select * from empresas where nome= ?";
 
 		Connection db = null;
 		PreparedStatement st = null;
@@ -24,7 +24,7 @@ public class EmpresaDAO {
 		try {
 			// abrir conexão
 			Properties props = new Properties();
-			props.load(new FileInputStream("xx.properties"));
+			props.load(new FileInputStream("margulis.properties"));
 			String url = props.getProperty("url");
 
 			db = DriverManager.getConnection(url, props);
@@ -62,7 +62,7 @@ public class EmpresaDAO {
 	}
 
 	public void insertEmpresa(Empresa emp) {
-		String cmd = "insert into xxxx(EmpId, nome, responsavel) values (?, ?, ?)";
+		String cmd = "insert into empresas(nome, responsavel) values (?, ?)";
 
 		Connection db = null;
 		PreparedStatement st = null;
@@ -70,7 +70,7 @@ public class EmpresaDAO {
 		try {
 			// abrir conexão
 			Properties props = new Properties();
-			props.load(new FileInputStream("xx.properties"));
+			props.load(new FileInputStream("margulis.properties"));
 			String url = props.getProperty("url");
 
 			db = DriverManager.getConnection(url, props);

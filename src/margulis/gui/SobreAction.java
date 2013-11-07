@@ -1,4 +1,4 @@
-package simulador.gui;
+package margulis.gui;
 
 import java.awt.event.ActionEvent;
 

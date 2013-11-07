@@ -1,4 +1,4 @@
-package simulador.pojo;
+package margulis.pojo;
 
 public class Empresa {
 	
