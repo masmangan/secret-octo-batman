@@ -1,7 +1,7 @@
 package simulador.gui;
 
 
-	import java.awt.CardLayout;
+import java.awt.CardLayout;
 import java.awt.FlowLayout;
 import java.awt.event.KeyEvent;
 
