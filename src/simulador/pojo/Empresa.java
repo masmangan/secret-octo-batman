@@ -1,15 +1,25 @@
+package simulador.pojo;
 
-public class empresa {
+public class Empresa {
 	
 	private int empid;
 	private String nome,responsavel;
 	
-	public empresa(int empid, String nome, String responsavel) {
+	public Empresa(int empid, String nome, String responsavel) {
 		super();
 		this.empid = empid;
 		this.nome = nome;
 		this.responsavel = responsavel;
 	}
+	
+
+	public Empresa(String nome, String responsavel) {
+		super();
+		this.empid= -1;
+		this.nome = nome;
+		this.responsavel = responsavel;
+	}
+
 
 	public int getEmpid() {
 		return empid;
