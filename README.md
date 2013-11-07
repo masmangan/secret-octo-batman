@@ -1,4 +1,4 @@
 secret-octo-batman
 ==================
 
-Simulador de mercado.
+Margulis - Simulador de mercado.
