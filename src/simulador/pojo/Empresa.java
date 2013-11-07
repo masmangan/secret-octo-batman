@@ -21,7 +21,7 @@ public class Empresa {
 	}
 
 
-	public int getEmpid() {
+	public int getEmpId() {
 		return empid;
 	}
 

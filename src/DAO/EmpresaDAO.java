@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+import simulador.pojo.Empresa;
+
 
 
 
@@ -34,9 +36,9 @@ public class EmpresaDAO {
 			while (rs.next()) {
 				// copiar dados para POJO
 				int EmpId = rs.getInt(1);
-				String nome = rs.getString(2);
+				String n = rs.getString(2);
 				String responsavel = rs.getString(3);
-				emp = new Empresa(EmpId, nome, responsavel);
+				emp = new Empresa(EmpId, n, responsavel);
 			}
 
 		} catch (Exception e) {
@@ -74,7 +76,7 @@ public class EmpresaDAO {
 			db = DriverManager.getConnection(url, props);
 
 			st = db.prepareStatement(cmd);
-			st.setString(1, emp.getEmpId());
+			st.setInt(1, emp.getEmpId());
 			st.setString(2, emp.getNome());
 			st.setString(3, emp.getResponsavel());
 			int r = st.executeUpdate();
