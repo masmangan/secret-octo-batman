@@ -11,7 +11,7 @@ import margulis.pojo.Empresa;
 
 
 
-public class MargulisDAO {
+public class EmpresaDAO {
 	
 	public Empresa findEmpresaByNome(String nome) {
 		Empresa emp = null;
