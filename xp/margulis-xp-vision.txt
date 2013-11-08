@@ -1,0 +1,51 @@
+XP Vision
+=========
+
+Simulador Margulis
+
+Problema
+========
+
+1. Necessidade de alterar parâmetros da simulação.
+
+2. Necessidade de trabalhar em rede.
+
+3. Necessidade de trabalhar sem o MS Excel.
+
+4. Não tem conhecimento de Excel ou simulação para alterar
+a planilha atual.
+
+5. Não pode alterar a simulação e depende do Excel (pago).
+
+6. (raiz) Depende de terceiros para criar novas simulações.
+(custo e tempo)
+
+Problema:
+- custa muito caro
+- demora muito tempo
+- apresenta muitos defeitos
+
+Envolvidos
+==========
+
+alunos e profa. de Economia, usuários
+não há patrocinador (trabalho voluntário, alunos)
+coord. do curso de ADS, autoriza o desenvolvimento do projeto nas disciplinas
+profa. de Economia, prof. de Lab. Prog. III/ESII, avaliação e manutenção
+autor da planilha atual, sofre impacto do projeto
+
+Funções
+=======
+
+F1. Definir parâmetros para simulações de diferentes mercados.
+F2. Executar simulação em sala de aula.
+F3. Armazenar simulações executadas.
+F4. Coletar dados dos participantes via Web/rede.
+
+O projeto atual desenvolve a função F2.
+
+
+
+
+
+
