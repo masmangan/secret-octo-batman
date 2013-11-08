@@ -1,6 +1,6 @@
 package margulis.teste;
 
-import margulis.dao.MargulisDAO;
+import margulis.dao.EmpresaDAO;
 import margulis.pojo.Empresa;
 
 /**
@@ -13,7 +13,7 @@ import margulis.pojo.Empresa;
 public class MargulisDAOTeste {
 
 	public static void main(String[] args) {
-		MargulisDAO dao = new MargulisDAO();
+		EmpresaDAO dao = new EmpresaDAO();
 			
 		Empresa emp = new Empresa("Empretek", "Ataliba Timbó");
 		
