@@ -1,4 +1,4 @@
-package margulis.gui;
+package margulis.action;
 
 import java.awt.event.ActionEvent;
 
