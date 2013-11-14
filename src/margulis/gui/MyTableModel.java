@@ -18,11 +18,9 @@ public class MyTableModel extends AbstractTableModel {
 
 	public MyTableModel() {
 		EmpresaDAO dao = new EmpresaDAO();
-		/*
-		listadeempresas = dao.findEmpresa();
 		
-		criar no EmpresaDAO um metodo 'findEmpresa()'
-		*/
+		listadeempresas = dao.findEmpresas();
+		
 	}
 
 	@Override
