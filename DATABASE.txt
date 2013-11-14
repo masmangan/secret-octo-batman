@@ -1,0 +1,33 @@
+
+-----CRIAR BANCO DE DADOS
+create database projectlp
+---criar tabelas
+CREATE TABLE empresas(
+empid int PRIMARY KEY NOT NULL UNIQUE,
+nome varchar(20),
+responsavel varchar(20)
+)
+----tabela decisoes
+
+CREATE TABLE decisoes
+(
+  codigo integer NOT NULL,
+  periodo integer,
+  preco double precision,
+  marketing double precision,
+  producao integer,
+  quantidade integer,
+  codigo_empresa integer,
+  CONSTRAINT decisoes_pkey PRIMARY KEY (codigo),
+  CONSTRAINT decisoes_codigo_empresa_fkey FOREIGN KEY (codigo_empresa)
+      REFERENCES empresas (empid) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+)
+
+--INSERIR DADOS NO BANCO
+insert into empresas(empid, nome, responsavel)values (1,'C&A','Roberto Carlos')
+insert into empresas(empid, nome, responsavel)values (2,'Renner','Erasmo Carlos')
+
+insert into decisoes(codigo,periodo,preco,marketing, producao, quantidade,codigo_empresa)values(1,1,1,80,20000,5000,1)
+insert into decisoes(codigo,periodo,preco,marketing, producao, quantidade,codigo_empresa)values(2,2,1,90,10000,5000,2)
+
