@@ -23,6 +23,7 @@ public class EmpresaDAO {
 
 		try {
 			// abrir conexão
+			Class.forName("org.sqlite.JDBC");
 			Properties props = new Properties();
 			props.load(new FileInputStream("margulis.properties"));
 			String url = props.getProperty("url");
@@ -69,6 +70,7 @@ public class EmpresaDAO {
 
 		try {
 			// abrir conexão
+			Class.forName("org.sqlite.JDBC");
 			Properties props = new Properties();
 			props.load(new FileInputStream("margulis.properties"));
 			String url = props.getProperty("url");

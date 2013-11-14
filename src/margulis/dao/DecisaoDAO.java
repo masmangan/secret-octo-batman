@@ -1,113 +1,118 @@
-package  margulis.dao;
-
+package margulis.dao;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.Properties;
 
-import  margulis.pojo.Decisao;
-
+import margulis.pojo.Decisao;
 
 public class DecisaoDAO {
 
 	Decisao dec;
 
 	public Decisao findDecisaoByPeriodo(String periodo) {
-         Decisao dec = null;
-         String cmd = "select * from decisao where periodo = ? order by empid";
 
-         Connection db = null;
-         PreparedStatement st = null;
-         ResultSet rs = null;
+		Decisao dec = null;
+		String cmd = "select * from decisao where periodo = ? order by empid";
 
-         try {
-                 // abrir conexão
-                 Properties props = new Properties();
-                 props.load(new FileInputStream("margulis.properties"));
-                 String url = props.getProperty("url");
+		Connection db = null;
+		PreparedStatement st = null;
+		ResultSet rs = null;
 
-                 db = DriverManager.getConnection(url, props);
+		try {
+			
+			// abrir conexão
+			Class.forName("org.sqlite.JDBC");
+			Properties props = new Properties();
+			props.load(new FileInputStream("margulis.properties"));
+			String url = props.getProperty("url");
 
-                 st = db.prepareStatement(cmd);
-                 st.setString(1, periodo);
-                 rs = st.executeQuery();
+			db = DriverManager.getConnection(url, props);
 
-                 while (rs.next()) {
-                         // copiar dados para POJO
-                         int decisaoid = rs.getInt(1);
-                         int empid = rs.getInt(2);
-                         String periodoBD = rs.getString("periodo");
-                         double preco = rs.getDouble(5);
-                         double marketing = rs.getDouble(6);
-                         int quantidade = rs.getInt(7);
-                         dec = new Decisao(decisaoid, empid, periodoBD, preco, marketing, quantidade);
-                 }
+			st = db.prepareStatement(cmd);
+			st.setString(1, periodo);
+			rs = st.executeQuery();
 
-         } catch (Exception e) {
-                 e.printStackTrace();
-         } finally {
-                 try {
-                         if (rs != null) {
-                                 rs.close();
-                         }
-                         if (st != null) {
-                                 st.close();
-                         }
-                         if (db != null) {
-                                 db.close();
-                         }
-                 } catch (Exception e2) {
-                         e2.printStackTrace();
-                 }
-         }
-         return dec;
- }
+			while (rs.next()) {
+				// copiar dados para POJO
+				int decisaoid = rs.getInt(1);
+				int empid = rs.getInt(2);
+				String periodoBD = rs.getString("periodo");
+				double preco = rs.getDouble(5);
+				double marketing = rs.getDouble(6);
+				int quantidade = rs.getInt(7);
+				dec = new Decisao(decisaoid, empid, periodoBD, preco,
+						marketing, quantidade);
+			}
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null) {
+					rs.close();
+				}
+				if (st != null) {
+					st.close();
+				}
+				if (db != null) {
+					db.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+		return dec;
+	}
 
-	 public void insertDecisao(){
-		 String cmd = "insert into decisao(decisaoid, empid, periodo, preco, marketing, quantidade) values (?, ?, ?, ?, ?, ?)";
+	public void insertDecisao() {
+		String cmd = "insert into decisao(decisaoid, empid, periodo, preco, marketing, quantidade) values (?, ?, ?, ?, ?, ?)";
 
-         Connection db = null;
-         PreparedStatement st = null;
+		Connection db = null;
+		PreparedStatement st = null;
 
-         try {
-                 // abrir conexão
-                 Properties props = new Properties();
-                 props.load(new FileInputStream("margulis.properties"));
-                 String url = props.getProperty("url");
+		try {
+			// abrir conexão
+			Class.forName("org.sqlite.JDBC");
+			Properties props = new Properties();
+			props.load(new FileInputStream("margulis.properties"));
+			String url = props.getProperty("url");
 
-                 db = DriverManager.getConnection(url, props);
+			db = DriverManager.getConnection(url, props);
 
-                 st = db.prepareStatement(cmd);
-                 dec = null;
-                 st.setInt(1, dec.getDecisaoid());
-                 st.setInt(2, dec.getEmpid());
-                 st.setString(3, dec.getPeriodo());
-                 st.setDouble(4, dec.getPreco());
-                 st.setDouble(5, dec.getMarketing());
-                 st.setInt(6, dec.getQuantidade());
-                 int r = st.executeUpdate();
+			st = db.prepareStatement(cmd);
+			dec = null;
+			st.setInt(1, dec.getDecisaoid());
+			st.setInt(2, dec.getEmpid());
+			st.setString(3, dec.getPeriodo());
+			st.setDouble(4, dec.getPreco());
+			st.setDouble(5, dec.getMarketing());
+			st.setInt(6, dec.getQuantidade());
+			int r = st.executeUpdate();
 
-                 if (r != 1) {
-                         throw new RuntimeException("ERRO AO INSERIR DECISÃO!");
-                 }
+			if (r != 1) {
+				throw new RuntimeException("ERRO AO INSERIR DECISÃO!");
+			}
 
-         } catch (Exception e) {
-                 e.printStackTrace();
-         } finally {
-                 try {
-                         if (st != null) {
-                                 st.close();
-                         }
-                         if (db != null) {
-                                 db.close();
-                         }
-                 } catch (Exception e2) {
-                         e2.printStackTrace();
-                 }
-         }
- }
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (st != null) {
+					st.close();
+				}
+				if (db != null) {
+					db.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
 
 }
