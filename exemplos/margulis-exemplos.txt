@@ -1,0 +1,14 @@
+Dados de testes para cadastro no banco de dados
+
+
+Para empresas:
+
+Código, Nome da Empresa, Responsável
+1, C&A, Roberto Carlos
+2, Renner, Erasmo Carlos
+
+Para decisões:
+
+Código, Empresa, Rodada, Preço (R$), Marketing (R$), Produção (unidades)
+1, 1, 1, 80, 20000, 5000
+2, 2, 1, 90, 10000, 5000
