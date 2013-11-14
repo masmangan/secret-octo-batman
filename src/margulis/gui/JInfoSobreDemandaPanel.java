@@ -10,6 +10,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import margulis.pojo.DemandaInicial;
+/**
+ * @author Ândrei
+ */
 public class JInfoSobreDemandaPanel extends JPanel {
 
 	private static final long serialVersionUID = -7585722317489961554L;
