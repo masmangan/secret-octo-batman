@@ -13,7 +13,9 @@ import  margulis.pojo.Decisao;
 
 public class DecisaoDAO {
 
-	 public Decisao findDecisaoByPeriodo(String periodo) {
+	Decisao dec;
+
+	public Decisao findDecisaoByPeriodo(String periodo) {
          Decisao dec = null;
          String cmd = "select * from decisao where periodo = ? order by empid";
 
@@ -35,13 +37,13 @@ public class DecisaoDAO {
 
                  while (rs.next()) {
                          // copiar dados para POJO
-                         int decisaoId = rs.getInt(1);
-                         int empId = rs.getInt(2);
+                         int decisaoid = rs.getInt(1);
+                         int empid = rs.getInt(2);
                          String periodoBD = rs.getString("periodo");
-                         String preco = rs.getString(5);
-                         String marketing = rs.getString(6);
-                         String quantidade = rs.getString(7);
-                         dec = new Decisao(decisaoId, empId, periodoBD, preco, marketing, quantidade);
+                         double preco = rs.getDouble(5);
+                         double marketing = rs.getDouble(6);
+                         int quantidade = rs.getInt(7);
+                         dec = new Decisao(decisaoid, empid, periodoBD, preco, marketing, quantidade);
                  }
 
          } catch (Exception e) {
@@ -65,7 +67,7 @@ public class DecisaoDAO {
  }
 
 	 public void insertDecisao(){
-		 String cmd = "insert into decisao(decisaoId, empId, periodo, preco, marketing, quantidade) values (?, ?, ?, ?, ?, ?)";
+		 String cmd = "insert into decisao(decisaoid, empid, periodo, preco, marketing, quantidade) values (?, ?, ?, ?, ?, ?)";
 
          Connection db = null;
          PreparedStatement st = null;
@@ -79,12 +81,13 @@ public class DecisaoDAO {
                  db = DriverManager.getConnection(url, props);
 
                  st = db.prepareStatement(cmd);
-                 st.setString(1, dec.getDecisaoId());
-                 st.setString(2, dec.getEmpId());
+                 dec = null;
+                 st.setInt(1, dec.getDecisaoid());
+                 st.setInt(2, dec.getEmpid());
                  st.setString(3, dec.getPeriodo());
-                 st.setString(4, dec.getPreco());
-                 st.setString(5, dec.getMarketing());
-                 st.setString(6, dec.getQuantidade());
+                 st.setDouble(4, dec.getPreco());
+                 st.setDouble(5, dec.getMarketing());
+                 st.setInt(6, dec.getQuantidade());
                  int r = st.executeUpdate();
 
                  if (r != 1) {
