@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import margulis.pojo.Decisao;
+import margulis.pojo.DecisaoInicial;
 
 public class JDecisaoInicialPanel extends JPanel {
 	
