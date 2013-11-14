@@ -3,9 +3,6 @@ package margulis.gui;
 
 import java.awt.CardLayout;
 import java.awt.FlowLayout;
-import java.awt.event.KeyEvent;
-
-	import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,7 +26,8 @@ import margulis.pojo.Decisao;
 		}
 		
 		private static final long serialVersionUID = 1L;
-
+		
+		private JTextField empid;
 		private JTextField periodo;
 		private JTextField preco;
 		private JTextField marketing;
@@ -44,10 +42,11 @@ import margulis.pojo.Decisao;
 		 * @return
 		 */
 		public Decisao getDecisao() {
-			return new Decisao(periodo.getText(),Double.parseDouble(preco.getText()),Double.parseDouble(marketing.getText()),Integer.parseInt(quantidade.getText()));
+			return new Decisao(Integer.parseInt(empid.getText()),periodo.getText(),Double.parseDouble(preco.getText()),Double.parseDouble(marketing.getText()),Integer.parseInt(quantidade.getText()));
 		}
 
 		public void clear() {
+			empid.setText("");
 			periodo.setText("");
 			preco.setText("");
 			marketing.setText("");
@@ -66,6 +65,12 @@ import margulis.pojo.Decisao;
 			
 			setLayout(new FlowLayout());
 
+			label = new JLabel("empid");
+			add(label);
+			empid = new JTextField(10);
+			label.setLabelFor(empid);
+			add(empid);
+			
 			label = new JLabel("Periodo");
 			add(label);
 			periodo = new JTextField(10);
@@ -90,19 +95,6 @@ import margulis.pojo.Decisao;
 			label.setLabelFor(quantidade);
 			add(quantidade);
 
-			JButton button;
-			
-			
-			//Falta fazer a Action
-			//button = new JButton(new CadastrarDecisaoAction(this));
-			//button.setToolTipText("Cadastrar Decisao");
-			//button.setMnemonic(KeyEvent.VK_C);
-			//add(button);
-
-			//button = new JButton(new CadastrarDecisaoAction(this));
-			//button.setToolTipText("Cancelar Cadastro de Decisao");
-			//button.setMnemonic(KeyEvent.VK_N);
-			//add(button);		
 		}
 	}
 
