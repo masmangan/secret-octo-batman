@@ -1,6 +1,6 @@
 package margulis.pojo;
 
-public class ValoresIniciaisPOJO {
+public class ValoresIniciais {
 
 	private double estoqueInicial;
 	private double custosVariaveis;
@@ -9,7 +9,7 @@ public class ValoresIniciaisPOJO {
 	private double jurosEmprestimosBancarios;
 	private double impostoDeRenda;
 
-	public ValoresIniciaisPOJO(double estoqueInicial, double custosVariaveis,
+	public ValoresIniciais(double estoqueInicial, double custosVariaveis,
 			double custosFixos, double despesasAdministrativas,
 			double jurosEmprestimosBancarios, double impostoDeRenda) {
 		this.estoqueInicial = estoqueInicial;
