@@ -1,6 +1,10 @@
 package margulis.gui;
 
 import javax.swing.JPanel;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.RowSpec;
+import com.jgoodies.forms.factories.FormFactory;
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.Component;
