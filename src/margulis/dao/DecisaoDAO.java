@@ -5,8 +5,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.Properties;
 
 import margulis.pojo.Decisao;
@@ -25,7 +23,7 @@ public class DecisaoDAO {
 		ResultSet rs = null;
 
 		try {
-			
+
 			// abrir conexão
 			Class.forName("org.sqlite.JDBC");
 			Properties props = new Properties();
@@ -49,7 +47,7 @@ public class DecisaoDAO {
 				dec = new Decisao(decisaoid, empid, periodoBD, preco,
 						marketing, quantidade);
 			}
-		
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
