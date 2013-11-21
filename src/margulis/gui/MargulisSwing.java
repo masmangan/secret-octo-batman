@@ -13,6 +13,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+import margulis.action.ConfiguracaoAction;
 import margulis.action.SairAction;
 import margulis.action.SobreAction;
 
@@ -52,6 +53,12 @@ public class MargulisSwing {
 			sair.setMnemonic(KeyEvent.VK_S);
 			sair.setAccelerator(KeyStroke.getKeyStroke(
 			        KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
+			
+			JMenuItem configuracao = new JMenuItem(new ConfiguracaoAction());
+			arquivo.add(configuracao);
+			configuracao.setMnemonic(KeyEvent.VK_C);
+			configuracao.setAccelerator(KeyStroke.getKeyStroke(
+			        KeyEvent.VK_S, ActionEvent.CTRL_MASK));
 
 			JMenuItem sobre = new JMenuItem(new SobreAction(frame));
 			ajuda.add(sobre);
