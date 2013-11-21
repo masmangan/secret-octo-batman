@@ -13,7 +13,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
-import margulis.action.ConfiguracaoAction;
+import margulis.action.AjudaAction;
 import margulis.action.SairAction;
 import margulis.action.SobreAction;
 
@@ -64,6 +64,9 @@ public class MargulisSwing {
 			ajuda.add(sobre);
 			//TODO: mover para action		
 			sobre.setMnemonic(KeyEvent.VK_S);
+			
+			JMenuItem mi_ajuda = new JMenuItem(new AjudaAction(frame));
+			ajuda.add(mi_ajuda);
 			
 			JPanel vazio = new JPanel();
 			
