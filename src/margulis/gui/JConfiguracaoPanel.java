@@ -1,5 +1,7 @@
 package margulis.gui;
 
+import javax.swing.JPanel;
+
 public class JConfiguracaoPanel extends JPanel {
 
 	/**
@@ -10,4 +12,3 @@ public class JConfiguracaoPanel extends JPanel {
 	}
 
 }
-	
