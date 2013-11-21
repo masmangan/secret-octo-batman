@@ -40,7 +40,7 @@ import javax.swing.JTable;
 			this.card = card;
 
 			setLayout(new BorderLayout());
-			table = new JTable(new MyTableModel());
+			table = new JTable(new EmpresaTableModel());
 
 			JScrollPane scrollPane = new JScrollPane(table);
 			scrollPane.setPreferredSize(new Dimension(200, 100));

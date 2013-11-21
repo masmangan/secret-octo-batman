@@ -1,5 +1,10 @@
 package margulis.pojo;
 
+/**
+ * 
+ * @author 
+ *
+ */
 public class ValoresIniciais {
 
 	private double estoqueInicial;

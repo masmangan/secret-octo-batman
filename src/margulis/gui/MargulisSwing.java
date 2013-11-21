@@ -25,7 +25,6 @@ import margulis.action.SobreAction;
 public class MargulisSwing {
 	
 		private static void createAndShowGUI() {
-			// Create and set up the window.
 			JFrame frame = new JFrame("Margulis - Tela Principal");
 			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			frame.setIconImage(Toolkit.getDefaultToolkit().getImage(
@@ -48,12 +47,15 @@ public class MargulisSwing {
 			
 			JMenuItem sair = new JMenuItem(new SairAction());
 			arquivo.add(sair);
+			
+			//TODO: mover para action
 			sair.setMnemonic(KeyEvent.VK_S);
 			sair.setAccelerator(KeyStroke.getKeyStroke(
 			        KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
 
 			JMenuItem sobre = new JMenuItem(new SobreAction(frame));
 			ajuda.add(sobre);
+			//TODO: mover para action		
 			sobre.setMnemonic(KeyEvent.VK_S);
 			
 			JPanel vazio = new JPanel();
@@ -67,8 +69,6 @@ public class MargulisSwing {
 		}
 
 		public static void main(String[] args) {
-			// Schedule a job for the event-dispatching thread:
-			// creating and showing this application's GUI.
 			javax.swing.SwingUtilities.invokeLater(new Runnable() {
 				public void run() {
 					createAndShowGUI();

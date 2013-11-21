@@ -1,5 +1,10 @@
 package margulis.pojo;
 
+/**
+ * 
+ * @author 
+ *
+ */
 public class Decisao {
 	
 	private int decisaoid;

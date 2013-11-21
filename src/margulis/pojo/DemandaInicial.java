@@ -1,5 +1,10 @@
 package margulis.pojo;
 
+/**
+ * 
+ * @author 
+ *
+ */
 public class DemandaInicial {
 	
 	private double padrao;

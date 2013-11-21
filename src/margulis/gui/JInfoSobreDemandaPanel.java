@@ -2,6 +2,7 @@ package margulis.gui;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import java.awt.Font;
 
 import javax.swing.JFrame;
@@ -95,4 +96,29 @@ public class JInfoSobreDemandaPanel extends JPanel {
 	public CardLayout getCard() {
 		return card;
 	}
+	
+	/**
+	 * Create the GUI and show it. For thread safety, this method should be
+	 * invoked from the event-dispatching thread.
+	 */
+	private static void createAndShowGUI() {
+		JFrame frame = new JFrame("Teste");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		frame.getContentPane().add(new JInfoSobreDemandaPanel(null, null));
+
+		frame.setPreferredSize(new Dimension(800, 200));
+		frame.pack();
+		frame.setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		// Schedule a job for the event-dispatching thread:
+		// creating and showing this application's GUI.
+		javax.swing.SwingUtilities.invokeLater(new Runnable() {
+			public void run() {
+				createAndShowGUI();
+			}
+		});
+	}	
 }

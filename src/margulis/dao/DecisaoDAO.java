@@ -9,6 +9,11 @@ import java.util.Properties;
 
 import margulis.pojo.Decisao;
 
+/**
+ * 
+ * @author 
+ *
+ */
 public class DecisaoDAO {
 
 	Decisao dec;
@@ -23,8 +28,6 @@ public class DecisaoDAO {
 		ResultSet rs = null;
 
 		try {
-
-			// abrir conexão
 			Class.forName("org.sqlite.JDBC");
 			Properties props = new Properties();
 			props.load(new FileInputStream("margulis.properties"));
@@ -37,7 +40,6 @@ public class DecisaoDAO {
 			rs = st.executeQuery();
 
 			while (rs.next()) {
-				// copiar dados para POJO
 				int decisaoid = rs.getInt(1);
 				int empid = rs.getInt(2);
 				String periodoBD = rs.getString("periodo");
@@ -75,7 +77,6 @@ public class DecisaoDAO {
 		PreparedStatement st = null;
 
 		try {
-			// abrir conexão
 			Class.forName("org.sqlite.JDBC");
 			Properties props = new Properties();
 			props.load(new FileInputStream("margulis.properties"));

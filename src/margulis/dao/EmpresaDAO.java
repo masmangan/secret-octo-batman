@@ -11,6 +11,11 @@ import java.util.Properties;
 
 import margulis.pojo.Empresa;
 
+/**
+ * 
+ * @author 
+ *
+ */
 public class EmpresaDAO {
 
 	public Empresa findEmpresaByNome(String nome) {
@@ -22,7 +27,6 @@ public class EmpresaDAO {
 		ResultSet rs = null;
 
 		try {
-			// abrir conexão
 			Class.forName("org.sqlite.JDBC");
 			Properties props = new Properties();
 			props.load(new FileInputStream("margulis.properties"));
@@ -35,7 +39,6 @@ public class EmpresaDAO {
 			rs = st.executeQuery();
 
 			while (rs.next()) {
-				// copiar dados para POJO
 				int EmpId = rs.getInt(1);
 				String n = rs.getString(2);
 				String responsavel = rs.getString(3);
@@ -69,7 +72,6 @@ public class EmpresaDAO {
 		PreparedStatement st = null;
 
 		try {
-			// abrir conexão
 			Class.forName("org.sqlite.JDBC");
 			Properties props = new Properties();
 			props.load(new FileInputStream("margulis.properties"));
@@ -104,7 +106,7 @@ public class EmpresaDAO {
 	}
 
 	public List<Empresa> findEmpresas() {
-		String cmd = "select * from empresa ?";
+		String cmd = "select * from empresas";
 		List<Empresa> empresas = new ArrayList<Empresa>();
 
 		Connection db = null;
@@ -112,6 +114,7 @@ public class EmpresaDAO {
 		ResultSet rs = null;
 
 		try {
+			Class.forName("org.sqlite.JDBC");
 			Properties props = new Properties();
 			props.load(new FileInputStream("margulis.properties"));
 			String url = props.getProperty("url");

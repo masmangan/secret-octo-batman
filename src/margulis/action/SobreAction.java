@@ -27,10 +27,9 @@ public class SobreAction extends AbstractAction {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		System.out.println("Sobre");
 		JOptionPane.showMessageDialog(frame,
-				"v. 0.1 (c) 2013, LAPRO III, FSPOA.",
-				"Sobre o Simulador de Mercado",
+				"v. 2.0 (dev) (c) 2013, LAPRO III, FSPOA.",
+				"Sobre Margulis, um Simulador de Mercado",
 				JOptionPane.INFORMATION_MESSAGE);
 	}
 

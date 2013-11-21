@@ -1,5 +1,10 @@
 package margulis.pojo;
 
+/**
+ * 
+ * @author 
+ *
+ */
 public class Empresa {
 	
 	private int empid;
