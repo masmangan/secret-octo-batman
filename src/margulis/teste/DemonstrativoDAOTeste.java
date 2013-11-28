@@ -3,7 +3,6 @@ package margulis.teste;
 import java.util.List;
 
 import margulis.dao.DemonstrativoDAO;
-
 import margulis.pojo.Demonstrativo;
 
 public class DemonstrativoDAOTeste {
@@ -16,7 +15,7 @@ public class DemonstrativoDAOTeste {
 		
 		DemonstrativoDAO dao = new DemonstrativoDAO();
 		
-		List<Demonstrativo> teste = dao.findDemonstrativo();
+		List<Demonstrativo> teste = dao.getDemonstrativo();
 		
 		System.out.println(teste.toString());
 		
