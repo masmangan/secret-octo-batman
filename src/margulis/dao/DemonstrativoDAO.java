@@ -17,7 +17,7 @@ import margulis.pojo.Demonstrativo;
 public class DemonstrativoDAO {
 	
 	
-	public List<Demonstrativo> findDemonstrativo() {
+	public List<Demonstrativo> getDemonstrativo() {
 		String cmd = "select * from demonstrativo";
 		List<Demonstrativo> demonstrativo = new ArrayList<Demonstrativo>();
 
