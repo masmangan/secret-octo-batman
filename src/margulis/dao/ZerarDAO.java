@@ -5,22 +5,13 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
-import margulis.pojo.Demonstrativo;
-
-
-
-
-public class DemonstrativoDAO {
+public class ZerarDAO {
 	
-	
-	public List<Demonstrativo> getDemonstrativo() {
-		String cmd = "select * from demonstrativo";
-		List<Demonstrativo> demonstrativo = new ArrayList<Demonstrativo>();
-
+	public void removerDemonstrativos(){
+		String cmd = "delete from demonstrativo";
+		
 		Connection db = null;
 		PreparedStatement st = null;
 		ResultSet rs = null;
@@ -34,17 +25,10 @@ public class DemonstrativoDAO {
 			db = DriverManager.getConnection(url, props);
 
 			st = db.prepareStatement(cmd);
-			
-			rs = st.executeQuery();
+			int r = st.executeUpdate();
 
-			while (rs.next()) {
-				int rodada = rs.getInt(1);
-				int empid = rs.getInt(2);
-				float resultado = rs.getInt(3);
-				int vendas =rs.getInt(4);
-				
-				
-				demonstrativo.add(new Demonstrativo(rodada,empid, resultado, vendas));
+			if (r != 1) {
+				throw new RuntimeException("Erro ao remover demonstrativo!");
 			}
 
 		} catch (Exception e) {
@@ -64,7 +48,13 @@ public class DemonstrativoDAO {
 				e2.printStackTrace();
 			}
 		}
-		return demonstrativo;
 	}
-
+	
+	public ZerarDAO(){
+		removerDemonstrativos();
+	}
+	
+	public static void main(String[] args) {
+		new ZerarDAO();
+	}
 }
