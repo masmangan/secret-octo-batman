@@ -2,7 +2,7 @@ package margulis.pojo;
 
 public class Demonstrativo {
 	
-	int empid;
+	int empID;
 	int rodada;
 	float resultado;
 	int vendas;
@@ -10,7 +10,7 @@ public class Demonstrativo {
 	
 	public Demonstrativo(int empid, int rodada, float resultado, int vendas) {
 		super();
-		this.empid = empid;
+		this.empID = empid;
 		this.rodada = rodada;
 		this.resultado = resultado;
 		this.vendas = vendas;
@@ -18,14 +18,14 @@ public class Demonstrativo {
 	
 	public Demonstrativo(int rodada, float resultado, int vendas) {
 		super();
-		this.empid = -1;
+		this.empID = -1;
 		this.rodada = rodada;
 		this.resultado = resultado;
 		this.vendas = vendas;
 	}
 
 	public int getEmpid() {
-		return empid;
+		return empID;
 	}
 
 	public int getRodada() {
@@ -41,7 +41,7 @@ public class Demonstrativo {
 	}
 
 	public void setEmpid(int empid) {
-		this.empid = empid;
+		this.empID = empid;
 	}
 
 	public void setRodada(int rodada) {
@@ -58,7 +58,7 @@ public class Demonstrativo {
 
 	@Override
 	public String toString() {
-		return "Demonstrativo [empid=" + empid + ", rodada=" + rodada
+		return "Demonstrativo [empid=" + empID + ", rodada=" + rodada
 				+ ", resultado=" + resultado + ", vendas=" + vendas + "]";
 	}
 	
