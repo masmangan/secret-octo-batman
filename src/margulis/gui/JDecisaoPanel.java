@@ -43,7 +43,7 @@ import margulis.pojo.Decisao;
 		 * @return
 		 */
 		public Decisao getDecisao() {
-			return new Decisao(Integer.parseInt(empid.getText()),periodo.getText(),Double.parseDouble(preco.getText()),Double.parseDouble(marketing.getText()),Integer.parseInt(quantidade.getText()));
+			return new Decisao(Integer.parseInt(empid.getText()),Integer.parseInt(periodo.getText()),Double.parseDouble(preco.getText()),Double.parseDouble(marketing.getText()),Integer.parseInt(quantidade.getText()));
 		}
 
 		public void clear() {
