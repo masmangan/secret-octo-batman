@@ -114,4 +114,47 @@ public class DecisaoDAO {
 		}
 	}
 
+	public void updateDecisao(int empid) {
+		String cmd = "update decisao set periodo = ?, preco = ?, marketing = ?, quantidade = ? where empid = ?";
+
+		Connection db = null;
+		PreparedStatement st = null;
+
+		try {
+			Class.forName("org.sqlite.JDBC");
+			Properties props = new Properties();
+			props.load(new FileInputStream("margulis.properties"));
+			String url = props.getProperty("url");
+
+			db = DriverManager.getConnection(url, props);
+
+			st = db.prepareStatement(cmd);
+			dec = null;
+			st.setInt(1, dec.getRodada());
+			st.setDouble(2, dec.getPreco());
+			st.setDouble(3, dec.getMarketing());
+			st.setInt(4, dec.getProducao());
+			st.setInt(5, empid);
+			int r = st.executeUpdate();
+
+			if (r != 1) {
+				throw new RuntimeException("ERRO AO ATUALIZAR DECISÃO!");
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (st != null) {
+					st.close();
+				}
+				if (db != null) {
+					db.close();
+				}
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
+
 }
