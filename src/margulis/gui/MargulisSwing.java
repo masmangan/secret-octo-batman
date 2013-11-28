@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -13,6 +14,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+<<<<<<< HEAD
+=======
+import margulis.action.AjudaAction;
+>>>>>>> 0ce62474cce31394086b566127b9ea97a0581cb9
 import margulis.action.ConfiguracaoAction;
 import margulis.action.SairAction;
 import margulis.action.SobreAction;
@@ -47,25 +52,27 @@ public class MargulisSwing {
 			mb.add(ajuda);
 			
 			JMenuItem sair = new JMenuItem(new SairAction());
-			arquivo.add(sair);
-			
-			//TODO: mover para action
+			sair.setIcon(new ImageIcon(MargulisSwing.class.getResource("/margulis/gui/image/sair.png")));
 			sair.setMnemonic(KeyEvent.VK_S);
-			sair.setAccelerator(KeyStroke.getKeyStroke(
-			        KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
+			sair.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q, ActionEvent.CTRL_MASK));
+			arquivo.add(sair);
 			
 			JMenuItem configuracao = new JMenuItem(new ConfiguracaoAction());
 			arquivo.add(configuracao);
+			configuracao.setIcon(new ImageIcon(MargulisSwing.class.getResource("/margulis/gui/image/config.png")));
 			configuracao.setMnemonic(KeyEvent.VK_C);
-			configuracao.setAccelerator(KeyStroke.getKeyStroke(
-			        KeyEvent.VK_S, ActionEvent.CTRL_MASK));
+			configuracao.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C, ActionEvent.CTRL_MASK));
 
 			JMenuItem sobre = new JMenuItem(new SobreAction(frame));
 			ajuda.add(sobre);
-			//TODO: mover para action		
-			sobre.setMnemonic(KeyEvent.VK_S);
+			sobre.setIcon(new ImageIcon(MargulisSwing.class.getResource("/margulis/gui/image/sobre.png")));
+			sobre.setMnemonic(KeyEvent.VK_A);
+			sobre.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A, ActionEvent.CTRL_MASK));
 			
 			JMenuItem mi_ajuda = new JMenuItem(new AjudaAction(frame));
+			mi_ajuda.setIcon(new ImageIcon(MargulisSwing.class.getResource("/margulis/gui/image/help.png")));
+			mi_ajuda.setMnemonic(KeyEvent.VK_H);
+			mi_ajuda.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H, ActionEvent.CTRL_MASK));
 			ajuda.add(mi_ajuda);
 			
 			JPanel vazio = new JPanel();
