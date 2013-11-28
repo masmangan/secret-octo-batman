@@ -114,8 +114,8 @@ public class DecisaoDAO {
 		}
 	}
 
-	public void updateDecisao(int empid) {
-		String cmd = "update decisao set periodo = ?, preco = ?, marketing = ?, quantidade = ? where empid = ?";
+	public void updateDecisao(int decisaoid) {
+		String cmd = "update decisao set periodo = ?, preco = ?, marketing = ?, quantidade = ? where codigo = ?";
 
 		Connection db = null;
 		PreparedStatement st = null;
@@ -134,7 +134,7 @@ public class DecisaoDAO {
 			st.setDouble(2, dec.getPreco());
 			st.setDouble(3, dec.getMarketing());
 			st.setInt(4, dec.getProducao());
-			st.setInt(5, empid);
+			st.setInt(5, decisaoid);
 			int r = st.executeUpdate();
 
 			if (r != 1) {
