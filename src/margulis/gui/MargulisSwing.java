@@ -14,7 +14,10 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
+<<<<<<< HEAD
+=======
 import margulis.action.AjudaAction;
+>>>>>>> 0ce62474cce31394086b566127b9ea97a0581cb9
 import margulis.action.ConfiguracaoAction;
 import margulis.action.SairAction;
 import margulis.action.SobreAction;
