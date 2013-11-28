@@ -6,53 +6,60 @@ import java.awt.FlowLayout;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-	/**
-	 * @author mauricio.victor.carvalho@gmail.com
-	 */
-
+/**
+ * @author mauricio.victor.carvalho@gmail.com
+ */
 public class JConfiguracaoPanel extends JPanel {
 
+	private static final long serialVersionUID = 1L;
+
+	private JFrame frame;
+	private CardLayout card;
+
+	/**
+	 * 
+	 * @return
+	 */
 	public JFrame getFrame() {
 		return frame;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public CardLayout getCard() {
 		return card;
 	}
-	
-	private static final long serialVersionUID = 1L;
 
-	private JPanel painelempresas;
-	private JPanel painelvaloresiniciais;
-	private JPanel painelinfosobre;
-	private JPanel paineldecisaoinicial;
-	
-	private JFrame frame;
-	private CardLayout card;
-	
+	/**
+	 * 
+	 * @param frame
+	 * @param card
+	 */
 	public JConfiguracaoPanel(JFrame frame, CardLayout card) {
-		JLabel label;
 
 		this.frame = frame;
 		this.card = card;
 
 		setLayout(new FlowLayout());
-		
+
 		JEmpresaPanel panel_empresa = new JEmpresaPanel(frame, card);
 		add(panel_empresa);
-		
+
 		JValoresIniciais panel_valores_iniciais = new JValoresIniciais();
 		add(panel_valores_iniciais);
-		
-		JInfoSobreDemandaPanel panel_info_sobre_demanda = new JInfoSobreDemandaPanel(frame, card);
+
+		JInfoSobreDemandaPanel panel_info_sobre_demanda = new JInfoSobreDemandaPanel(
+				frame, card);
 		add(panel_info_sobre_demanda);
-		
-		JDecisaoInicialPanel panel_decisao_inicial = new JDecisaoInicialPanel(frame, card);
+
+		JDecisaoInicialPanel panel_decisao_inicial = new JDecisaoInicialPanel(
+				frame, card);
 		add(panel_decisao_inicial);
-		
+
 		JButton botaoum = new JButton("ZERAR SIMULAÇÃO");
 		add(botaoum);
 
@@ -63,7 +70,7 @@ public class JConfiguracaoPanel extends JPanel {
 		add(botaotres);
 
 	}
-	
+
 	/**
 	 * Create the GUI and show it. For thread safety, this method should be
 	 * invoked from the event-dispatching thread.
@@ -79,6 +86,10 @@ public class JConfiguracaoPanel extends JPanel {
 		frame.setVisible(true);
 	}
 
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// Schedule a job for the event-dispatching thread:
 		// creating and showing this application's GUI.
@@ -90,4 +101,3 @@ public class JConfiguracaoPanel extends JPanel {
 	}
 
 }
-	
