@@ -13,7 +13,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
-import margulis.action.AjudaAction;
+import margulis.action.ConfiguracaoAction;
 import margulis.action.SairAction;
 import margulis.action.SobreAction;
 
