@@ -9,8 +9,8 @@ import java.util.Properties;
 
 public class ZerarDAO {
 	
-	public void removerDemonstrativoPorEmpresa(int empresa){
-		String cmd = "delete from demonstrativo where codigo_empresa = ?";
+	public void removerDemonstrativos(){
+		String cmd = "delete from demonstrativo";
 		
 		Connection db = null;
 		PreparedStatement st = null;
@@ -25,7 +25,6 @@ public class ZerarDAO {
 			db = DriverManager.getConnection(url, props);
 
 			st = db.prepareStatement(cmd);
-			st.setInt(1, empresa);
 			int r = st.executeUpdate();
 
 			if (r != 1) {
@@ -49,5 +48,13 @@ public class ZerarDAO {
 				e2.printStackTrace();
 			}
 		}
+	}
+	
+	public ZerarDAO(){
+		removerDemonstrativos();
+	}
+	
+	public static void main(String[] args) {
+		new ZerarDAO();
 	}
 }
