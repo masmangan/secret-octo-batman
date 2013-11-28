@@ -4,26 +4,15 @@ import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Properties;
 
-import margulis.pojo.Demonstrativo;
-
-
-
-
-public class DemonstrativoDAO {
+public class OperacaoDAO {
 	
-	
-	public List<Demonstrativo> getDemonstrativo() {
-		String cmd = "select * from demonstrativo";
-		List<Demonstrativo> demonstrativo = new ArrayList<Demonstrativo>();
+	public void insereDemonstrativo(Demonstrativo d) {
+		String cmd = "insert into demonstrativo( empID, rodada, resultado, vendas) values (?, ?, ?)";
 
 		Connection db = null;
 		PreparedStatement st = null;
-		ResultSet rs = null;
 
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -34,26 +23,19 @@ public class DemonstrativoDAO {
 			db = DriverManager.getConnection(url, props);
 
 			st = db.prepareStatement(cmd);
-			
-			rs = st.executeQuery();
+			st.setString(1, d.getRodada());
+			st.setString(2, d.getEmpresaID());
+			st.setString(3, d.getVendas());
+			int r = st.executeUpdate();
 
-			while (rs.next()) {
-				int rodada = rs.getInt(1);
-				int empid = rs.getInt(2);
-				float resultado = rs.getInt(3);
-				int vendas =rs.getInt(4);
-				
-				
-				demonstrativo.add(new Demonstrativo(rodada,empid, resultado, vendas));
+			if (r != 1) {
+				throw new RuntimeException("ERRO AO INSERIR Demonstrativo!");
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (rs != null) {
-					rs.close();
-				}
 				if (st != null) {
 					st.close();
 				}
@@ -64,7 +46,7 @@ public class DemonstrativoDAO {
 				e2.printStackTrace();
 			}
 		}
-		return demonstrativo;
 	}
-
+	
+	
 }
