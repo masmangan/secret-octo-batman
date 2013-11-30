@@ -17,7 +17,9 @@ import margulis.pojo.Decisao;
  *
  */
 public class DecisaoDAO {
+	
 	Decisao dec;
+	
 	/**
 	 * 
 	 * @param periodo
@@ -148,7 +150,7 @@ public class DecisaoDAO {
 			int r = st.executeUpdate();
 
 			if (r != 1) {
-				throw new RuntimeException("ERRO AO INSERIR DECISÃO!");
+				throw new RuntimeException("ERRO AO INSERIR DECISï¿½O!");
 			}
 
 		} catch (Exception e) {
@@ -191,7 +193,7 @@ public class DecisaoDAO {
 			int r = st.executeUpdate();
 
 			if (r != 1) {
-				throw new RuntimeException("ERRO AO ATUALIZAR DECISÃO!");
+				throw new RuntimeException("ERRO AO ATUALIZAR DECISï¿½O!");
 			}
 
 		} catch (Exception e) {

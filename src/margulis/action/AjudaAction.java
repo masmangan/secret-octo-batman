@@ -2,17 +2,15 @@ package margulis.action;
 
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
-import java.io.File;
-import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 
 import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+
 /**
  * 
- * @author Ândrei
+ * @author ï¿½ndrei
  * 
  */
 public class AjudaAction extends AbstractAction {
@@ -30,12 +28,13 @@ public class AjudaAction extends AbstractAction {
 	public void actionPerformed(ActionEvent e) {
 		URI uri = null;
 		try {
-			uri = new URI("https://github.com/masmangan/secret-octo-batman/wiki/Manual-do-Usu%C3%A1rio");
+			uri = new URI(
+					"https://github.com/masmangan/secret-octo-batman/wiki/Manual-do-Usu%C3%A1rio");
 			Desktop.getDesktop().browse(uri);
-		} catch(Exception ex) {  
-		  ex.printStackTrace();  
-		  JOptionPane.showMessageDialog(null, "Erro no Desktop: " + ex);  
-		}  
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			JOptionPane.showMessageDialog(frame, "Erro no Desktop: " + ex);
+		}
 
 	}
 }
