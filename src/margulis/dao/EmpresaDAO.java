@@ -106,6 +106,76 @@ public class EmpresaDAO {
 		}
 	}
 
+
+	public Empresa GetTotalProducao(int rodada){
+		Empresa emp = null;
+        String cmd = "select * from empresas where empid= ?";
+        
+        Connection db = null;
+        PreparedStatement st = null;
+        ResultSet rs = null;
+
+        try {
+                
+                Properties props = new Properties();
+                props.load(new FileInputStream("margulis.properties"));
+                String url = props.getProperty("url");
+
+                db = DriverManager.getConnection(url, props);
+
+                st = db.prepareStatement(cmd);
+                st.setLong(1, rodada);
+                rs = st.executeQuery();
+
+                while (rs.next()) {
+                        
+                        int empid = rs.getInt(1);
+                        String Nome = rs.getString(2);
+                        String Responsavel = rs.getString(3);
+                        
+                       
+                       
+                                                             
+                        
+                        
+                        emp = new Empresa(empid,Nome, Responsavel);
+                }
+
+        } catch (Exception e) {
+                e.printStackTrace();
+        } finally {
+                try {
+                        if (rs != null) {
+                                rs.close();
+                        }
+                        if (st != null) {
+                                st.close();
+                        }
+                        if (db != null) {
+                                db.close();
+                        }
+                } catch (Exception e2) {
+                        e2.printStackTrace();
+                }
+        }
+        return emp;
+	 		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	public List<Empresa> findEmpresas() {
 		String cmd = "select * from empresas";
 		List<Empresa> empresas = new ArrayList<Empresa>();
