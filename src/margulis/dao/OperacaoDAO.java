@@ -11,7 +11,7 @@ import margulis.pojo.Demonstrativo;
 public class OperacaoDAO {
 	
 	public void insereDemonstrativo(Demonstrativo d) {
-		String cmd = "insert into demonstrativo( empID, rodada, resultado, vendas) values (?, ?, ?)";
+		String cmd = "insert into demonstrativo(rodada, resultado, vendas) values (?, ?, ?)";
 
 		Connection db = null;
 		PreparedStatement st = null;
@@ -26,7 +26,7 @@ public class OperacaoDAO {
 
 			st = db.prepareStatement(cmd);
 			st.setInt(1, d.getRodada());
-			st.setInt(2, d.getEmpid());
+			st.setFloat(2, d.getResultado());
 			st.setInt(3, d.getVendas());
 			int r = st.executeUpdate();
 
