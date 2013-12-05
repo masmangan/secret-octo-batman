@@ -1,6 +1,8 @@
 package margulis.action;
 
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
+import java.net.URI;
 
 import javax.swing.AbstractAction;
 import javax.swing.JFrame;
@@ -8,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  * 
- * @author Ândrei
+ * @author ï¿½ndrei
  * 
  */
 public class AjudaAction extends AbstractAction {
@@ -18,16 +20,21 @@ public class AjudaAction extends AbstractAction {
 	private JFrame frame;
 
 	public AjudaAction(JFrame frame) {
-		super("Conteúdo");
+		super("Manual");
 		this.frame = frame;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		JOptionPane.showMessageDialog(frame,
-				"Ajuda",
-				"Documentação.",
-				JOptionPane.INFORMATION_MESSAGE);
-	}
+		URI uri = null;
+		try {
+			uri = new URI(
+					"https://github.com/masmangan/secret-octo-batman/wiki/Manual-do-Usu%C3%A1rio");
+			Desktop.getDesktop().browse(uri);
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			JOptionPane.showMessageDialog(frame, "Erro no Desktop: " + ex);
+		}
 
+	}
 }

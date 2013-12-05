@@ -16,18 +16,15 @@ public class RelatorioAction extends AbstractAction {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	private JFrame frame;
-	
+	private static final long serialVersionUID = 1L;	
 
 	public RelatorioAction(JFrame frame) {
-		super("Relatório");
-		this.frame = frame;
+		super("Relatï¿½rio");
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		System.out.println("Sem ação no momento");
+		System.out.println("Sem aï¿½ï¿½o no momento");
 	}
 
 }

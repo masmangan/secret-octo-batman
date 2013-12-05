@@ -17,17 +17,15 @@ public class GraficosAction extends AbstractAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private JFrame frame;
 	
 
 	public GraficosAction(JFrame frame) {
 		super("Graficos");
-		this.frame = frame;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		System.out.println("Sem ação no momento");
+		System.out.println("Sem aï¿½ï¿½o no momento");
 	}
 
 }

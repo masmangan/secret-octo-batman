@@ -15,16 +15,13 @@ public class RodadaAction extends AbstractAction {
 
 	private static final long serialVersionUID = 1L;
 	
-	private JFrame frame;
-
 	public RodadaAction(JFrame frame) {
 		super("Rodada");
-		this.frame = frame;
 	}
 	
 	
 	public void actionPerformed(ActionEvent arg0) {
-		
+		System.out.println("Sem a��o no momento");		
 	}
 
 }

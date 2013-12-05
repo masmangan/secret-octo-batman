@@ -6,10 +6,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.util.Properties;
 
+import margulis.pojo.Demonstrativo;
+
 public class OperacaoDAO {
 	
 	public void insereDemonstrativo(Demonstrativo d) {
-		String cmd = "insert into demonstrativo( empID, rodada, resultado, vendas) values (?, ?, ?)";
+		String cmd = "insert into demonstrativo(rodada, resultado, vendas) values (?, ?, ?)";
 
 		Connection db = null;
 		PreparedStatement st = null;
@@ -23,9 +25,9 @@ public class OperacaoDAO {
 			db = DriverManager.getConnection(url, props);
 
 			st = db.prepareStatement(cmd);
-			st.setString(1, d.getRodada());
-			st.setString(2, d.getEmpresaID());
-			st.setString(3, d.getVendas());
+			st.setInt(1, d.getRodada());
+			st.setFloat(2, d.getResultado());
+			st.setInt(3, d.getVendas());
 			int r = st.executeUpdate();
 
 			if (r != 1) {
