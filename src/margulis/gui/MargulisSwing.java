@@ -27,7 +27,7 @@ import margulis.action.SobreAction;
 public class MargulisSwing {
 
 	private static void createAndShowGUI() {
-		JFrame frame = new JFrame("Margulis - Tela Principal");
+		JFrame frame = new JFrame("Margulis");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(
 				MargulisSwing.class
@@ -46,14 +46,6 @@ public class MargulisSwing {
 		ajuda.setMnemonic(KeyEvent.VK_U);
 		mb.add(ajuda);
 
-		JMenuItem sair = new JMenuItem(new SairAction());
-		sair.setIcon(new ImageIcon(MargulisSwing.class
-				.getResource("/margulis/gui/image/sair.png")));
-		sair.setMnemonic(KeyEvent.VK_S);
-		sair.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,
-				ActionEvent.CTRL_MASK));
-		arquivo.add(sair);
-
 		JMenuItem configuracao = new JMenuItem(new ConfiguracaoAction());
 		arquivo.add(configuracao);
 		configuracao.setIcon(new ImageIcon(MargulisSwing.class
@@ -62,6 +54,14 @@ public class MargulisSwing {
 		configuracao.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C,
 				ActionEvent.CTRL_MASK));
 
+		JMenuItem sair = new JMenuItem(new SairAction());
+		sair.setIcon(new ImageIcon(MargulisSwing.class
+				.getResource("/margulis/gui/image/sair.png")));
+		sair.setMnemonic(KeyEvent.VK_S);
+		sair.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,
+				ActionEvent.CTRL_MASK));
+		arquivo.add(sair);
+		
 		JMenuItem sobre = new JMenuItem(new SobreAction(frame));
 		ajuda.add(sobre);
 		sobre.setIcon(new ImageIcon(MargulisSwing.class
