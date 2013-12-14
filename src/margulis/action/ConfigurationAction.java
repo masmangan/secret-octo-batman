@@ -1,6 +1,7 @@
 package margulis.action;
 
 import java.awt.CardLayout;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
@@ -35,7 +36,7 @@ public class ConfigurationAction extends AbstractAction {
 						.getResource("/margulis/gui/image/config.png")));
 		putValue(MNEMONIC_KEY, KeyEvent.VK_C);
 		putValue(ACCELERATOR_KEY,
-				KeyStroke.getKeyStroke(KeyEvent.VK_C, ActionEvent.CTRL_MASK));
+				KeyStroke.getKeyStroke(KeyEvent.VK_C, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
 	}
 
 	@Override

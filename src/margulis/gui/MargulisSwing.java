@@ -3,26 +3,23 @@ package margulis.gui;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.KeyStroke;
 
-import margulis.action.HelpAction;
 import margulis.action.ConfigurationAction;
+import margulis.action.HelpAction;
 import margulis.action.SairAction;
 import margulis.action.SobreAction;
 
 /**
+ * Margulis simulator main window.
  * 
  * @author Dias
- * 
  */
 public class MargulisSwing {
 
@@ -51,20 +48,10 @@ public class MargulisSwing {
 		arquivo.add(configuracao);
 
 		JMenuItem sair = new JMenuItem(new SairAction());
-		sair.setIcon(new ImageIcon(MargulisSwing.class
-				.getResource("/margulis/gui/image/sair.png")));
-		sair.setMnemonic(KeyEvent.VK_S);
-		sair.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,
-				ActionEvent.CTRL_MASK));
 		arquivo.add(sair);
 
 		JMenuItem sobre = new JMenuItem(new SobreAction(frame));
 		ajuda.add(sobre);
-		sobre.setIcon(new ImageIcon(MargulisSwing.class
-				.getResource("/margulis/gui/image/sobre.png")));
-		sobre.setMnemonic(KeyEvent.VK_A);
-		sobre.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A,
-				ActionEvent.CTRL_MASK));
 
 		JMenuItem mi_ajuda = new JMenuItem(new HelpAction(frame));
 		ajuda.add(mi_ajuda);

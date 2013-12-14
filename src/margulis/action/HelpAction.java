@@ -1,6 +1,7 @@
 package margulis.action;
 
 import java.awt.Desktop;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 import java.net.URI;
@@ -14,7 +15,7 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 /**
- * Margulis simulator user guide. User documentation is provided by a GitHub
+ * Margulis simulator user guide action. User documentation is provided by a GitHub
  * hosted wiki page.
  * 
  * <p>
@@ -44,7 +45,7 @@ public class HelpAction extends AbstractAction {
 						.getResource("/margulis/gui/image/help.png")));
 		putValue(MNEMONIC_KEY, KeyEvent.VK_H);
 		putValue(ACCELERATOR_KEY,
-				KeyStroke.getKeyStroke(KeyEvent.VK_H, ActionEvent.CTRL_MASK));
+				KeyStroke.getKeyStroke(KeyEvent.VK_H, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
 	}
 
 	@Override
