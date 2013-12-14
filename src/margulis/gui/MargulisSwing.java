@@ -14,7 +14,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
-import margulis.action.AjudaAction;
+import margulis.action.HelpAction;
 import margulis.action.ConfiguracaoAction;
 import margulis.action.SairAction;
 import margulis.action.SobreAction;
@@ -70,7 +70,7 @@ public class MargulisSwing {
 		sobre.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_A,
 				ActionEvent.CTRL_MASK));
 
-		JMenuItem mi_ajuda = new JMenuItem(new AjudaAction(frame));
+		JMenuItem mi_ajuda = new JMenuItem(new HelpAction(frame));
 		mi_ajuda.setIcon(new ImageIcon(MargulisSwing.class
 				.getResource("/margulis/gui/image/help.png")));
 		mi_ajuda.setMnemonic(KeyEvent.VK_H);
