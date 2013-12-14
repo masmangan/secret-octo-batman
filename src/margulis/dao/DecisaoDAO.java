@@ -150,7 +150,7 @@ public class DecisaoDAO {
 			int r = st.executeUpdate();
 
 			if (r != 1) {
-				throw new RuntimeException("ERRO AO INSERIR DECIS�O!");
+				throw new UnexpectedExecuteUpdateRuntimeException("ERRO AO INSERIR DECIS�O!");
 			}
 
 		} catch (Exception e) {
@@ -193,7 +193,7 @@ public class DecisaoDAO {
 			int r = st.executeUpdate();
 
 			if (r != 1) {
-				throw new RuntimeException("ERRO AO ATUALIZAR DECIS�O!");
+				throw new UnexpectedExecuteUpdateRuntimeException("ERRO AO ATUALIZAR DECIS�O!");
 			}
 
 		} catch (Exception e) {

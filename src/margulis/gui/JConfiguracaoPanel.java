@@ -46,27 +46,27 @@ public class JConfiguracaoPanel extends JPanel {
 
 		setLayout(new FlowLayout());
 
-		JEmpresaPanel panel_empresa = new JEmpresaPanel(frame, card);
-		add(panel_empresa);
+		JEmpresaPanel empresaPanel = new JEmpresaPanel(frame, card);
+		add(empresaPanel);
 
-		JValoresIniciais panel_valores_iniciais = new JValoresIniciais();
-		add(panel_valores_iniciais);
+		JValoresIniciais valoresIniciaisPanel = new JValoresIniciais();
+		add(valoresIniciaisPanel);
 
-		JInfoSobreDemandaPanel panel_info_sobre_demanda = new JInfoSobreDemandaPanel(
+		JInfoSobreDemandaPanel demandaPanel = new JInfoSobreDemandaPanel(
 				frame, card);
-		add(panel_info_sobre_demanda);
+		add(demandaPanel);
 
-		JDecisaoInicialPanel panel_decisao_inicial = new JDecisaoInicialPanel(
+		JDecisaoInicialPanel decisaoInicialPanel = new JDecisaoInicialPanel(
 				frame, card);
-		add(panel_decisao_inicial);
+		add(decisaoInicialPanel);
 
-		JButton botaoum = new JButton("ZERAR SIMULAÇÃO");
+		JButton botaoum = new JButton("Zerar simulação");
 		add(botaoum);
 
-		JButton botaodois = new JButton("OUTRAS INFORMAÇÕES INICIAS");
+		JButton botaodois = new JButton("Outras informações iniciais");
 		add(botaodois);
 
-		JButton botaotres = new JButton("INICIAR INFORMAÇÃO");
+		JButton botaotres = new JButton("Iniciar simulação");
 		add(botaotres);
 
 	}

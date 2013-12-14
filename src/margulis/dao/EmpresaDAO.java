@@ -40,10 +40,10 @@ public class EmpresaDAO {
 			rs = st.executeQuery();
 
 			while (rs.next()) {
-				int EmpId = rs.getInt(1);
+				int empId = rs.getInt(1);
 				String n = rs.getString(2);
 				String responsavel = rs.getString(3);
-				emp = new Empresa(EmpId, n, responsavel);
+				emp = new Empresa(empId, n, responsavel);
 			}
 
 		} catch (Exception e) {
@@ -87,7 +87,7 @@ public class EmpresaDAO {
 			int r = st.executeUpdate();
 
 			if (r != 1) {
-				throw new RuntimeException("Erro ao inserir Empresa!");
+				throw new UnexpectedExecuteUpdateRuntimeException("Erro ao inserir Empresa!");
 			}
 
 		} catch (Exception e) {
@@ -106,7 +106,7 @@ public class EmpresaDAO {
 		}
 	}
 
-	public Empresa GetTotalProducao(int rodada) {
+	public Empresa getTotalProducao(int rodada) {
 		Empresa emp = null;
 		String cmd = "select * from empresas where empid= ?";
 
@@ -129,10 +129,10 @@ public class EmpresaDAO {
 			while (rs.next()) {
 
 				int empid = rs.getInt(1);
-				String Nome = rs.getString(2);
-				String Responsavel = rs.getString(3);
+				String nome = rs.getString(2);
+				String responsavel = rs.getString(3);
 
-				emp = new Empresa(empid, Nome, Responsavel);
+				emp = new Empresa(empid, nome, responsavel);
 			}
 
 		} catch (Exception e) {
@@ -224,7 +224,7 @@ public class EmpresaDAO {
 			int r = st.executeUpdate();
 
 			if (r != 1) {
-				throw new RuntimeException("Erro ao atualizar dado!");
+				throw new UnexpectedExecuteUpdateRuntimeException("Erro ao atualizar dado!");
 			}
 
 		} catch (Exception e) {

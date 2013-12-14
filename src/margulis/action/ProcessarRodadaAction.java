@@ -16,15 +16,15 @@ public class ProcessarRodadaAction extends AbstractAction {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private JRodadaPanel panel;
+	private final JRodadaPanel panel;
 
-	public ProcessarRodadaAction(JRodadaPanel p) {
+	public ProcessarRodadaAction(final JRodadaPanel panel) {
 		super("Processar Rodada");
-		panel = p;
+		this.panel = panel;
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent event) {
 		panel.setRodada();
 	}
 

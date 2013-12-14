@@ -53,8 +53,8 @@ public class MargulisSwing {
 		JMenuItem sobre = new JMenuItem(new SobreAction(frame));
 		ajuda.add(sobre);
 
-		JMenuItem mi_ajuda = new JMenuItem(new HelpAction(frame));
-		ajuda.add(mi_ajuda);
+		JMenuItem ajudaItem = new JMenuItem(new HelpAction(frame));
+		ajuda.add(ajudaItem);
 
 		JPanel emptyPanel = new JPanel();
 		JPanel configurationPanel = new JConfiguracaoPanel(frame, card);

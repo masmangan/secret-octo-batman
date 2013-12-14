@@ -22,9 +22,9 @@ public class SobreAction extends AbstractAction {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private JFrame frame;
+	private transient final JFrame frame;
 
-	public SobreAction(JFrame frame) {
+	public SobreAction(final JFrame frame) {
 		super("Sobre");
 		this.frame = frame;
 		putValue(
@@ -37,7 +37,7 @@ public class SobreAction extends AbstractAction {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(final ActionEvent event) {
 		JOptionPane.showMessageDialog(frame,
 				"v. 2.0 (dev) (c) 2013, LAPRO III, FSPOA.",
 				"Sobre Margulis, um Simulador de Mercado",

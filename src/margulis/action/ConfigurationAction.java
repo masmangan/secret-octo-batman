@@ -18,15 +18,15 @@ import javax.swing.KeyStroke;
 public class ConfigurationAction extends AbstractAction {
 
 	private static final long serialVersionUID = 1L;
-	private JFrame frame;
-	private CardLayout card;
+	private transient final JFrame frame;
+	private transient final CardLayout card;
 
 	/**
 	 * 
 	 * @param frame
 	 * @param card
 	 */
-	public ConfigurationAction(JFrame frame, CardLayout card) {
+	public ConfigurationAction(final JFrame frame, final CardLayout card) {
 		super("Configuração");
 		this.frame = frame;
 		this.card = card;
@@ -35,13 +35,12 @@ public class ConfigurationAction extends AbstractAction {
 				new ImageIcon(ConfigurationAction.class
 						.getResource("/margulis/gui/image/config.png")));
 		putValue(MNEMONIC_KEY, KeyEvent.VK_C);
-		putValue(ACCELERATOR_KEY,
-				KeyStroke.getKeyStroke(KeyEvent.VK_C, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_C, Toolkit
+				.getDefaultToolkit().getMenuShortcutKeyMask()));
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(final ActionEvent event) {
 		card.show(frame.getContentPane(), "ConfigurationPanel");
 	}
-
 }

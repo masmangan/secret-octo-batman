@@ -9,7 +9,7 @@ import java.util.Properties;
 
 public class ZerarDAO {
 	
-	public void removerDemonstrativos(){
+	public final void removerDemonstrativos(){
 		String cmd = "delete from demonstrativo";
 		
 		Connection db = null;
@@ -28,7 +28,7 @@ public class ZerarDAO {
 			int r = st.executeUpdate();
 
 			if (r != 1) {
-				throw new RuntimeException("Erro ao remover demonstrativo!");
+				throw new UnexpectedExecuteUpdateRuntimeException("Erro ao remover demonstrativo!");
 			}
 
 		} catch (Exception e) {

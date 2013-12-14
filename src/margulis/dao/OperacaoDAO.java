@@ -31,7 +31,7 @@ public class OperacaoDAO {
 			int r = st.executeUpdate();
 
 			if (r != 1) {
-				throw new RuntimeException("ERRO AO INSERIR Demonstrativo!");
+				throw new UnexpectedExecuteUpdateRuntimeException("ERRO AO INSERIR Demonstrativo!");
 			}
 
 		} catch (Exception e) {

@@ -33,7 +33,7 @@ public class SairAction extends AbstractAction {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(final ActionEvent event) {
 		System.exit(0);
 	}
 

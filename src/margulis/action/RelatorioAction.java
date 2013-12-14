@@ -23,7 +23,7 @@ public class RelatorioAction extends AbstractAction {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(final ActionEvent event) {
 		System.out.println("Sem a��o no momento");
 	}
 

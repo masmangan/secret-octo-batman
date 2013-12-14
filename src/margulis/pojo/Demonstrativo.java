@@ -2,10 +2,10 @@ package margulis.pojo;
 
 public class Demonstrativo {
 	
-	int empID;
-	int rodada;
-	float resultado;
-	int vendas;
+	private int empID;
+	private int rodada;
+	private float resultado;
+	private int vendas;
 	
 	
 	public Demonstrativo(int empid, int rodada, float resultado, int vendas) {
@@ -17,11 +17,7 @@ public class Demonstrativo {
 	}
 	
 	public Demonstrativo(int rodada, float resultado, int vendas) {
-		super();
-		this.empID = -1;
-		this.rodada = rodada;
-		this.resultado = resultado;
-		this.vendas = vendas;
+		this(-1, rodada, resultado, vendas);
 	}
 
 	public int getEmpid() {

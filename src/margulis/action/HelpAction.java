@@ -15,13 +15,13 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 /**
- * Margulis simulator user guide action. User documentation is provided by a GitHub
- * hosted wiki page.
+ * Margulis simulator user guide action. User documentation 
+ * is provided by a GitHub hosted wiki page.
  * 
  * <p>
- * If Internet connection is down, wiki is unavaliable, or some other event
- * prevents the contact with GitHub, a generic error message appears on a
- * dialog.
+ * If Internet connection is down, wiki is unavaliable, 
+ * or some other event prevents the contact with GitHub, 
+ * a generic error message appears on a dialog.
  * 
  * @author Ândrei
  * 
@@ -29,14 +29,14 @@ import javax.swing.KeyStroke;
 public class HelpAction extends AbstractAction {
 
 	private static final long serialVersionUID = 1L;
-	private JFrame frame;
+	private transient final JFrame frame;
 	private static String address = "https://github.com/masmangan/secret-octo-batman/wiki/Manual-do-Usu%C3%A1rio";
 
 	/**
 	 * 
 	 * @param frame
 	 */
-	public HelpAction(JFrame frame) {
+	public HelpAction(final JFrame frame) {
 		super("Manual");
 		this.frame = frame;
 		putValue(
@@ -49,12 +49,13 @@ public class HelpAction extends AbstractAction {
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(final ActionEvent event) {
 		try {
-			URI uri = new URI(address);
-			Desktop.getDesktop().browse(uri);
+			final URI uri = new URI(address);
+			final Desktop desk = Desktop.getDesktop();
+			desk.browse(uri);
 		} catch (Exception ex) {
-			Logger logger = Logger.getLogger("margulis");
+			final Logger logger = Logger.getLogger("margulis");
 			logger.info("User guide not available");
 			logger.info(Arrays.toString(ex.getStackTrace()));
 			JOptionPane
