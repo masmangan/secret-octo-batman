@@ -2,13 +2,16 @@ package margulis.action;
 
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
 import java.net.URI;
 import java.util.Arrays;
 import java.util.logging.Logger;
 
 import javax.swing.AbstractAction;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
 
 /**
  * Margulis simulator user guide. User documentation is provided by a GitHub
@@ -25,10 +28,8 @@ import javax.swing.JOptionPane;
 public class HelpAction extends AbstractAction {
 
 	private static final long serialVersionUID = 1L;
-
 	private JFrame frame;
-
-	private static String address = "htt ps://github.com/masmangan/secret-octo-batman/wiki/Manual-do-Usu%C3%A1rio";
+	private static String address = "https://github.com/masmangan/secret-octo-batman/wiki/Manual-do-Usu%C3%A1rio";
 
 	/**
 	 * 
@@ -37,6 +38,13 @@ public class HelpAction extends AbstractAction {
 	public HelpAction(JFrame frame) {
 		super("Manual");
 		this.frame = frame;
+		putValue(
+				SMALL_ICON,
+				new ImageIcon(HelpAction.class
+						.getResource("/margulis/gui/image/help.png")));
+		putValue(MNEMONIC_KEY, KeyEvent.VK_H);
+		putValue(ACCELERATOR_KEY,
+				KeyStroke.getKeyStroke(KeyEvent.VK_H, ActionEvent.CTRL_MASK));
 	}
 
 	@Override

@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 import margulis.action.HelpAction;
-import margulis.action.ConfiguracaoAction;
+import margulis.action.ConfigurationAction;
 import margulis.action.SairAction;
 import margulis.action.SobreAction;
 
@@ -46,13 +46,9 @@ public class MargulisSwing {
 		ajuda.setMnemonic(KeyEvent.VK_U);
 		mb.add(ajuda);
 
-		JMenuItem configuracao = new JMenuItem(new ConfiguracaoAction());
+		JMenuItem configuracao = new JMenuItem(new ConfigurationAction(frame,
+				card));
 		arquivo.add(configuracao);
-		configuracao.setIcon(new ImageIcon(MargulisSwing.class
-				.getResource("/margulis/gui/image/config.png")));
-		configuracao.setMnemonic(KeyEvent.VK_C);
-		configuracao.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_C,
-				ActionEvent.CTRL_MASK));
 
 		JMenuItem sair = new JMenuItem(new SairAction());
 		sair.setIcon(new ImageIcon(MargulisSwing.class
@@ -61,7 +57,7 @@ public class MargulisSwing {
 		sair.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_Q,
 				ActionEvent.CTRL_MASK));
 		arquivo.add(sair);
-		
+
 		JMenuItem sobre = new JMenuItem(new SobreAction(frame));
 		ajuda.add(sobre);
 		sobre.setIcon(new ImageIcon(MargulisSwing.class
@@ -71,17 +67,14 @@ public class MargulisSwing {
 				ActionEvent.CTRL_MASK));
 
 		JMenuItem mi_ajuda = new JMenuItem(new HelpAction(frame));
-		mi_ajuda.setIcon(new ImageIcon(MargulisSwing.class
-				.getResource("/margulis/gui/image/help.png")));
-		mi_ajuda.setMnemonic(KeyEvent.VK_H);
-		mi_ajuda.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_H,
-				ActionEvent.CTRL_MASK));
 		ajuda.add(mi_ajuda);
 
-		JPanel vazio = new JPanel();
+		JPanel emptyPanel = new JPanel();
+		JPanel configurationPanel = new JConfiguracaoPanel(frame, card);
 
 		frame.setLayout(card);
-		frame.getContentPane().add(vazio, "Vazio");
+		frame.getContentPane().add(emptyPanel, "EmptyPanel");
+		frame.getContentPane().add(configurationPanel, "ConfigurationPanel");
 
 		frame.setPreferredSize(new Dimension(800, 200));
 		frame.pack();
