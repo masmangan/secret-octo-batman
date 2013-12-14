@@ -7,20 +7,18 @@ import javax.swing.table.AbstractTableModel;
 import margulis.dao.EmpresaDAO;
 import margulis.pojo.Empresa;
 
+/**
+ * @autor mauricio.victor.carvalho@gmail.com
+ */
 public class EmpresaTableModel extends AbstractTableModel {
 
-	/**
-	 * @autor mauricio.victor.carvalho@gmail.com
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	private List<Empresa> listadeempresas;
 
 	public EmpresaTableModel() {
-		EmpresaDAO dao = new EmpresaDAO();
-		
-		listadeempresas = dao.findEmpresas();
-		
+		EmpresaDAO dao = new EmpresaDAO();	
+		listadeempresas = dao.findEmpresas();	
 	}
 
 	@Override
@@ -52,11 +50,11 @@ public class EmpresaTableModel extends AbstractTableModel {
 	public String getColumnName(int col) {
 		switch (col) {
 		case 0:
-			return "cod";
+			return "Código";
 		case 1:
-			return "nome empresa";
+			return "Denominação";
 		case 2:
-			return "respons�vel";
+			return "Responsável";
 		default:
 			return "*ERRO*";
 		}

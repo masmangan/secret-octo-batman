@@ -1,5 +1,8 @@
 package margulis.gui;
 
+/**
+ * @autor mauricio.victor.carvalho@gmail.com
+ */
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Dimension;
@@ -11,9 +14,6 @@ import javax.swing.JTable;
 
 	public class JEmpresaPanel extends JPanel {
 
-		/**
-		 * @autor mauricio.victor.carvalho@gmail.com
-		 */
 		private static final long serialVersionUID = 1L;
 
 		private JTable table;
@@ -45,14 +45,7 @@ import javax.swing.JTable;
 			JScrollPane scrollPane = new JScrollPane(table);
 			scrollPane.setPreferredSize(new Dimension(200, 100));
 
-			// add(BorderLayout.CENTER, table);
 			add(BorderLayout.CENTER, scrollPane);
-
-			/*
-			 * JButton button = new JButton(new ExtratoFecharAction(this));
-			 * button.setToolTipText("Cancelar cadastro de ITEM");
-			 * button.setMnemonic(KeyEvent.VK_N); add(BorderLayout.SOUTH, button);
-			 */
 		}
 
 		/**

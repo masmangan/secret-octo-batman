@@ -15,7 +15,7 @@ public class RodadaAction extends AbstractAction {
 
 	private static final long serialVersionUID = 1L;
 	
-	public RodadaAction(JFrame frame) {
+	public RodadaAction(final JFrame frame) {
 		super("Rodada");
 	}
 	

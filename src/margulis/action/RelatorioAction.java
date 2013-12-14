@@ -18,7 +18,7 @@ public class RelatorioAction extends AbstractAction {
 	 */
 	private static final long serialVersionUID = 1L;	
 
-	public RelatorioAction(JFrame frame) {
+	public RelatorioAction(final JFrame frame) {
 		super("Relat�rio");
 	}
 
