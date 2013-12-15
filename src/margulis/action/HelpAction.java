@@ -28,8 +28,19 @@ import javax.swing.KeyStroke;
  */
 public class HelpAction extends AbstractAction {
 
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * 
+	 */
 	private transient final JFrame frame;
+	
+	/**
+	 * 
+	 */
 	private static String address = "https://github.com/masmangan/secret-octo-batman/wiki/Manual-do-Usu%C3%A1rio";
 
 	/**

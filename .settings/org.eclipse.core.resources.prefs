@@ -7,3 +7,6 @@ encoding//src/margulis/action/RodadaAction.java=UTF-8
 encoding//src/margulis/dao/DecisaoDAO.java=UTF-8
 encoding//src/margulis/gui/EmpresaTableModel.java=UTF-8
 encoding//src/margulis/gui/JConfiguracaoPanel.java=UTF-8
+encoding//src/margulis/gui/JDecisaoInicialPanel.java=UTF-8
+encoding//src/margulis/gui/JInfoSobreDemandaPanel.java=UTF-8
+encoding//src/margulis/gui/JValoresIniciais.java=UTF-8

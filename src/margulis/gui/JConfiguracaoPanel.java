@@ -13,9 +13,19 @@ import javax.swing.JPanel;
  */
 public class JConfiguracaoPanel extends JPanel {
 
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 
+	 */
 	private JFrame frame;
+	
+	/**
+	 * 
+	 */
 	private CardLayout card;
 
 	/**

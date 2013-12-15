@@ -14,11 +14,10 @@ import margulis.pojo.Decisao;
 /**
  * 
  * @author 
- *
  */
 public class DecisaoDAO {
 	
-	Decisao dec;
+	private Decisao dec;
 	
 	/**
 	 * 

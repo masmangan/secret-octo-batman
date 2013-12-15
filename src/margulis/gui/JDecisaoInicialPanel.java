@@ -18,18 +18,40 @@ import margulis.pojo.DecisaoInicial;
  */
 public class JDecisaoInicialPanel extends JPanel {
 
+	/**
+	 * 
+	 * @return
+	 */
 	public JFrame getFrame() {
 		return frame;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public CardLayout getCard() {
 		return card;
 	}
 
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 
+	 */
 	private JTextField preco;
+	
+	/**
+	 * 
+	 */
 	private JTextField marketing;
+	
+	/**
+	 * 
+	 */
 	private JTextField quantidade;
 
 	private JFrame frame;
@@ -45,6 +67,9 @@ public class JDecisaoInicialPanel extends JPanel {
 				Integer.parseInt(quantidade.getText()));
 	}
 
+	/**
+	 * 
+	 */
 	public void clear() {
 
 		preco.setText("");
@@ -63,7 +88,7 @@ public class JDecisaoInicialPanel extends JPanel {
 
 		setLayout(new FlowLayout());
 
-		label = new JLabel("Preço");
+		label = new JLabel("PreÃ§o");
 		add(label);
 		preco = new JTextField(10);
 		label.setLabelFor(preco);
@@ -83,7 +108,6 @@ public class JDecisaoInicialPanel extends JPanel {
 
 	}
 	
-	
 	/**
 	 * Create the GUI and show it. For thread safety, this method should be
 	 * invoked from the event-dispatching thread.
@@ -99,6 +123,10 @@ public class JDecisaoInicialPanel extends JPanel {
 		frame.setVisible(true);
 	}
 
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		// Schedule a job for the event-dispatching thread:
 		// creating and showing this application's GUI.

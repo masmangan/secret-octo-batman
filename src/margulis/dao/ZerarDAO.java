@@ -7,8 +7,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Properties;
 
+/**
+ * 
+ * @author marco
+ *
+ */
 public class ZerarDAO {
 	
+	/**
+	 * 
+	 */
 	public final void removerDemonstrativos(){
 		String cmd = "delete from demonstrativo";
 		
@@ -49,12 +57,13 @@ public class ZerarDAO {
 			}
 		}
 	}
-	
-	public ZerarDAO(){
-		removerDemonstrativos();
-	}
-	
+
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		new ZerarDAO();
+		ZerarDAO dao = new ZerarDAO();
+		dao.removerDemonstrativos();
 	}
 }

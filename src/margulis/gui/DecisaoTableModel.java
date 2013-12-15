@@ -5,6 +5,11 @@ import javax.swing.table.AbstractTableModel;
 import margulis.dao.DecisaoDAO;
 import margulis.pojo.Decisao;
 
+/**
+ * 
+ * @author marco
+ *
+ */
 public class DecisaoTableModel extends AbstractTableModel {
 
 	/**
@@ -12,8 +17,14 @@ public class DecisaoTableModel extends AbstractTableModel {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * 
+	 */
 	private List<Decisao> listadedecisoes;
 
+	/**
+	 * 
+	 */
 	public DecisaoTableModel() {
 		DecisaoDAO dao = new DecisaoDAO();
 		

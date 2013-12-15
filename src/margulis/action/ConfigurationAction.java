@@ -17,8 +17,19 @@ import javax.swing.KeyStroke;
  */
 public class ConfigurationAction extends AbstractAction {
 
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * 
+	 */
 	private transient final JFrame frame;
+	
+	/**
+	 * 
+	 */
 	private transient final CardLayout card;
 
 	/**

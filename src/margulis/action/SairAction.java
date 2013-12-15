@@ -20,6 +20,9 @@ public class SairAction extends AbstractAction {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * 
+	 */
 	public SairAction() {
 		super("Sair");
 

@@ -19,6 +19,11 @@ import margulis.pojo.Empresa;
  */
 public class EmpresaDAO {
 
+	/**
+	 * 
+	 * @param nome
+	 * @return
+	 */
 	public Empresa findEmpresaByNome(String nome) {
 		Empresa emp = null;
 		String cmd = "select * from empresas where nome= ?";
@@ -66,6 +71,10 @@ public class EmpresaDAO {
 		return emp;
 	}
 
+	/**
+	 * 
+	 * @param emp
+	 */
 	public void insertEmpresa(Empresa emp) {
 		String cmd = "insert into empresas(nome, responsavel) values (?, ?)";
 
@@ -106,6 +115,11 @@ public class EmpresaDAO {
 		}
 	}
 
+	/**
+	 * 
+	 * @param rodada
+	 * @return
+	 */
 	public Empresa getTotalProducao(int rodada) {
 		Empresa emp = null;
 		String cmd = "select * from empresas where empid= ?";
@@ -155,6 +169,10 @@ public class EmpresaDAO {
 		return emp;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public List<Empresa> findEmpresas() {
 		String cmd = "select * from empresas";
 		List<Empresa> empresas = new ArrayList<Empresa>();
@@ -202,6 +220,10 @@ public class EmpresaDAO {
 		return empresas;
 	}
 
+	/**
+	 * 
+	 * @param emp
+	 */
 	public void updateEmpresa(Empresa emp) {
 
 		String cmd = "update empresas set nome = ?, responsavel = ? where empid = ?";

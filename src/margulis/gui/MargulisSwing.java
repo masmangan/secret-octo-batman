@@ -23,6 +23,9 @@ import margulis.action.SobreAction;
  */
 public class MargulisSwing {
 
+	/**
+	 * 
+	 */
 	private static void createAndShowGUI() {
 		JFrame frame = new JFrame("Margulis");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -47,6 +50,7 @@ public class MargulisSwing {
 				card));
 		arquivo.add(configuracao);
 
+		arquivo.addSeparator();
 		JMenuItem sair = new JMenuItem(new SairAction());
 		arquivo.add(sair);
 
@@ -68,6 +72,10 @@ public class MargulisSwing {
 		frame.setVisible(true);
 	}
 
+	/**
+	 * 
+	 * @param args
+	 */
 	public static void main(String[] args) {
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {

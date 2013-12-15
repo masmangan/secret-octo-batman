@@ -11,12 +11,17 @@ import java.util.Properties;
 
 import margulis.pojo.Demonstrativo;
 
-
-
-
+/**
+ * 
+ * @author marco
+ *
+ */
 public class DemonstrativoDAO {
 	
-	
+	/**
+	 * 
+	 * @return
+	 */
 	public List<Demonstrativo> getDemonstrativo() {
 		String cmd = "select * from demonstrativo";
 		List<Demonstrativo> demonstrativo = new ArrayList<Demonstrativo>();

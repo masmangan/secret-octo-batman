@@ -12,10 +12,19 @@ import margulis.pojo.Empresa;
  */
 public class EmpresaTableModel extends AbstractTableModel {
 
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 	
+	/**
+	 * 
+	 */
 	private List<Empresa> listadeempresas;
 
+	/**
+	 * 
+	 */
 	public EmpresaTableModel() {
 		EmpresaDAO dao = new EmpresaDAO();	
 		listadeempresas = dao.findEmpresas();	

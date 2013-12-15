@@ -8,8 +8,17 @@ import java.util.Properties;
 
 import margulis.pojo.Demonstrativo;
 
+/**
+ * 
+ * @author marco
+ *
+ */
 public class OperacaoDAO {
 	
+	/**
+	 * 
+	 * @param d
+	 */
 	public void insereDemonstrativo(Demonstrativo d) {
 		String cmd = "insert into demonstrativo(rodada, resultado, vendas) values (?, ?, ?)";
 

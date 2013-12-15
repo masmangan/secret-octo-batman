@@ -1,26 +1,24 @@
 package margulis.gui;
 
-import javax.swing.JPanel;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import com.jgoodies.forms.factories.FormFactory;
-import javax.swing.JLabel;
-import java.awt.Font;
 import java.awt.Component;
+
 import javax.swing.Box;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import com.jgoodies.forms.factories.FormFactory;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.RowSpec;
+
 /**
+ * 
  * @author paulo.limaesilva09@gmail.com
  */
-
 public class JValoresIniciais extends JPanel {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
 	private JTextField textEstoqueInicial;
@@ -66,7 +64,6 @@ public class JValoresIniciais extends JPanel {
 		add(verticalStrut, "8, 2, 1, 17");
 
 		JLabel lblValoresIniciais = new JLabel("Valores iniciais");
-		lblValoresIniciais.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		add(lblValoresIniciais, "4, 4");
 
 		JLabel lblEstoqueInicial = new JLabel("Estoque inicial");
@@ -77,7 +74,7 @@ public class JValoresIniciais extends JPanel {
 		add(textEstoqueInicial, "6, 8, fill, default");
 		textEstoqueInicial.setColumns(10);
 
-		JLabel lblCustosVariaveis = new JLabel("Custos variaveis");
+		JLabel lblCustosVariaveis = new JLabel("Custos variáveis");
 		add(lblCustosVariaveis, "4, 10, left, default");
 
 		textCustosVariaveis = new JTextField();
@@ -114,7 +111,5 @@ public class JValoresIniciais extends JPanel {
 		textValorDoImposto.setText("");
 		add(textValorDoImposto, "6, 18, fill, default");
 		textValorDoImposto.setColumns(10);
-
 	}
-
 }
