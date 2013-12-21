@@ -1,6 +1,7 @@
-package margulis.pojo;
+package test;
 
 import static org.junit.Assert.*;
+import margulis.pojo.SensibilidadeMarketing;
 
 import org.junit.Test;
 
