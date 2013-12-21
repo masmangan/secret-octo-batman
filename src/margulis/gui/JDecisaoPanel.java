@@ -7,6 +7,7 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 
 /**
@@ -18,21 +19,10 @@ public class JDecisaoPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private JTable table;
-	private JFrame frame;
+	private JTabbedPane frame;
 
-	private CardLayout card;
-
-	public JFrame getFrame() {
-		return frame;
-	}
-
-	public CardLayout getCard() {
-		return card;
-	}
-
-	public JDecisaoPanel(JFrame frame, CardLayout card) {
+	public JDecisaoPanel(JTabbedPane frame) {
 		this.frame = frame;
-		this.card = card;
 
 		setLayout(new BorderLayout());
 		table = new JTable(new DecisaoTableModel());
@@ -52,7 +42,7 @@ public class JDecisaoPanel extends JPanel {
 		JFrame frame = new JFrame("Teste");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		frame.getContentPane().add(new JDecisaoPanel(frame, null));
+		frame.getContentPane().add(new JDecisaoPanel(null));
 
 		frame.setPreferredSize(new Dimension(800, 200));
 		frame.pack();

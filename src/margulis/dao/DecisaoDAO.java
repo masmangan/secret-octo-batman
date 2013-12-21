@@ -27,7 +27,7 @@ public class DecisaoDAO {
 	public List<Decisao> findDecisaoByPeriodo() {
 
 		List<Decisao> decisoes = new ArrayList<Decisao>();
-		String cmd = "select * from decisao";
+		String cmd = "select * from decisoes";
 
 		Connection db = null;
 		PreparedStatement st = null;

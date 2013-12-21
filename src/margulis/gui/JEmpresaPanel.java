@@ -10,6 +10,7 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 
 public class JEmpresaPanel extends JPanel {
@@ -19,25 +20,13 @@ public class JEmpresaPanel extends JPanel {
 	private JTable table;
 	private JFrame frame;
 
-	private CardLayout card;
-
-	public JFrame getFrame() {
-		return frame;
-	}
-
-	public CardLayout getCard() {
-		return card;
-	}
-
 	/**
 	 * Create the panel.
 	 * 
 	 * @param card
 	 * @param frame
 	 */
-	public JEmpresaPanel(JFrame frame, CardLayout card) {
-		this.frame = frame;
-		this.card = card;
+	public JEmpresaPanel(JTabbedPane frame) {
 
 		setLayout(new BorderLayout());
 		table = new JTable(new EmpresaTableModel());
@@ -56,7 +45,7 @@ public class JEmpresaPanel extends JPanel {
 		JFrame frame = new JFrame("Teste");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		frame.getContentPane().add(new JEmpresaPanel(null, null));
+		frame.getContentPane().add(new JEmpresaPanel(null));
 
 		frame.setPreferredSize(new Dimension(800, 200));
 		frame.pack();

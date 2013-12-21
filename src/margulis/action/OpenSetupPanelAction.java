@@ -1,13 +1,12 @@
 package margulis.action;
 
-import java.awt.CardLayout;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
-import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import javax.swing.KeyStroke;
 
 /**
@@ -15,7 +14,7 @@ import javax.swing.KeyStroke;
  * 
  * @author paulo.limaesilva09@gmail.com
  */
-public class OpenConfigurationPanelAction extends AbstractAction {
+public class OpenSetupPanelAction extends AbstractAction {
 
 	/**
 	 * 
@@ -25,25 +24,19 @@ public class OpenConfigurationPanelAction extends AbstractAction {
 	/**
 	 * 
 	 */
-	private transient final JPanel panel;
-
-	/**
-	 * 
-	 */
-	private transient final CardLayout card;
+	private transient final JTabbedPane panel;
 
 	/**
 	 * 
 	 * @param panel
 	 * @param card
 	 */
-	public OpenConfigurationPanelAction(final JPanel panel, final CardLayout card) {
+	public OpenSetupPanelAction(final JTabbedPane panel) {
 		super("Configuração");
 		this.panel = panel;
-		this.card = card;
 		putValue(
 				SMALL_ICON,
-				new ImageIcon(OpenConfigurationPanelAction.class
+				new ImageIcon(OpenSetupPanelAction.class
 						.getResource("/margulis/gui/image/config.png")));
 		putValue(MNEMONIC_KEY, KeyEvent.VK_C);
 		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_C, Toolkit
@@ -52,6 +45,6 @@ public class OpenConfigurationPanelAction extends AbstractAction {
 
 	@Override
 	public void actionPerformed(final ActionEvent event) {
-		card.show(panel, "ConfigurationPanel");
+		panel.setSelectedIndex(1);
 	}
 }

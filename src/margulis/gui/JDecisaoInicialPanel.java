@@ -7,32 +7,17 @@ import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
 import margulis.pojo.DecisaoInicial;
 
 /**
  * 
- * @author 
- *
+ * @author
+ * 
  */
 public class JDecisaoInicialPanel extends JPanel {
-
-	/**
-	 * 
-	 * @return
-	 */
-	public JFrame getFrame() {
-		return frame;
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public CardLayout getCard() {
-		return card;
-	}
 
 	/**
 	 * 
@@ -43,12 +28,12 @@ public class JDecisaoInicialPanel extends JPanel {
 	 * 
 	 */
 	private JTextField preco;
-	
+
 	/**
 	 * 
 	 */
 	private JTextField marketing;
-	
+
 	/**
 	 * 
 	 */
@@ -80,12 +65,8 @@ public class JDecisaoInicialPanel extends JPanel {
 	/**
 	 * 
 	 */
-	public JDecisaoInicialPanel(JFrame frame, CardLayout card) {
+	public JDecisaoInicialPanel(JTabbedPane frame) {
 		JLabel label;
-
-		this.frame = frame;
-		this.card = card;
-
 		setLayout(new FlowLayout());
 
 		label = new JLabel("Preço");
@@ -107,7 +88,7 @@ public class JDecisaoInicialPanel extends JPanel {
 		add(quantidade);
 
 	}
-	
+
 	/**
 	 * Create the GUI and show it. For thread safety, this method should be
 	 * invoked from the event-dispatching thread.
@@ -116,7 +97,7 @@ public class JDecisaoInicialPanel extends JPanel {
 		JFrame frame = new JFrame("Teste");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		frame.getContentPane().add(new JDecisaoInicialPanel(frame, null));
+		frame.getContentPane().add(new JDecisaoInicialPanel(null));
 
 		frame.setPreferredSize(new Dimension(800, 200));
 		frame.pack();
@@ -135,6 +116,6 @@ public class JDecisaoInicialPanel extends JPanel {
 				createAndShowGUI();
 			}
 		});
-	}	
+	}
 
 }

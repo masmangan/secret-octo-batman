@@ -1,13 +1,13 @@
 eclipse.preferences.version=1
 encoding//src/margulis/action/OpenChartPanelAction.java=UTF-8
-encoding//src/margulis/action/OpenConfigurationPanelAction.java=UTF-8
 encoding//src/margulis/action/OpenHelpPanelAction.java=UTF-8
 encoding//src/margulis/action/OpenReportPanelAction.java=UTF-8
+encoding//src/margulis/action/OpenSetupPanelAction.java=UTF-8
 encoding//src/margulis/dao/DecisaoDAO.java=UTF-8
 encoding//src/margulis/gui/EmpresaTableModel.java=UTF-8
 encoding//src/margulis/gui/JChartPanel.java=UTF-8
-encoding//src/margulis/gui/JConfiguracaoPanel.java=UTF-8
 encoding//src/margulis/gui/JDecisaoInicialPanel.java=UTF-8
 encoding//src/margulis/gui/JInfoSobreDemandaPanel.java=UTF-8
+encoding//src/margulis/gui/JSetupPanel.java=UTF-8
 encoding//src/margulis/gui/JValoresIniciais.java=UTF-8
 encoding//src/margulis/gui/MargulisSwing.java=UTF-8

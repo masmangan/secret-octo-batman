@@ -1,12 +1,12 @@
 package margulis.gui;
 
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -28,12 +28,9 @@ public class JInfoSobreDemandaPanel extends JPanel {
 	private JTextField influenciaPreco;
 	private JTextField influenciaMarketing;
 
-	private JFrame frame;
-	private CardLayout card;
+	private JTabbedPane frame;
 
-	public JInfoSobreDemandaPanel(JFrame frame, CardLayout card) {
-		this.frame = frame;
-		this.card = card;
+	public JInfoSobreDemandaPanel(JTabbedPane frame) {
 
 		setLayout(new BorderLayout());
 
@@ -91,20 +88,6 @@ public class JInfoSobreDemandaPanel extends JPanel {
 	}
 
 	/**
-	 * @return JFrame
-	 */
-	public JFrame getFrame() {
-		return frame;
-	}
-
-	/**
-	 * @return CardLayout
-	 */
-	public CardLayout getCard() {
-		return card;
-	}
-
-	/**
 	 * Create the GUI and show it. For thread safety, this method should be
 	 * invoked from the event-dispatching thread.
 	 */
@@ -112,7 +95,7 @@ public class JInfoSobreDemandaPanel extends JPanel {
 		JFrame frame = new JFrame("Teste");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		frame.getContentPane().add(new JInfoSobreDemandaPanel(null, null));
+		frame.getContentPane().add(new JInfoSobreDemandaPanel(null));
 
 		frame.setPreferredSize(new Dimension(800, 200));
 		frame.pack();

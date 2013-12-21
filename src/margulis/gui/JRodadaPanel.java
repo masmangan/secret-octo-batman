@@ -1,17 +1,15 @@
 package margulis.gui;
 
-import javax.swing.JPanel;
-import com.jgoodies.forms.layout.FormLayout;
-import com.jgoodies.forms.layout.ColumnSpec;
-import com.jgoodies.forms.layout.RowSpec;
-import com.jgoodies.forms.factories.FormFactory;
-import javax.swing.JLabel;
 import java.awt.Font;
 
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.JButton;
 
-import margulis.action.ForwardSimulationAction;
+import com.jgoodies.forms.factories.FormFactory;
+import com.jgoodies.forms.layout.ColumnSpec;
+import com.jgoodies.forms.layout.FormLayout;
+import com.jgoodies.forms.layout.RowSpec;
 
 /**
  * 
@@ -147,9 +145,9 @@ public class JRodadaPanel extends JPanel {
 						FormFactory.RELATED_GAP_ROWSPEC,
 						FormFactory.DEFAULT_ROWSPEC, }));
 
-		//FIXME:
-		//JButton btnProcessar = new JButton(new ProcessarRodadaAction(this));
-		//panelButton.add(btnProcessar, "14, 4");
+		// FIXME:
+		// JButton btnProcessar = new JButton(new ProcessarRodadaAction(this));
+		// panelButton.add(btnProcessar, "14, 4");
 
 	}
 }

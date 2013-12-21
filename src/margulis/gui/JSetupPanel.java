@@ -7,11 +7,12 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 
 /**
  * @author mauricio.victor.carvalho@gmail.com
  */
-public class JConfiguracaoPanel extends JPanel {
+public class JSetupPanel extends JPanel {
 
 	/**
 	 * 
@@ -21,53 +22,26 @@ public class JConfiguracaoPanel extends JPanel {
 	/**
 	 * 
 	 */
-	private JFrame frame;
-	
-	/**
-	 * 
-	 */
-	private CardLayout card;
-
-	/**
-	 * 
-	 * @return
-	 */
-	public JFrame getFrame() {
-		return frame;
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	public CardLayout getCard() {
-		return card;
-	}
+	private JTabbedPane frame;
 
 	/**
 	 * 
 	 * @param frame
 	 * @param card
 	 */
-	public JConfiguracaoPanel(JFrame frame, CardLayout card) {
+	public JSetupPanel(JTabbedPane frame) {
 
 		this.frame = frame;
-		this.card = card;
 
 		setLayout(new FlowLayout());
-
-		JEmpresaPanel empresaPanel = new JEmpresaPanel(frame, card);
-		add(empresaPanel);
 
 		JValoresIniciais valoresIniciaisPanel = new JValoresIniciais();
 		add(valoresIniciaisPanel);
 
-		JInfoSobreDemandaPanel demandaPanel = new JInfoSobreDemandaPanel(
-				frame, card);
+		JInfoSobreDemandaPanel demandaPanel = new JInfoSobreDemandaPanel(frame);
 		add(demandaPanel);
 
-		JDecisaoInicialPanel decisaoInicialPanel = new JDecisaoInicialPanel(
-				frame, card);
+		JDecisaoInicialPanel decisaoInicialPanel = new JDecisaoInicialPanel(frame);
 		add(decisaoInicialPanel);
 
 		JButton botaoum = new JButton("Zerar simulação");
@@ -89,7 +63,7 @@ public class JConfiguracaoPanel extends JPanel {
 		JFrame frame = new JFrame("Teste");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		frame.getContentPane().add(new JConfiguracaoPanel(frame, null));
+		frame.getContentPane().add(new JSetupPanel(null));
 
 		frame.setPreferredSize(new Dimension(800, 200));
 		frame.pack();

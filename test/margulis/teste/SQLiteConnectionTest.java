@@ -11,14 +11,14 @@ import java.util.Properties;
  * 
  */
 
-public class SQListeTeste {
+public class SQLiteConnectionTest {
 
 	public static void main(String[] args) {
 
 		Connection db = null;
 
 		try {
-			// abrir conexão
+			// abrir conex?o
 			Class.forName("org.sqlite.JDBC");
 			Properties props = new Properties();
 			props.load(new FileInputStream("margulis.properties"));

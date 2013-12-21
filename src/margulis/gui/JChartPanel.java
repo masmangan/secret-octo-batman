@@ -8,7 +8,7 @@ import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTable;
+import javax.swing.JTabbedPane;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
@@ -28,17 +28,9 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class JChartPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	private JFrame frame;
+	private JTabbedPane frame;
 
 	private CardLayout card;
-
-	public JFrame getFrame() {
-		return frame;
-	}
-
-	public CardLayout getCard() {
-		return card;
-	}
 
 	private CategoryDataset createDataset() {
 
@@ -142,9 +134,8 @@ public class JChartPanel extends JPanel {
 		return chart;
 	}
 
-	public JChartPanel(JFrame frame, CardLayout card) {
+	public JChartPanel(JTabbedPane frame) {
 		this.frame = frame;
-		this.card = card;
 		//
 		final CategoryDataset dataset = createDataset();
 		final JFreeChart chart = createChart(dataset);
@@ -163,7 +154,7 @@ public class JChartPanel extends JPanel {
 		JFrame frame = new JFrame("Teste");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		frame.getContentPane().add(new JChartPanel(frame, null));
+		frame.getContentPane().add(new JChartPanel(null));
 
 		frame.setPreferredSize(new Dimension(800, 200));
 		frame.pack();
