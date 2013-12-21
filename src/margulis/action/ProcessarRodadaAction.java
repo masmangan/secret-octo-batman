@@ -2,6 +2,7 @@ package margulis.action;
 
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
+import java.net.URL;
 
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
@@ -24,10 +25,12 @@ public class ProcessarRodadaAction extends AbstractAction {
 
 	public ProcessarRodadaAction(JFrame frame, CardLayout card) {
 		super("Processar Rodada");
-		putValue(
-				SMALL_ICON,
-				new ImageIcon(ProcessarRodadaAction.class
-						.getResource("margulis/gui/Forward24.gif")));
+		URL url = ProcessarRodadaAction.class
+				.getResource("/margulis/gui/image/StepForward16.gif");
+
+		ImageIcon ico = new ImageIcon(url);
+		putValue(SMALL_ICON, ico);
+		putValue(LARGE_ICON_KEY, ico);
 	}
 
 	@Override

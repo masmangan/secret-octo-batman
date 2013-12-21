@@ -73,8 +73,8 @@ public class MargulisSwing {
 		JPanel configurationPanel = new JConfiguracaoPanel(frame, card);
 		JToolBar toolBar = new JToolBar("Controle da simulação");
 		
-		//JButton forward = new JButton(new ProcessarRodadaAction(frame, card));
-		JButton forward = new JButton("teste");
+		JButton forward = new JButton(new ProcessarRodadaAction(frame, card));
+		//JButton forward = new JButton("teste");
 		   toolBar.add(forward);
 		p.setLayout(card);
 		p.add(emptyPanel, "EmptyPanel");
