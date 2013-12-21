@@ -41,7 +41,8 @@ public class HelpAction extends AbstractAction {
 	/**
 	 * 
 	 */
-	private static String address = "https://github.com/masmangan/secret-octo-batman/wiki/Manual-do-Usu%C3%A1rio";
+	private static String address = 
+			"https://github.com/masmangan/secret-octo-batman/wiki/Manual";
 
 	/**
 	 * 
