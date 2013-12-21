@@ -8,24 +8,25 @@ import javax.swing.JFrame;
 /**
  * 
  * @author gustavo.domingues@rocketmail.com
+ *
  */
-public class RelatorioAction extends AbstractAction {
+public class OpenChartPanelAction extends AbstractAction {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;	
-
+	private static final long serialVersionUID = 1L;
+	
 	/**
 	 * 
 	 * @param frame
 	 */
-	public RelatorioAction(final JFrame frame) {
-		super("Relatório");
+	public OpenChartPanelAction(JFrame frame) {
+		super("Graficos");
 	}
 
 	@Override
-	public void actionPerformed(final ActionEvent event) {
+	public void actionPerformed(ActionEvent arg0) {
 		System.out.println("Sem ação no momento");
 	}
 

@@ -8,25 +8,24 @@ import javax.swing.JFrame;
 /**
  * 
  * @author gustavo.domingues@rocketmail.com
- *
  */
-public class GraficosAction extends AbstractAction {
+public class OpenReportPanelAction extends AbstractAction {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 1L;	
+
 	/**
 	 * 
 	 * @param frame
 	 */
-	public GraficosAction(JFrame frame) {
-		super("Graficos");
+	public OpenReportPanelAction(final JFrame frame) {
+		super("Relatório");
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(final ActionEvent event) {
 		System.out.println("Sem ação no momento");
 	}
 

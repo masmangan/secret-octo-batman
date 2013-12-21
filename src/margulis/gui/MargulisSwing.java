@@ -5,8 +5,9 @@ import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.net.URL;
 
-import javax.swing.JButton;
+import javax.swing.AbstractAction;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -14,12 +15,11 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JToolBar;
 
-import margulis.action.ConfigurationAction;
-import margulis.action.HelpAction;
-import margulis.action.ProcessarRodadaAction;
-import margulis.action.RodadaAction;
-import margulis.action.SairAction;
-import margulis.action.SobreAction;
+import margulis.action.ForwardSimulationAction;
+import margulis.action.OpenAboutPanelAction;
+import margulis.action.OpenConfigurationPanelAction;
+import margulis.action.OpenHelpPanelAction;
+import margulis.action.QuitApplicationAction;
 
 /**
  * Margulis simulator main window.
@@ -34,9 +34,9 @@ public class MargulisSwing {
 	private static void createAndShowGUI() {
 		JFrame frame = new JFrame("Margulis");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(
-				MargulisSwing.class
-						.getResource("/margulis/gui/iconemargulis.png")));
+		URL iconFile = MargulisSwing.class
+				.getResource("/margulis/gui/image/iconemargulis.png");
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(iconFile));
 
 		CardLayout card = new CardLayout(0, 0);
 
@@ -52,30 +52,31 @@ public class MargulisSwing {
 		mb.add(ajuda);
 		JPanel p = new JPanel();
 
-		JMenuItem configuracao = new JMenuItem(new ConfigurationAction(p,
-				card));
+		JMenuItem configuracao = new JMenuItem(new OpenConfigurationPanelAction(p, card));
 		arquivo.add(configuracao);
 
-		JMenuItem rodada = new JMenuItem(new RodadaAction(frame,card));
-		arquivo.add(rodada);		
-		
+		//JMenuItem rodada = new JMenuItem(new RodadaAction(frame, card));
+		//arquivo.add(rodada);
+		AbstractAction forwardAction = new ForwardSimulationAction(frame, card);
+		arquivo.add(new JMenuItem(forwardAction));
+
 		arquivo.addSeparator();
-		JMenuItem sair = new JMenuItem(new SairAction());
+		JMenuItem sair = new JMenuItem(new QuitApplicationAction());
 		arquivo.add(sair);
 
-		JMenuItem ajudaItem = new JMenuItem(new HelpAction(frame));
+		JMenuItem ajudaItem = new JMenuItem(new OpenHelpPanelAction(frame));
 		ajuda.add(ajudaItem);
 
-		JMenuItem sobre = new JMenuItem(new SobreAction(frame));
+		JMenuItem sobre = new JMenuItem(new OpenAboutPanelAction(frame));
 		ajuda.add(sobre);
-		
+
 		JPanel emptyPanel = new JPanel();
 		JPanel configurationPanel = new JConfiguracaoPanel(frame, card);
 		JToolBar toolBar = new JToolBar("Controle da simulação");
-		
-		JButton forward = new JButton(new ProcessarRodadaAction(frame, card));
-		//JButton forward = new JButton("teste");
-		   toolBar.add(forward);
+
+		toolBar.add(configuracao.getAction());
+		toolBar.add(forwardAction);
+
 		p.setLayout(card);
 		p.add(emptyPanel, "EmptyPanel");
 		p.add(configurationPanel, "ConfigurationPanel");

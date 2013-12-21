@@ -26,7 +26,7 @@ import javax.swing.KeyStroke;
  * @author Ândrei
  * 
  */
-public class HelpAction extends AbstractAction {
+public class OpenHelpPanelAction extends AbstractAction {
 
 	/**
 	 * 
@@ -48,12 +48,12 @@ public class HelpAction extends AbstractAction {
 	 * 
 	 * @param frame
 	 */
-	public HelpAction(final JFrame frame) {
+	public OpenHelpPanelAction(final JFrame frame) {
 		super("Manual");
 		this.frame = frame;
 		putValue(
 				SMALL_ICON,
-				new ImageIcon(HelpAction.class
+				new ImageIcon(OpenHelpPanelAction.class
 						.getResource("/margulis/gui/image/help.png")));
 		putValue(MNEMONIC_KEY, KeyEvent.VK_H);
 		putValue(ACCELERATOR_KEY,

@@ -15,7 +15,7 @@ import javax.swing.KeyStroke;
  * 
  * @author marco.mangan@gmail.com
  */
-public class SobreAction extends AbstractAction {
+public class OpenAboutPanelAction extends AbstractAction {
 
 	/**
 	 * 
@@ -31,12 +31,12 @@ public class SobreAction extends AbstractAction {
 	 * 
 	 * @param frame
 	 */
-	public SobreAction(final JFrame frame) {
+	public OpenAboutPanelAction(final JFrame frame) {
 		super("Sobre");
 		this.frame = frame;
 		putValue(
 				SMALL_ICON,
-				new ImageIcon(SobreAction.class
+				new ImageIcon(OpenAboutPanelAction.class
 						.getResource("/margulis/gui/image/sobre.png")));
 		putValue(MNEMONIC_KEY, KeyEvent.VK_A);
 		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_A, Toolkit

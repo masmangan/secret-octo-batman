@@ -15,7 +15,7 @@ import javax.swing.KeyStroke;
  * 
  * @author paulo.limaesilva09@gmail.com
  */
-public class ConfigurationAction extends AbstractAction {
+public class OpenConfigurationPanelAction extends AbstractAction {
 
 	/**
 	 * 
@@ -25,7 +25,7 @@ public class ConfigurationAction extends AbstractAction {
 	/**
 	 * 
 	 */
-	private transient final JPanel frame;
+	private transient final JPanel panel;
 
 	/**
 	 * 
@@ -34,16 +34,16 @@ public class ConfigurationAction extends AbstractAction {
 
 	/**
 	 * 
-	 * @param frame
+	 * @param panel
 	 * @param card
 	 */
-	public ConfigurationAction(final JPanel frame, final CardLayout card) {
+	public OpenConfigurationPanelAction(final JPanel panel, final CardLayout card) {
 		super("Configuração");
-		this.frame = frame;
+		this.panel = panel;
 		this.card = card;
 		putValue(
 				SMALL_ICON,
-				new ImageIcon(ConfigurationAction.class
+				new ImageIcon(OpenConfigurationPanelAction.class
 						.getResource("/margulis/gui/image/config.png")));
 		putValue(MNEMONIC_KEY, KeyEvent.VK_C);
 		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_C, Toolkit
@@ -52,6 +52,6 @@ public class ConfigurationAction extends AbstractAction {
 
 	@Override
 	public void actionPerformed(final ActionEvent event) {
-		card.show(frame, "ConfigurationPanel");
+		card.show(panel, "ConfigurationPanel");
 	}
 }

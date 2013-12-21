@@ -11,7 +11,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 
-import margulis.action.ProcessarRodadaAction;
+import margulis.action.ForwardSimulationAction;
 
 /**
  * 

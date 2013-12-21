@@ -13,7 +13,7 @@ import javax.swing.KeyStroke;
  * 
  * @author thiagodiasads@gmail.com
  */
-public class SairAction extends AbstractAction {
+public class QuitApplicationAction extends AbstractAction {
 
 	/**
 	 * 
@@ -23,12 +23,12 @@ public class SairAction extends AbstractAction {
 	/**
 	 * 
 	 */
-	public SairAction() {
+	public QuitApplicationAction() {
 		super("Sair");
 
 		putValue(
 				SMALL_ICON,
-				new ImageIcon(SobreAction.class
+				new ImageIcon(OpenAboutPanelAction.class
 						.getResource("/margulis/gui/image/sair.png")));
 		putValue(MNEMONIC_KEY, KeyEvent.VK_S);
 		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_Q, Toolkit
