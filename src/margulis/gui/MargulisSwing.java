@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 
 import margulis.action.ConfigurationAction;
 import margulis.action.HelpAction;
+import margulis.action.RodadaAction;
 import margulis.action.SairAction;
 import margulis.action.SobreAction;
 
@@ -50,16 +51,20 @@ public class MargulisSwing {
 				card));
 		arquivo.add(configuracao);
 
+		JMenuItem rodada = new JMenuItem(new RodadaAction(frame,
+				card));
+		arquivo.add(rodada);		
+		
 		arquivo.addSeparator();
 		JMenuItem sair = new JMenuItem(new SairAction());
 		arquivo.add(sair);
 
-		JMenuItem sobre = new JMenuItem(new SobreAction(frame));
-		ajuda.add(sobre);
-
 		JMenuItem ajudaItem = new JMenuItem(new HelpAction(frame));
 		ajuda.add(ajudaItem);
 
+		JMenuItem sobre = new JMenuItem(new SobreAction(frame));
+		ajuda.add(sobre);
+		
 		JPanel emptyPanel = new JPanel();
 		JPanel configurationPanel = new JConfiguracaoPanel(frame, card);
 
