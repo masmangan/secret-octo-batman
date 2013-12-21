@@ -33,10 +33,7 @@ public class MargulisSwing {
 	 */
 	private static void createAndShowGUI() {
 		JFrame frame = new JFrame("Margulis");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		URL iconFile = MargulisSwing.class
-				.getResource("/margulis/gui/image/iconemargulis.png");
-		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(iconFile));
+		configureFrame(frame);
 
 		CardLayout card = new CardLayout(0, 0);
 
@@ -55,10 +52,8 @@ public class MargulisSwing {
 		JMenuItem configuracao = new JMenuItem(new OpenConfigurationPanelAction(p, card));
 		arquivo.add(configuracao);
 
-		//JMenuItem rodada = new JMenuItem(new RodadaAction(frame, card));
-		//arquivo.add(rodada);
-		AbstractAction forwardAction = new ForwardSimulationAction(frame, card);
-		arquivo.add(new JMenuItem(forwardAction));
+		JMenuItem forward = new JMenuItem(new ForwardSimulationAction(frame, card));
+		arquivo.add(forward);
 
 		arquivo.addSeparator();
 		JMenuItem sair = new JMenuItem(new QuitApplicationAction());
@@ -74,8 +69,9 @@ public class MargulisSwing {
 		JPanel configurationPanel = new JConfiguracaoPanel(frame, card);
 		JToolBar toolBar = new JToolBar("Controle da simulação");
 
+		toolBar.setFloatable(false);
 		toolBar.add(configuracao.getAction());
-		toolBar.add(forwardAction);
+		toolBar.add(forward.getAction());
 
 		p.setLayout(card);
 		p.add(emptyPanel, "EmptyPanel");
@@ -85,9 +81,17 @@ public class MargulisSwing {
 		frame.getContentPane().add(toolBar, BorderLayout.PAGE_START);
 		frame.getContentPane().add(p, BorderLayout.CENTER);
 
-		frame.setPreferredSize(new Dimension(800, 200));
+		frame.setPreferredSize(new Dimension(800, 400));
 		frame.pack();
 		frame.setVisible(true);
+	}
+
+	private static void configureFrame(JFrame frame) {
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		URL iconFile = MargulisSwing.class
+				.getResource("/margulis/gui/image/iconemargulis.png");
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(iconFile));		
 	}
 
 	/**
