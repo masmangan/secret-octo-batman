@@ -1,5 +1,10 @@
 package margulis.pojo;
 
+/**
+ * 
+ * @author marco
+ *
+ */
 public class SensibilidadePreco {
 
 	public static double[][] tabela = { { 0, 0.90 }, { 5, 0.85 }, { 10, 0.80 },
@@ -18,6 +23,11 @@ public class SensibilidadePreco {
 			{ 260, -1.00 }, { 265, -1.00 }, { 270, -1.00 }, { 275, -1.00 },
 			{ 280, -1.00 }, { 285, -1.00 }, { 290, -1.00 }, };
 
+	/**
+	 * 
+	 * @param valor
+	 * @return
+	 */
 	public static double getSensibilidade(double valor) {
 		if (valor < tabela[0][0]) {
 			throw new IllegalArgumentException();

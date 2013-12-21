@@ -4,6 +4,11 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * 
+ * @author marco
+ *
+ */
 public class SensibilidadeMarketingTest {
 
 	@Test(expected = IllegalArgumentException.class)  
