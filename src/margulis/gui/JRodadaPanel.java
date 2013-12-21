@@ -147,9 +147,9 @@ public class JRodadaPanel extends JPanel {
 						FormFactory.RELATED_GAP_ROWSPEC,
 						FormFactory.DEFAULT_ROWSPEC, }));
 
-		
-		JButton btnProcessar = new JButton(new ProcessarRodadaAction(this));
-		panelButton.add(btnProcessar, "14, 4");
+		//FIXME:
+		//JButton btnProcessar = new JButton(new ProcessarRodadaAction(this));
+		//panelButton.add(btnProcessar, "14, 4");
 
 	}
 }

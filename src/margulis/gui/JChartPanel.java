@@ -43,19 +43,19 @@ public class JChartPanel extends JPanel {
 	private CategoryDataset createDataset() {
 
 		// row keys...
-		final String series1 = "First";
-		final String series2 = "Second";
-		final String series3 = "Third";
+		final String series1 = "emp 1";
+		final String series2 = "emp 2";
+		final String series3 = "emp 3";
 
 		// column keys...
-		final String type1 = "Type 1";
-		final String type2 = "Type 2";
-		final String type3 = "Type 3";
-		final String type4 = "Type 4";
-		final String type5 = "Type 5";
-		final String type6 = "Type 6";
-		final String type7 = "Type 7";
-		final String type8 = "Type 8";
+		final String type1 = "Rodada 1";
+		final String type2 = "Rodada 2";
+		final String type3 = "Rodada 3";
+		final String type4 = "Rodada 4";
+		final String type5 = "Rodada 5";
+		final String type6 = "Rodada 6";
+		final String type7 = "Rodada 7";
+		final String type8 = "Rodada 8";
 
 		// create the dataset...
 		final DefaultCategoryDataset dataset = new DefaultCategoryDataset();
@@ -80,7 +80,7 @@ public class JChartPanel extends JPanel {
 
 		dataset.addValue(4.0, series3, type1);
 		dataset.addValue(3.0, series3, type2);
-		dataset.addValue(2.0, series3, type3);
+		dataset.addValue(-2.0, series3, type3);
 		dataset.addValue(3.0, series3, type4);
 		dataset.addValue(6.0, series3, type5);
 		dataset.addValue(3.0, series3, type6);
@@ -95,9 +95,9 @@ public class JChartPanel extends JPanel {
 
 		// create the chart...
 		final JFreeChart chart = ChartFactory.createLineChart(
-				"Line Chart Demo 1", // chart title
-				"Type", // domain axis label
-				"Value", // range axis label
+				"Desempenho Financeiro", // chart title
+				"Rodada", // domain axis label
+				"Lucro/Prejuízo", // range axis label
 				dataset, // data
 				PlotOrientation.VERTICAL, // orientation
 				true, // include legend

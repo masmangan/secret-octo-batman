@@ -7,7 +7,7 @@ import java.awt.event.KeyEvent;
 
 import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
-import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 /**
@@ -21,12 +21,12 @@ public class ConfigurationAction extends AbstractAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * 
 	 */
-	private transient final JFrame frame;
-	
+	private transient final JPanel frame;
+
 	/**
 	 * 
 	 */
@@ -37,7 +37,7 @@ public class ConfigurationAction extends AbstractAction {
 	 * @param frame
 	 * @param card
 	 */
-	public ConfigurationAction(final JFrame frame, final CardLayout card) {
+	public ConfigurationAction(final JPanel frame, final CardLayout card) {
 		super("Configuração");
 		this.frame = frame;
 		this.card = card;
@@ -52,6 +52,6 @@ public class ConfigurationAction extends AbstractAction {
 
 	@Override
 	public void actionPerformed(final ActionEvent event) {
-		card.show(frame.getContentPane(), "ConfigurationPanel");
+		card.show(frame, "ConfigurationPanel");
 	}
 }
