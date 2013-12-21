@@ -2,8 +2,6 @@ package margulis.pojo;
 
 public class SensibilidadeMarketing {
 
-	public static double intervalo = 0.0033;
-
 	public static double[][] tabela = { { 0, 0.0000 }, { 1000, 0.0033 },
 			{ 4500, 0.0067 }, { 8000, 0.0100 }, { 11500, 0.0133 },
 			{ 15000, 0.0167 }, { 18500, 0.0200 }, { 22000, 0.0233 },
