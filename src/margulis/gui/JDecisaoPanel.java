@@ -1,7 +1,6 @@
 package margulis.gui;
 
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
@@ -9,6 +8,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+
+import margulis.model.DecisaoTableModel;
 
 /**
  * 
@@ -19,10 +20,11 @@ public class JDecisaoPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	private JTable table;
-	private JTabbedPane frame;
+
+	// private JTabbedPane frame;
 
 	public JDecisaoPanel(JTabbedPane frame) {
-		this.frame = frame;
+		// this.frame = frame;
 
 		setLayout(new BorderLayout());
 		table = new JTable(new DecisaoTableModel());

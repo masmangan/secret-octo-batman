@@ -4,6 +4,8 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.net.URL;
 
 import javax.swing.JFrame;
@@ -21,6 +23,7 @@ import margulis.action.OpenChartPanelAction;
 import margulis.action.OpenHelpPanelAction;
 import margulis.action.OpenSetupPanelAction;
 import margulis.action.QuitApplicationAction;
+import margulis.model.MargulisModel;
 
 /**
  * Margulis simulator main window.
@@ -87,10 +90,21 @@ public class MargulisSwing {
 		toolBar.setFloatable(false);
 		toolBar.add(configuracao.getAction());
 		toolBar.add(forward.getAction());
-		JLabel rodada = new JLabel("Rodada: 0");
+		final JLabel rodada = new JLabel("Rodada: 0");
 		toolBar.addSeparator();
 		toolBar.add(rodada);
 
+		PropertyChangeListener listener;
+		listener = new PropertyChangeListener() {
+			@Override
+			public void propertyChange(PropertyChangeEvent evt) {
+				String text = String.format("Rodada: %s", evt.getNewValue().toString());
+				rodada.setText(text );	
+			}	
+		};
+		
+		model.addPropertyChangeListener(listener);
+		
 		tabbedPane.add(companyPanel, "Empresas");
 		tabbedPane.add(decisionPanel, "Decisões");
 		tabbedPane.add(resultsPanel, "Resultados");

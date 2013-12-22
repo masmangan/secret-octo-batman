@@ -1,6 +1,5 @@
 package margulis.gui;
 
-import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
@@ -39,8 +38,7 @@ public class JDecisaoInicialPanel extends JPanel {
 	 */
 	private JTextField quantidade;
 
-	private JFrame frame;
-	private CardLayout card;
+	// private JFrame frame;
 
 	/**
 	 * 

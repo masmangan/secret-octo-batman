@@ -2,7 +2,6 @@ package margulis.gui;
 
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -28,9 +27,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 public class JChartPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	private JTabbedPane frame;
-
-	private CardLayout card;
+	// private JTabbedPane frame;
 
 	private CategoryDataset createDataset() {
 
@@ -135,7 +132,7 @@ public class JChartPanel extends JPanel {
 	}
 
 	public JChartPanel(JTabbedPane frame) {
-		this.frame = frame;
+		//this.frame = frame;
 		//
 		final CategoryDataset dataset = createDataset();
 		final JFreeChart chart = createChart(dataset);

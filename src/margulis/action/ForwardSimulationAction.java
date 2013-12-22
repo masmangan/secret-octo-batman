@@ -9,7 +9,7 @@ import javax.swing.AbstractAction;
 import javax.swing.ImageIcon;
 import javax.swing.KeyStroke;
 
-import margulis.gui.MargulisModel;
+import margulis.model.MargulisModel;
 
 /**
  * 
@@ -29,15 +29,15 @@ public class ForwardSimulationAction extends AbstractAction {
 	public ForwardSimulationAction(final MargulisModel model) {
 		super("Processar Rodada");
 		this.model = model;
-		 URL url = ForwardSimulationAction.class
+		URL url = ForwardSimulationAction.class
 				.getResource("/margulis/gui/image/StepForward16.gif");
 
-		 ImageIcon ico = new ImageIcon(url);
+		ImageIcon ico = new ImageIcon(url);
 		putValue(SMALL_ICON, ico);
 		url = ForwardSimulationAction.class
 				.getResource("/margulis/gui/image/StepForward24.gif");
 		ico = new ImageIcon(url);
-		 putValue(LARGE_ICON_KEY, ico);
+		putValue(LARGE_ICON_KEY, ico);
 		putValue(MNEMONIC_KEY, KeyEvent.VK_P);
 		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_P, Toolkit
 				.getDefaultToolkit().getMenuShortcutKeyMask()));

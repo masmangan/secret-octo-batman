@@ -28,7 +28,7 @@ public class JInfoSobreDemandaPanel extends JPanel {
 	private JTextField influenciaPreco;
 	private JTextField influenciaMarketing;
 
-	private JTabbedPane frame;
+	//private JTabbedPane frame;
 
 	public JInfoSobreDemandaPanel(JTabbedPane frame) {
 

@@ -4,7 +4,6 @@ package margulis.gui;
  * @autor mauricio.victor.carvalho@gmail.com
  */
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
@@ -13,12 +12,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 
+import margulis.model.EmpresaTableModel;
+
 public class JEmpresaPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
 	private JTable table;
-	private JFrame frame;
+	//private JFrame frame;
 
 	/**
 	 * Create the panel.

@@ -1,10 +1,8 @@
 package margulis.gui;
 
-import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
@@ -22,7 +20,7 @@ public class JSetupPanel extends JPanel {
 	/**
 	 * 
 	 */
-	private JTabbedPane frame;
+	// private JTabbedPane frame;
 
 	/**
 	 * 
@@ -31,7 +29,7 @@ public class JSetupPanel extends JPanel {
 	 */
 	public JSetupPanel(JTabbedPane frame) {
 
-		this.frame = frame;
+		// this.frame = frame;
 
 		setLayout(new FlowLayout());
 
@@ -41,17 +39,18 @@ public class JSetupPanel extends JPanel {
 		JInfoSobreDemandaPanel demandaPanel = new JInfoSobreDemandaPanel(frame);
 		add(demandaPanel);
 
-		JDecisaoInicialPanel decisaoInicialPanel = new JDecisaoInicialPanel(frame);
+		JDecisaoInicialPanel decisaoInicialPanel = new JDecisaoInicialPanel(
+				frame);
 		add(decisaoInicialPanel);
 
-		JButton botaoum = new JButton("Zerar simulação");
-		add(botaoum);
-
-		JButton botaodois = new JButton("Outras informações iniciais");
-		add(botaodois);
-
-		JButton botaotres = new JButton("Iniciar simulação");
-		add(botaotres);
+		// JButton botaoum = new JButton("Zerar simulação");
+		// add(botaoum);
+		//
+		// JButton botaodois = new JButton("Outras informações iniciais");
+		// add(botaodois);
+		//
+		// JButton botaotres = new JButton("Iniciar simulação");
+		// add(botaotres);
 
 	}
 
