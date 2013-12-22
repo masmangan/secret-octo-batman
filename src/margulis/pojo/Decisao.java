@@ -1,60 +1,112 @@
 package margulis.pojo;
 
 /**
+ * Records the decisions of a company 
+ * in a single simulation round.
+ * 
+ * There are three decisions, product price,
+ *  marketing investiment, and production order.
  * 
  * @author Dias
- *
+ * @author marco.mangan@gmail.com
  */
 public class Decisao {
+
+	private int decisaoId;
+	private int empId;
 	
-	private int decisaoid;
-	private int empid;
 	private int rodada;
+	
 	private double preco;
 	private double marketing;
 	private int producao;
-	public Decisao(int empid, int rodada, double preco, double marketing,
+
+	/**
+	 * 
+	 * @param empId
+	 * @param rodada
+	 * @param preco
+	 * @param marketing
+	 * @param producao
+	 */
+	public Decisao(int empId, int rodada, double preco, double marketing,
 			int producao) {
-		super();
-		this.empid = empid;
-		this.rodada = rodada;
-		this.preco = preco;
-		this.marketing = marketing;
-		this.producao = producao;
+		this(-1, empId,  rodada,  preco,  marketing, producao);
 	}
-	public Decisao(int decisaoid, int empid, int rodada, double preco,
+
+	/**
+	 * 
+	 * @param decisaoId
+	 * @param empId
+	 * @param rodada
+	 * @param preco
+	 * @param marketing
+	 * @param producao
+	 */
+	public Decisao(int decisaoId, int empId, int rodada, double preco,
 			double marketing, int producao) {
 		super();
-		this.decisaoid = decisaoid;
-		this.empid = empid;
+		this.decisaoId = decisaoId;
+		this.empId = empId;
 		this.rodada = rodada;
 		this.preco = preco;
 		this.marketing = marketing;
 		this.producao = producao;
 	}
-	public int getDecisaoid() {
-		return decisaoid;
+
+	/**
+	 * 
+	 * @return
+	 */
+	public int getDecisaoId() {
+		return decisaoId;
 	}
-	public int getEmpid() {
-		return empid;
+
+	/**
+	 * 
+	 * @return
+	 */
+	public int getEmpId() {
+		return empId;
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
 	public int getRodada() {
 		return rodada;
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
 	public double getPreco() {
 		return preco;
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
 	public double getMarketing() {
 		return marketing;
 	}
+
+	/**
+	 * 
+	 * @return
+	 */
 	public int getProducao() {
 		return producao;
 	}
+
 	@Override
 	public String toString() {
 		return String
 				.format("Decisao [decisaoid=%s, empid=%s, rodada=%s, preco=%s, marketing=%s, producao=%s]",
-						decisaoid, empid, rodada, preco, marketing, producao);
+						decisaoId, empId, rodada, preco, marketing, producao);
 	}
-	
+
 }

@@ -1,22 +1,24 @@
 package margulis.model;
 
 import java.util.List;
+
 import javax.swing.table.AbstractTableModel;
+
 import margulis.dao.DecisaoDAO;
 import margulis.pojo.Decisao;
 
 /**
  * 
- * @author marco
- *
+ * @author Dias
+ * @author marco.mangan@gmail.com
+ * 
  */
 public class DecisaoTableModel extends AbstractTableModel {
 
 	/**
-	 * @author Dias
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * 
 	 */
@@ -27,9 +29,9 @@ public class DecisaoTableModel extends AbstractTableModel {
 	 */
 	public DecisaoTableModel() {
 		DecisaoDAO dao = new DecisaoDAO();
-		
+
 		listadedecisoes = dao.findDecisaoByPeriodo();
-		
+
 	}
 
 	@Override
@@ -47,22 +49,22 @@ public class DecisaoTableModel extends AbstractTableModel {
 		Decisao l = listadedecisoes.get(lin);
 		switch (col) {
 		case 0:
-			return l.getDecisaoid();
+			return l.getDecisaoId();
 		case 1:
-			return l.getEmpid();
+			return l.getEmpId();
 		case 2:
 			return l.getRodada();
 		case 3:
 			return l.getPreco();
-		case 4: 
+		case 4:
 			return l.getMarketing();
 		case 5:
 			return l.getProducao();
 		default:
 			return "*ERRO*";
-		}		
+		}
 	}
-	
+
 	@Override
 	public String getColumnName(int col) {
 		switch (col) {
@@ -74,7 +76,7 @@ public class DecisaoTableModel extends AbstractTableModel {
 			return "Rodada";
 		case 3:
 			return "Preco";
-		case 4: 
+		case 4:
 			return "Marketing";
 		case 5:
 			return "Producao";
@@ -83,4 +85,3 @@ public class DecisaoTableModel extends AbstractTableModel {
 		}
 	}
 }
-

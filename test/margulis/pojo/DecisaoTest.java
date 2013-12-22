@@ -16,8 +16,8 @@ public class DecisaoTest {
 		int producao = 153;
 		Decisao d = new Decisao(decisaoid, empid, rodada, preco, marketing,
 				producao);
-		assertEquals(decisaoid, d.getDecisaoid());
-		assertEquals(empid, d.getEmpid());
+		assertEquals(decisaoid, d.getDecisaoId());
+		assertEquals(empid, d.getEmpId());
 		assertEquals(rodada, d.getRodada(), 0.01);
 		assertEquals(preco, d.getPreco(), 0.01);
 		assertEquals(marketing, d.getMarketing(), 0.01);
@@ -32,7 +32,7 @@ public class DecisaoTest {
 		double marketing = 560.20;
 		int producao = 80;
 		Decisao d = new Decisao(empid, rodada, preco, marketing, producao);
-		assertEquals(empid, d.getEmpid());
+		assertEquals(empid, d.getEmpId());
 		assertEquals(rodada, d.getRodada());
 		assertEquals(preco, d.getPreco(), 0.01);
 		assertEquals(marketing, d.getMarketing(), 0.01);
@@ -49,7 +49,7 @@ public class DecisaoTest {
 		int producao = 80;
 		Decisao d = new Decisao(decisaoid, empid, rodada, preco, marketing,
 				producao);
-		assertEquals(decisaoid, d.getDecisaoid());
+		assertEquals(decisaoid, d.getDecisaoId());
 	}
 
 	@Test
@@ -62,7 +62,7 @@ public class DecisaoTest {
 		int producao = 153;
 		Decisao d = new Decisao(decisaoid, empid, rodada, preco, marketing,
 				producao);
-		assertEquals(empid, d.getEmpid());
+		assertEquals(empid, d.getEmpId());
 	}
 
 	@Test

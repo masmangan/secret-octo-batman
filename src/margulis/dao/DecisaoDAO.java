@@ -141,7 +141,7 @@ public class DecisaoDAO {
 
 			st = db.prepareStatement(cmd);
 			dec = null;
-			st.setInt(1, dec.getEmpid());
+			st.setInt(1, dec.getEmpId());
 			st.setInt(2, dec.getRodada());
 			st.setDouble(3, dec.getPreco());
 			st.setDouble(4, dec.getMarketing());

@@ -49,7 +49,4 @@ public class DecisaoInicial {
 		this.producao = producao;
 	}
 	
-	
-	
-	
 }

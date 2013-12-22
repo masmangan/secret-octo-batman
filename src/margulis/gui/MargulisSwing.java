@@ -108,7 +108,7 @@ public class MargulisSwing {
 		tabbedPane.add(companyPanel, "Empresas");
 		tabbedPane.add(decisionPanel, "Decisões");
 		tabbedPane.add(resultsPanel, "Resultados");
-		tabbedPane.add(chartPanel, "Análise");
+		tabbedPane.add(chartPanel, "Desempenho");
 		tabbedPane.add(reportPanel, "Relatório");
 		tabbedPane.add(configurationPanel, "Configuração");
 

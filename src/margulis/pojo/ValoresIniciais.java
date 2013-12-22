@@ -14,6 +14,15 @@ public class ValoresIniciais {
 	private double jurosEmprestimosBancarios;
 	private double impostoDeRenda;
 
+	/**
+	 * 
+	 * @param estoqueInicial
+	 * @param custosVariaveis
+	 * @param custosFixos
+	 * @param despesasAdministrativas
+	 * @param jurosEmprestimosBancarios
+	 * @param impostoDeRenda
+	 */
 	public ValoresIniciais(double estoqueInicial, double custosVariaveis,
 			double custosFixos, double despesasAdministrativas,
 			double jurosEmprestimosBancarios, double impostoDeRenda) {
@@ -25,26 +34,50 @@ public class ValoresIniciais {
 		this.impostoDeRenda = impostoDeRenda;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public double getEstoqueInicial() {
 		return estoqueInicial;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public double getCustosVariaveis() {
 		return custosVariaveis;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public double getCustosFixos() {
 		return custosFixos;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public double getDespesasAdministrativas() {
 		return despesasAdministrativas;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public double getJurosEmprestimosBancarios() {
 		return jurosEmprestimosBancarios;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public double getImpostoDeRenda() {
 		return impostoDeRenda;
 	}

@@ -3,6 +3,11 @@ package margulis.model;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
+/**
+ * 
+ * @author marco
+ *
+ */
 public class MargulisModel {
 
 	private int round;
@@ -10,11 +15,17 @@ public class MargulisModel {
 
 	private PropertyChangeSupport mPcs = new PropertyChangeSupport(this);
 
+	/**
+	 * 
+	 */
 	public MargulisModel() {
 		round = 0;
 		started = false;
 	}
 
+	/**
+	 * 
+	 */
 	public void forward() {
 		int oldRound = round;
 		round++;
@@ -23,18 +34,34 @@ public class MargulisModel {
 		mPcs.firePropertyChange("round", oldRound, round);
 	}
 
+	/**
+	 * 
+	 * @param listener
+	 */
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
 		mPcs.addPropertyChangeListener(listener);
 	}
 
+	/**
+	 * 
+	 * @param listener
+	 */
 	public void removePropertyChangeListener(PropertyChangeListener listener) {
 		mPcs.removePropertyChangeListener(listener);
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public int getRound() {
 		return round;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public boolean isStarted() {
 		return started;
 	}
