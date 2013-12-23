@@ -16,18 +16,18 @@ public class EmpresaTableModel extends AbstractTableModel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * 
 	 */
-	private List<Empresa> listadeempresas;
+	private List<Empresa> empresas;
 
 	/**
 	 * 
 	 */
 	public EmpresaTableModel() {
-		EmpresaDAO dao = new EmpresaDAO();	
-		listadeempresas = dao.findEmpresas();	
+		EmpresaDAO dao = new EmpresaDAO();
+		empresas = dao.findEmpresas();
 	}
 
 	@Override
@@ -37,12 +37,12 @@ public class EmpresaTableModel extends AbstractTableModel {
 
 	@Override
 	public int getRowCount() {
-		return listadeempresas.size();
+		return empresas.size();
 	}
 
 	@Override
 	public Object getValueAt(int lin, int col) {
-		Empresa l = listadeempresas.get(lin);
+		Empresa l = empresas.get(lin);
 		switch (col) {
 		case 0:
 			return l.getEmpId();
@@ -52,9 +52,9 @@ public class EmpresaTableModel extends AbstractTableModel {
 			return l.getResponsavel();
 		default:
 			return "*ERRO*";
-		}		
+		}
 	}
-	
+
 	@Override
 	public String getColumnName(int col) {
 		switch (col) {
@@ -68,5 +68,5 @@ public class EmpresaTableModel extends AbstractTableModel {
 			return "*ERRO*";
 		}
 	}
-}
 
+}

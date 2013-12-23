@@ -1,5 +1,6 @@
 package margulis.model;
 
+import java.util.Iterator;
 import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
@@ -13,7 +14,8 @@ import margulis.pojo.Decisao;
  * @author marco.mangan@gmail.com
  * 
  */
-public class DecisaoTableModel extends AbstractTableModel {
+public class DecisaoTableModel extends AbstractTableModel implements
+		Iterable<Decisao> {
 
 	/**
 	 */
@@ -83,5 +85,10 @@ public class DecisaoTableModel extends AbstractTableModel {
 		default:
 			return "*ERRO*";
 		}
+	}
+
+	@Override
+	public Iterator<Decisao> iterator() {
+		return listadedecisoes.iterator();
 	}
 }

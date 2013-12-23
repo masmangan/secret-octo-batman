@@ -80,7 +80,7 @@ public class MargulisSwing {
 
 		JPanel companyPanel = new JEmpresaPanel(tabbedPane, model);
 		JPanel decisionPanel = new JDecisaoPanel(tabbedPane, model);
-		JPanel resultsPanel = new JPanel();
+		JPanel resultsPanel = new JDemonstrativoPanel(tabbedPane, model);
 		JPanel chartPanel = new JChartPanel(tabbedPane);
 		JPanel reportPanel = new JPanel();
 		JPanel configurationPanel = new JSetupPanel(tabbedPane);
@@ -98,13 +98,14 @@ public class MargulisSwing {
 		listener = new PropertyChangeListener() {
 			@Override
 			public void propertyChange(PropertyChangeEvent evt) {
-				String text = String.format("Rodada: %s", evt.getNewValue().toString());
-				rodada.setText(text );	
-			}	
+				String text = String.format("Rodada: %s", evt.getNewValue()
+						.toString());
+				rodada.setText(text);
+			}
 		};
-		
+
 		model.addPropertyChangeListener(listener);
-		
+
 		tabbedPane.add(companyPanel, "Empresas");
 		tabbedPane.add(decisionPanel, "Decisões");
 		tabbedPane.add(resultsPanel, "Resultados");

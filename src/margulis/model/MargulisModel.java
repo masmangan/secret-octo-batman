@@ -15,7 +15,8 @@ public class MargulisModel {
 	
 	private DecisaoTableModel decisaoModel;
 	private EmpresaTableModel empresaModel;
-	
+	private DemonstrativoTableModel demonstrativoModel;
+
 
 	private PropertyChangeSupport mPcs = new PropertyChangeSupport(this);
 
@@ -27,6 +28,7 @@ public class MargulisModel {
 		started = false;
 		decisaoModel = new DecisaoTableModel();
 		empresaModel = new EmpresaTableModel();
+		demonstrativoModel = new DemonstrativoTableModel(decisaoModel);
 	}
 
 	/**
@@ -79,5 +81,11 @@ public class MargulisModel {
 	public EmpresaTableModel getEmpresaModel() {
 		return empresaModel;
 	}
+
+	public DemonstrativoTableModel getDemonstrativoModel() {
+		return demonstrativoModel;
+	}
+	
+	
 	
 }
