@@ -12,14 +12,15 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 
-import margulis.model.EmpresaTableModel;
+import margulis.model.MargulisModel;
 
 public class JEmpresaPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
 	private JTable table;
-	//private JFrame frame;
+
+	// private JFrame frame;
 
 	/**
 	 * Create the panel.
@@ -27,10 +28,10 @@ public class JEmpresaPanel extends JPanel {
 	 * @param card
 	 * @param frame
 	 */
-	public JEmpresaPanel(JTabbedPane frame) {
+	public JEmpresaPanel(JTabbedPane frame, MargulisModel model) {
 
 		setLayout(new BorderLayout());
-		table = new JTable(new EmpresaTableModel());
+		table = new JTable(model.getEmpresaModel());
 
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setPreferredSize(new Dimension(200, 100));
@@ -45,8 +46,8 @@ public class JEmpresaPanel extends JPanel {
 	private static void createAndShowGUI() {
 		JFrame frame = new JFrame("Teste");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		frame.getContentPane().add(new JEmpresaPanel(null));
+		MargulisModel m = new MargulisModel();
+		frame.getContentPane().add(new JEmpresaPanel(null, m));
 
 		frame.setPreferredSize(new Dimension(800, 200));
 		frame.pack();

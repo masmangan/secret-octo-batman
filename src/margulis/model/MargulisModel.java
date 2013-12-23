@@ -12,6 +12,10 @@ public class MargulisModel {
 
 	private int round;
 	private boolean started;
+	
+	private DecisaoTableModel decisaoModel;
+	private EmpresaTableModel empresaModel;
+	
 
 	private PropertyChangeSupport mPcs = new PropertyChangeSupport(this);
 
@@ -21,6 +25,8 @@ public class MargulisModel {
 	public MargulisModel() {
 		round = 0;
 		started = false;
+		decisaoModel = new DecisaoTableModel();
+		empresaModel = new EmpresaTableModel();
 	}
 
 	/**
@@ -65,4 +71,13 @@ public class MargulisModel {
 	public boolean isStarted() {
 		return started;
 	}
+
+	public DecisaoTableModel getDecisaoModel() {
+		return decisaoModel;
+	}
+
+	public EmpresaTableModel getEmpresaModel() {
+		return empresaModel;
+	}
+	
 }

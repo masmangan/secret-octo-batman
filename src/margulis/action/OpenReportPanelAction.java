@@ -3,7 +3,6 @@ package margulis.action;
 import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
-import javax.swing.JFrame;
 
 /**
  * 
@@ -14,13 +13,13 @@ public class OpenReportPanelAction extends AbstractAction {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;	
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 
 	 * @param frame
 	 */
-	public OpenReportPanelAction(final JFrame frame) {
+	public OpenReportPanelAction() {
 		super("Relatório");
 	}
 

@@ -9,7 +9,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 
-import margulis.model.DecisaoTableModel;
+import margulis.model.MargulisModel;
 
 /**
  * 
@@ -23,11 +23,11 @@ public class JDecisaoPanel extends JPanel {
 
 	// private JTabbedPane frame;
 
-	public JDecisaoPanel(JTabbedPane frame) {
+	public JDecisaoPanel(JTabbedPane frame, MargulisModel model) {
 		// this.frame = frame;
 
 		setLayout(new BorderLayout());
-		table = new JTable(new DecisaoTableModel());
+		table = new JTable(model.getDecisaoModel());
 
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setPreferredSize(new Dimension(200, 100));
@@ -43,8 +43,8 @@ public class JDecisaoPanel extends JPanel {
 	private static void createAndShowGUI() {
 		JFrame frame = new JFrame("Teste");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		frame.getContentPane().add(new JDecisaoPanel(null));
+		MargulisModel m = new MargulisModel();
+		frame.getContentPane().add(new JDecisaoPanel(null, m));
 
 		frame.setPreferredSize(new Dimension(800, 200));
 		frame.pack();

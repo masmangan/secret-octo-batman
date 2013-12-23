@@ -78,8 +78,8 @@ public class MargulisSwing {
 		JMenuItem sobre = new JMenuItem(new OpenAboutPanelAction(frame));
 		ajuda.add(sobre);
 
-		JPanel companyPanel = new JEmpresaPanel(tabbedPane);
-		JPanel decisionPanel = new JDecisaoPanel(tabbedPane);
+		JPanel companyPanel = new JEmpresaPanel(tabbedPane, model);
+		JPanel decisionPanel = new JDecisaoPanel(tabbedPane, model);
 		JPanel resultsPanel = new JPanel();
 		JPanel chartPanel = new JChartPanel(tabbedPane);
 		JPanel reportPanel = new JPanel();

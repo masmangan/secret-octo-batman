@@ -74,7 +74,7 @@ public class DecisaoDAO {
 		return decisoes;
 	}
 	
-	public Decisao findDecisaoByPeriodo(String periodo) {
+	public Decisao findDecisaoByPeriodo(final String periodo) {
 
 		Decisao dec = null;
 		String cmd = "select * from decisao where periodo = ? order by empid";

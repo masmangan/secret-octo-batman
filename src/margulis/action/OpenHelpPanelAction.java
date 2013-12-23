@@ -15,13 +15,16 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 /**
- * Margulis simulator user guide action. User documentation 
- * is provided by a GitHub hosted wiki page.
+ * Margulis simulator user guide action. 
+ * User documentation is provided by a 
+ * GitHub hosted wiki page.
  * 
  * <p>
- * If Internet connection is down, wiki is unavaliable, 
- * or some other event prevents the contact with GitHub, 
- * a generic error message appears on a dialog.
+ * If Internet connection is down, wiki 
+ * is unavaliable, or some other event 
+ * prevents the contact with GitHub, 
+ * a generic error message appears 
+ * on a dialog.
  * 
  * @author Ândrei
  * 
