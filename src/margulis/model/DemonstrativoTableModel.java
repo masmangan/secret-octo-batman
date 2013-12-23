@@ -1,5 +1,7 @@
 package margulis.model;
 
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +15,8 @@ import margulis.pojo.Demonstrativo;
  * @author marco.mangan@gmail.com
  * 
  */
-public class DemonstrativoTableModel extends AbstractTableModel {
+public class DemonstrativoTableModel extends AbstractTableModel implements
+		PropertyChangeListener {
 
 	/**
 	 */
@@ -40,51 +43,62 @@ public class DemonstrativoTableModel extends AbstractTableModel {
 
 	@Override
 	public int getColumnCount() {
-		return 6;
+		return 5;
 	}
 
 	@Override
 	public int getRowCount() {
-		return 0;
+		return demonstrativos.size();
 	}
 
 	@Override
 	public Object getValueAt(int lin, int col) {
-		// Decisao l = listadedecisoes.get(lin);
-		// switch (col) {
-		// case 0:
-		// return l.getDecisaoId();
-		// case 1:
-		// return l.getEmpId();
-		// case 2:
-		// return l.getRodada();
-		// case 3:
-		// return l.getPreco();
-		// case 4:
-		// return l.getMarketing();
-		// case 5:
-		// return l.getProducao();
-		// default:
-		// return "*ERRO*";
-		// }
-		return "*ERRO*";
+		Demonstrativo l = demonstrativos.get(lin);
+		switch (col) {
+		case 0:
+			return l.getEmpid();
+		case 2:
+			return l.getRodada();
+		case 3:
+			return l.getResultado();
+		case 4:
+			return l.getVendas();
+		default:
+			return "*ERRO*";
+		}
 	}
 
 	@Override
 	public String getColumnName(int col) {
-		 switch (col) {
-		 case 0:
-		 return "Codigo";
-		 case 1:
-		 return "EmpId";
-		 case 2:
-		 return "Rodada";
-		 case 3:
-		 return "Resultado";
-		 case 4:
-		 return "Vendas";
-		 default:
-		 return "*ERRO*";
-		 }
+		switch (col) {
+		case 0:
+			return "Codigo";
+		case 1:
+			return "EmpId";
+		case 2:
+			return "Rodada";
+		case 3:
+			return "Resultado";
+		case 4:
+			return "Vendas";
+		default:
+			return "*ERRO*";
+		}
 	}
+
+	public void step(int rodada) {
+		// for (Decisao d : decisaoModel) {
+		// System.out.println(d);
+		// }
+		demonstrativos.add(new Demonstrativo(rodada, 10, 20));
+		int lastRow = demonstrativos.size();
+		int firstRow = lastRow - 1;
+		fireTableRowsInserted(firstRow, lastRow);
+	}
+
+	@Override
+	public void propertyChange(PropertyChangeEvent evt) {
+		step((Integer) evt.getNewValue());
+	}
+
 }

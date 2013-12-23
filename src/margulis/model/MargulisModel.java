@@ -29,6 +29,7 @@ public class MargulisModel {
 		decisaoModel = new DecisaoTableModel();
 		empresaModel = new EmpresaTableModel();
 		demonstrativoModel = new DemonstrativoTableModel(decisaoModel);
+		addPropertyChangeListener(demonstrativoModel);
 	}
 
 	/**
