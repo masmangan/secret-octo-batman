@@ -90,7 +90,7 @@ public class DemonstrativoTableModel extends AbstractTableModel implements
 		// for (Decisao d : decisaoModel) {
 		// System.out.println(d);
 		// }
-		demonstrativos.add(new Demonstrativo(rodada, 10, 20));
+		demonstrativos.add(new Demonstrativo(rodada, 10, 20, 1.0));
 		int lastRow = demonstrativos.size();
 		int firstRow = lastRow - 1;
 		fireTableRowsInserted(firstRow, lastRow);

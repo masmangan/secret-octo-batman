@@ -47,9 +47,10 @@ public class DemonstrativoDAO {
 				int empid = rs.getInt(2);
 				float resultado = rs.getInt(3);
 				int vendas =rs.getInt(4);
+				double demanda =rs.getDouble(4);
+
 				
-				
-				demonstrativo.add(new Demonstrativo(rodada,empid, resultado, vendas));
+				demonstrativo.add(new Demonstrativo(rodada,empid, resultado, vendas, demanda));
 			}
 
 		} catch (Exception e) {

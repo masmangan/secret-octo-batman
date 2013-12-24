@@ -6,18 +6,20 @@ public class Demonstrativo {
 	private int rodada;
 	private float resultado;
 	private int vendas;
+	private double demanda;
 	
 	
-	public Demonstrativo(int empid, int rodada, float resultado, int vendas) {
+	public Demonstrativo(int empid, int rodada, float resultado, int vendas, double demanda) {
 		super();
 		this.empID = empid;
 		this.rodada = rodada;
 		this.resultado = resultado;
 		this.vendas = vendas;
+		this.demanda = demanda;
 	}
 	
-	public Demonstrativo(int rodada, float resultado, int vendas) {
-		this(-1, rodada, resultado, vendas);
+	public Demonstrativo(int rodada, float resultado, int vendas, double demanda) {
+		this(-1, rodada, resultado, vendas, demanda);
 	}
 
 	public int getEmpid() {
@@ -50,6 +52,10 @@ public class Demonstrativo {
 
 	public void setVendas(int vendas) {
 		this.vendas = vendas;
+	}
+	
+	public double getDemanda() {
+		return demanda;
 	}
 
 	@Override

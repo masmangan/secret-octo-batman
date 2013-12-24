@@ -23,7 +23,7 @@ public class DemonstrativoDAOTeste {
 		
 		
 		
-		Demonstrativo demos = new Demonstrativo(1, 4, 5);
+		Demonstrativo demos = new Demonstrativo(1, 4, 5, 1.0);
 	
 		dao2.insereDemonstrativo(demos);
 	
