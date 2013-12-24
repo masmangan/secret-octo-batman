@@ -45,8 +45,8 @@ public class DecisaoDAO {
 			rs = st.executeQuery();
 
 			while (rs.next()) {
-				int decisaoid = rs.getInt("codigo");
-				int empid = rs.getInt("codigo_empresa");
+				int decisaoid = rs.getInt("decisaoid");
+				int empid = rs.getInt("idempresa");
 				int periodoBD = rs.getInt("periodo");
 				double preco = rs.getDouble("preco");
 				double marketing = rs.getDouble("marketing");
@@ -77,7 +77,7 @@ public class DecisaoDAO {
 	public Decisao findDecisaoByPeriodo(final String periodo) {
 
 		Decisao dec = null;
-		String cmd = "select * from decisao where periodo = ? order by empid";
+		String cmd = "select * from decisao where periodo = ? order by idempresa";
 
 		Connection db = null;
 		PreparedStatement st = null;
@@ -126,7 +126,7 @@ public class DecisaoDAO {
 	}
 
 	public void insertDecisao() {
-		String cmd = "insert into decisao(codigo_empresa, periodo, preco, marketing, quantidade) values (?, ?, ?, ?, ?, ?)";
+		String cmd = "insert into decisao(idempresa, periodo, preco, marketing, quantidade) values (?, ?, ?, ?, ?, ?)";
 
 		Connection db = null;
 		PreparedStatement st = null;
@@ -169,7 +169,7 @@ public class DecisaoDAO {
 	}
 
 	public void updateDecisao(int decisaoid) {
-		String cmd = "update decisao set periodo = ?, preco = ?, marketing = ?, quantidade = ? where codigo = ?";
+		String cmd = "update decisao set periodo = ?, preco = ?, marketing = ?, quantidade = ? where decisaoid = ?";
 
 		Connection db = null;
 		PreparedStatement st = null;

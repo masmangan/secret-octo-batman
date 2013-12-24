@@ -20,58 +20,10 @@ import margulis.pojo.Empresa;
 public class EmpresaDAO {
 
 	/**
+	 * Insert a new company into database.
 	 * 
-	 * @param nome
-	 * @return
-	 */
-	public Empresa findEmpresaByNome(String nome) {
-		Empresa emp = null;
-		String cmd = "select * from empresas where nome= ?";
-
-		Connection db = null;
-		PreparedStatement st = null;
-		ResultSet rs = null;
-
-		try {
-			Class.forName("org.sqlite.JDBC");
-			Properties props = new Properties();
-			props.load(new FileInputStream("margulis.properties"));
-			String url = props.getProperty("url");
-
-			db = DriverManager.getConnection(url, props);
-
-			st = db.prepareStatement(cmd);
-			st.setString(1, nome);
-			rs = st.executeQuery();
-
-			while (rs.next()) {
-				int empId = rs.getInt(1);
-				String n = rs.getString(2);
-				String responsavel = rs.getString(3);
-				emp = new Empresa(empId, n, responsavel);
-			}
-
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (rs != null) {
-					rs.close();
-				}
-				if (st != null) {
-					st.close();
-				}
-				if (db != null) {
-					db.close();
-				}
-			} catch (Exception e2) {
-				e2.printStackTrace();
-			}
-		}
-		return emp;
-	}
-
-	/**
+	 * Before saving, company ID must be set to -1.
+	 * After saving, company ID is updated to generated key.
 	 * 
 	 * @param emp
 	 */
@@ -87,75 +39,29 @@ public class EmpresaDAO {
 			props.load(new FileInputStream("margulis.properties"));
 			String url = props.getProperty("url");
 
-			db = DriverManager.getConnection(url, props);
-
-			st = db.prepareStatement(cmd);
-			st.setInt(1, emp.getEmpId());
-			st.setString(2, emp.getNome());
-			st.setString(3, emp.getResponsavel());
-			int r = st.executeUpdate();
-
-			if (r != 1) {
+			if (emp.getEmpId() != -1) {
 				throw new UnexpectedExecuteUpdateRuntimeException("Erro ao inserir Empresa!");
 			}
 
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (st != null) {
-					st.close();
-				}
-				if (db != null) {
-					db.close();
-				}
-			} catch (Exception e2) {
-				e2.printStackTrace();
-			}
-		}
-	}
-
-	/**
-	 * 
-	 * @param rodada
-	 * @return
-	 */
-	public Empresa getTotalProducao(int rodada) {
-		Empresa emp = null;
-		String cmd = "select * from empresas where empid= ?";
-
-		Connection db = null;
-		PreparedStatement st = null;
-		ResultSet rs = null;
-
-		try {
-
-			Properties props = new Properties();
-			props.load(new FileInputStream("margulis.properties"));
-			String url = props.getProperty("url");
-
 			db = DriverManager.getConnection(url, props);
 
 			st = db.prepareStatement(cmd);
-			st.setLong(1, rodada);
-			rs = st.executeQuery();
-
-			while (rs.next()) {
-
-				int empid = rs.getInt(1);
-				String nome = rs.getString(2);
-				String responsavel = rs.getString(3);
-
-				emp = new Empresa(empid, nome, responsavel);
+			st.setString(1, emp.getNome());
+			st.setString(2, emp.getResponsavel());
+			int r = st.executeUpdate();
+			if (r != 1) {
+				throw new UnexpectedExecuteUpdateRuntimeException("Erro ao inserir Empresa!");
 			}
+			
+			ResultSet x = st.getGeneratedKeys();
+			x.next();
+			int k = x.getInt(1);
+			emp.setEmpId(k);
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (rs != null) {
-					rs.close();
-				}
 				if (st != null) {
 					st.close();
 				}
@@ -166,10 +72,10 @@ public class EmpresaDAO {
 				e2.printStackTrace();
 			}
 		}
-		return emp;
 	}
 
 	/**
+	 * Find and retrieve all companies from database.
 	 * 
 	 * @return
 	 */
@@ -190,7 +96,6 @@ public class EmpresaDAO {
 			db = DriverManager.getConnection(url, props);
 
 			st = db.prepareStatement(cmd);
-			// st.setString(1, pais);
 			rs = st.executeQuery();
 
 			while (rs.next()) {
@@ -221,12 +126,19 @@ public class EmpresaDAO {
 	}
 
 	/**
+	 * Updates a company record, based on company ID.
+	 * 
+	 * Company ID is set after insert or find.
 	 * 
 	 * @param emp
 	 */
 	public void updateEmpresa(Empresa emp) {
 
-		String cmd = "update empresas set nome = ?, responsavel = ? where empid = ?";
+		if (emp.getEmpId() == -1) {
+			throw new UnexpectedExecuteUpdateRuntimeException("Erro ao atualizar Empresa!");
+		}
+		
+		String cmd = "update empresas set nome = ?, responsavel = ? where idempresa = ?";
 
 		Connection db = null;
 		PreparedStatement st = null;

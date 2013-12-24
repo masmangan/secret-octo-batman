@@ -4,7 +4,7 @@ drop table empresas;
 
 CREATE TABLE IF NOT EXISTS empresas (
 	idempresa INTEGER PRIMARY KEY AUTOINCREMENT,
-	nome VARCHAR(36) NOT NULL,
+	nome VARCHAR(36) NOT NULL UNIQUE,
 	responsavel VARCHAR(36) NOT NULL
 ); 
 
@@ -18,7 +18,7 @@ CREATE TABLE decisoes (
 	marketing DOUBLE NOT NULL,
 	producao INTEGER(11) NOT NULL,
 	quantidade INTEGER(11) NOT NULL,
-	idempresa INTEGER ,
+	idempresa INTEGER,
 	FOREIGN KEY (idempresa) REFERENCES empresas(empresaid)
 );
 

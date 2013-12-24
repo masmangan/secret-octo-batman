@@ -7,7 +7,14 @@ package margulis.pojo;
  */
 public class Empresa {
 	
+	/**
+	 * 
+	 */
 	private int empid;
+	
+	/**
+	 * 
+	 */
 	private String nome,responsavel;
 	
 	/**
@@ -55,11 +62,35 @@ public class Empresa {
 	public String getResponsavel() {
 		return responsavel;
 	}
+	
+	/**
+	 * 
+	 * @param nome
+	 */
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	/**
+	 * 
+	 * @param responsavel
+	 */
+	public void setResponsavel(String responsavel) {
+		this.responsavel = responsavel;
+	}
 
 	@Override
 	public String toString() {
 		return "empresa [empid=" + empid + ", nome=" + nome + ", responsavel="
 				+ responsavel + "]";
+	}
+
+	public int getEmpid() {
+		return empid;
+	}
+
+	public void setEmpId(int empid) {
+		this.empid = empid;
 	}
 	
 }
