@@ -1,25 +1,36 @@
-CREATE TABLE IF NOT EXISTS decisoes(
-    codigo INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    periodo INTEGER(11) NOT NULL,
-    preco DOUBLE NOT NULL,
-    marketing DOUBLE NOT NULL,
-    producao INTEGER(11) NOT NULL,
-    quantidade INTEGER(11) NOT NULL,
-    codigo_empresa INTEGER ,
-   FOREIGN KEY (codigo_empresa) REFERENCES empresas(empid)
-);
-
-
-INSERT INTO decisoes (codigo, periodo, preco, marketing, producao, quantidade, codigo_empresa) VALUES (1, 1, 1, 80, 20000, 5000, 1)
-INSERT INTO decisoes (codigo, periodo, preco, marketing, producao, quantidade, codigo_empresa) VALUES (2, 2, 1, 90, 10000, 5000, 2)
-
+drop table decisoes;
+drop table demonstrativos;
+drop table empresas;
 
 CREATE TABLE IF NOT EXISTS empresas (
-  empid int(11) NOT NULL UNIQUE,
-  nome varchar(20) DEFAULT NULL,
-  responsavel varchar(20) DEFAULT NULL,
-  PRIMARY KEY (empid)
-) 
+	idempresa INTEGER PRIMARY KEY AUTOINCREMENT,
+	nome VARCHAR(36) NOT NULL,
+	responsavel VARCHAR(36) NOT NULL
+); 
 
-INSERT INTO empresas (empid, nome, responsavel) VALUES (1, 'C&A', 'Roberto Carlos')
-INSERT INTO empresas (empid, nome, responsavel) VALUES  (2, 'Renner', 'Erasmo Carlos')
+INSERT INTO empresas (idempresa, nome, responsavel) VALUES (1, 'C&A',    'Roberto Carlos');
+INSERT INTO empresas (idempresa, nome, responsavel) VALUES (2, 'Renner', 'Erasmo Carlos');
+
+CREATE TABLE decisoes (
+	iddecisao INTEGER PRIMARY KEY AUTOINCREMENT,
+	periodo INTEGER(11) NOT NULL,
+	preco DOUBLE NOT NULL,
+	marketing DOUBLE NOT NULL,
+	producao INTEGER(11) NOT NULL,
+	quantidade INTEGER(11) NOT NULL,
+	idempresa INTEGER ,
+	FOREIGN KEY (idempresa) REFERENCES empresas(empresaid)
+);
+
+INSERT INTO decisoes (iddecisao, periodo, preco, marketing, producao, quantidade, idempresa) VALUES (1, 1, 1, 80, 20000, 5000, 1);
+INSERT INTO decisoes (iddecisao, periodo, preco, marketing, producao, quantidade, idempresa) VALUES (2, 2, 1, 90, 10000, 5000, 2);
+
+CREATE TABLE demonstrativos (
+	iddemonstrativo INTEGER PRIMARY KEY AUTOINCREMENT,
+	periodo INTEGER(11) NOT NULL,
+	resultado DOUBLE,
+	vendas DOUBLE, 
+	demanda DOUBLE,
+	idempresa INTEGER,
+	FOREIGN KEY (idempresa) REFERENCES empresas(empresaid)
+);
