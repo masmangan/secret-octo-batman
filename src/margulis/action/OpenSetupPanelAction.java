@@ -45,6 +45,6 @@ public class OpenSetupPanelAction extends AbstractAction {
 
 	@Override
 	public void actionPerformed(final ActionEvent event) {
-		panel.setSelectedIndex(1);
+		panel.setSelectedIndex(4);
 	}
 }

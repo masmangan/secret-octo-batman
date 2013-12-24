@@ -20,7 +20,10 @@ import javax.swing.JToolBar;
 import margulis.action.ForwardSimulationAction;
 import margulis.action.OpenAboutPanelAction;
 import margulis.action.OpenChartPanelAction;
+import margulis.action.OpenCompanyPanelAction;
+import margulis.action.OpenDecisionPanelAction;
 import margulis.action.OpenHelpPanelAction;
+import margulis.action.OpenResultPanelAction;
 import margulis.action.OpenSetupPanelAction;
 import margulis.action.QuitApplicationAction;
 import margulis.model.MargulisModel;
@@ -36,14 +39,12 @@ public class MargulisSwing {
 	 * 
 	 */
 	private static void createAndShowGUI() {
-		JFrame frame = new JFrame("Margulis");
 		MargulisModel model = new MargulisModel();
+		JFrame frame = new JFrame("Margulis");
+		JTabbedPane tabbedPane = new JTabbedPane();
+		JMenuBar mb = new JMenuBar();
 
 		configureFrame(frame);
-
-		JTabbedPane tabbedPane = new JTabbedPane();
-
-		JMenuBar mb = new JMenuBar();
 		frame.setJMenuBar(mb);
 
 		JMenu arquivo = new JMenu("Arquivo");
@@ -58,15 +59,26 @@ public class MargulisSwing {
 		ajuda.setMnemonic(KeyEvent.VK_U);
 		mb.add(ajuda);
 
-		JMenuItem configuracao = new JMenuItem(new OpenSetupPanelAction(
-				tabbedPane));
-		window.add(configuracao);
-
 		JMenuItem forward = new JMenuItem(new ForwardSimulationAction(model));
 		arquivo.add(forward);
 
+		JMenuItem company = new JMenuItem(
+				new OpenCompanyPanelAction(tabbedPane));
+		window.add(company);
+
+		JMenuItem decision = new JMenuItem(new OpenDecisionPanelAction(
+				tabbedPane));
+		window.add(decision);
+
+		JMenuItem result = new JMenuItem(new OpenResultPanelAction(tabbedPane));
+		window.add(result);
+
 		JMenuItem chart = new JMenuItem(new OpenChartPanelAction(tabbedPane));
 		window.add(chart);
+
+		JMenuItem configuracao = new JMenuItem(new OpenSetupPanelAction(
+				tabbedPane));
+		window.add(configuracao);
 
 		arquivo.addSeparator();
 		JMenuItem sair = new JMenuItem(new QuitApplicationAction());
@@ -82,7 +94,7 @@ public class MargulisSwing {
 		JPanel decisionPanel = new JDecisaoPanel(tabbedPane, model);
 		JPanel resultsPanel = new JDemonstrativoPanel(tabbedPane, model);
 		JPanel chartPanel = new JChartPanel(tabbedPane);
-		JPanel reportPanel = new JPanel();
+		// JPanel reportPanel = new JPanel();
 		JPanel configurationPanel = new JSetupPanel(tabbedPane);
 
 		JToolBar toolBar = new JToolBar("Controle da simulação");
@@ -109,8 +121,8 @@ public class MargulisSwing {
 		tabbedPane.add(companyPanel, "Empresas");
 		tabbedPane.add(decisionPanel, "Decisões");
 		tabbedPane.add(resultsPanel, "Resultados");
-		tabbedPane.add(chartPanel, "Desempenho");
-		tabbedPane.add(reportPanel, "Relatório");
+		tabbedPane.add(chartPanel, "Gráficos");
+		// tabbedPane.add(reportPanel, "Relatório");
 		tabbedPane.add(configurationPanel, "Configuração");
 
 		frame.setLayout(new BorderLayout());

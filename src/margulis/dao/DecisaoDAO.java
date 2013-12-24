@@ -45,7 +45,7 @@ public class DecisaoDAO {
 			rs = st.executeQuery();
 
 			while (rs.next()) {
-				int decisaoid = rs.getInt("decisaoid");
+				int decisaoid = rs.getInt("iddecisao");
 				int empid = rs.getInt("idempresa");
 				int periodoBD = rs.getInt("periodo");
 				double preco = rs.getDouble("preco");

@@ -31,7 +31,7 @@ public class QuitApplicationAction extends AbstractAction {
 				new ImageIcon(OpenAboutPanelAction.class
 						.getResource("/margulis/gui/image/sair.png")));
 		putValue(MNEMONIC_KEY, KeyEvent.VK_S);
-		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_Q, Toolkit
+		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_S, Toolkit
 				.getDefaultToolkit().getMenuShortcutKeyMask()));
 	}
 
