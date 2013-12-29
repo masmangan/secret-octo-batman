@@ -50,8 +50,8 @@ public class DecisaoDAO {
 				int periodoBD = rs.getInt("periodo");
 				double preco = rs.getDouble("preco");
 				double marketing = rs.getDouble("marketing");
-				int quantidade = rs.getInt("quantidade");
-				decisoes.add(new Decisao(decisaoid, empid, periodoBD, preco, marketing, quantidade));
+				int producao = rs.getInt("producao");
+				decisoes.add(new Decisao(decisaoid, empid, periodoBD, preco, marketing, producao));
 			}
 
 		} catch (Exception e) {

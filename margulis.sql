@@ -13,17 +13,19 @@ INSERT INTO empresas (idempresa, nome, responsavel) VALUES (2, 'Renner', 'Erasmo
 
 CREATE TABLE decisoes (
 	iddecisao INTEGER PRIMARY KEY AUTOINCREMENT,
+	idempresa INTEGER,	
 	periodo INTEGER(11) NOT NULL,
 	preco DOUBLE NOT NULL,
 	marketing DOUBLE NOT NULL,
 	producao INTEGER(11) NOT NULL,
-	quantidade INTEGER(11) NOT NULL,
-	idempresa INTEGER,
 	FOREIGN KEY (idempresa) REFERENCES empresas(empresaid)
 );
 
-INSERT INTO decisoes (iddecisao, periodo, preco, marketing, producao, quantidade, idempresa) VALUES (1, 1, 1, 80, 20000, 5000, 1);
-INSERT INTO decisoes (iddecisao, periodo, preco, marketing, producao, quantidade, idempresa) VALUES (2, 2, 1, 90, 10000, 5000, 2);
+INSERT INTO decisoes (iddecisao, idempresa, periodo, preco, marketing, producao) VALUES (1, 1, 0, 80, 20000, 5000);
+INSERT INTO decisoes (iddecisao, idempresa, periodo, preco, marketing, producao) VALUES (2, 2, 0, 80, 20000, 5000);
+
+INSERT INTO decisoes (iddecisao, idempresa, periodo, preco, marketing, producao) VALUES (3, 1, 1, 80, 20000, 5000);
+INSERT INTO decisoes (iddecisao, idempresa, periodo, preco, marketing, producao) VALUES (4, 2, 1, 90, 10000, 5000);
 
 CREATE TABLE demonstrativos (
 	iddemonstrativo INTEGER PRIMARY KEY AUTOINCREMENT,
