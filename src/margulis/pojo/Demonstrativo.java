@@ -1,5 +1,10 @@
 package margulis.pojo;
 
+/**
+ * 
+ * @author marco
+ *
+ */
 public class Demonstrativo {
 	
 	private int empID;

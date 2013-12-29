@@ -3,43 +3,71 @@ package margulis.model;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
+import margulis.pojo.Decisao;
+
 /**
+ * Class {@code MargulisModel} is a simple simulation model.
  * 
  * @author marco
- *
  */
 public class MargulisModel {
 
+	/**
+	 * Current round.
+	 */
 	private int round;
+	
+	/**
+	 * Simulation already started.
+	 */
 	private boolean started;
 	
+	/**
+	 * Holds decisions for each company.
+	 */
 	private DecisaoTableModel decisaoModel;
+	
+	/**
+	 * Holds company descriptions.
+	 */
 	private EmpresaTableModel empresaModel;
+	
+	/**
+	 * Holds company results.
+	 */
 	private DemonstrativoTableModel demonstrativoModel;
 
-
-	private PropertyChangeSupport mPcs = new PropertyChangeSupport(this);
-
+	
 	/**
 	 * 
 	 */
+	private Decisao decisaoInicial;
+
+	/**
+	 * Support for listeners.
+	 */
+	private PropertyChangeSupport mPcs = new PropertyChangeSupport(this);
+
+	/**
+	 * Sets a new simulation instance.
+	 */
 	public MargulisModel() {
-		round = 0;
+		round = -1;
 		started = false;
 		decisaoModel = new DecisaoTableModel();
 		empresaModel = new EmpresaTableModel();
 		demonstrativoModel = new DemonstrativoTableModel(decisaoModel);
+		decisaoInicial = new Decisao();
 		addPropertyChangeListener(demonstrativoModel);
 	}
 
 	/**
-	 * 
+	 * Notifies listeners about a new round.
 	 */
 	public void forward() {
 		int oldRound = round;
 		round++;
 		started = true;
-		// TODO gerar demonstrativos para cada empresa
 		mPcs.firePropertyChange("round", oldRound, round);
 	}
 
@@ -75,18 +103,36 @@ public class MargulisModel {
 		return started;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public DecisaoTableModel getDecisaoModel() {
 		return decisaoModel;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public EmpresaTableModel getEmpresaModel() {
 		return empresaModel;
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public DemonstrativoTableModel getDemonstrativoModel() {
 		return demonstrativoModel;
 	}
 	
-	
+	/**
+	 * 
+	 * @return
+	 */
+	public Decisao getDecisaoInicial() {
+		return decisaoInicial;
+	}	
 	
 }

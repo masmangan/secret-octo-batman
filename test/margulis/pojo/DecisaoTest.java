@@ -8,13 +8,13 @@ public class DecisaoTest {
 
 	@Test
 	public void testDecisaoIntIntStringDoubleDoubleInt() {
-		int decisaoid = 5;
-		int empid = 4;
-		int rodada = 1;
-		double preco = 124.50;
-		double marketing = 550.80;
-		int producao = 153;
-		Decisao d = new Decisao(decisaoid, empid, rodada, preco, marketing,
+		final int decisaoid = 5;
+		final int empid = 4;
+		final int rodada = 1;
+		final double preco = 124.50;
+		final double marketing = 550.80;
+		final int producao = 153;
+		final Decisao d = new Decisao(decisaoid, empid, rodada, preco, marketing,
 				producao);
 		assertEquals(decisaoid, d.getDecisaoId());
 		assertEquals(empid, d.getEmpId());
@@ -26,12 +26,12 @@ public class DecisaoTest {
 
 	@Test
 	public void testDecisaoIntStringDoubleDoubleInt() {
-		int empid = 6;
-		int rodada = 3;
-		double preco = 153.50;
-		double marketing = 560.20;
-		int producao = 80;
-		Decisao d = new Decisao(empid, rodada, preco, marketing, producao);
+		final int empid = 6;
+		final int rodada = 3;
+		final double preco = 153.50;
+		final double marketing = 560.20;
+		final int producao = 80;
+		final Decisao d = new Decisao(empid, rodada, preco, marketing, producao);
 		assertEquals(empid, d.getEmpId());
 		assertEquals(rodada, d.getRodada());
 		assertEquals(preco, d.getPreco(), 0.01);

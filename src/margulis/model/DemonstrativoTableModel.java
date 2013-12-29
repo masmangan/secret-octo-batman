@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.swing.table.AbstractTableModel;
 
+import margulis.pojo.Decisao;
 import margulis.pojo.Demonstrativo;
 
 /**
@@ -34,7 +35,7 @@ public class DemonstrativoTableModel extends AbstractTableModel implements
 	 * 
 	 */
 	public DemonstrativoTableModel(DecisaoTableModel decisaoModel) {
-		// DecisaoDAO dao = new DemonstrativoDAO();
+		// DemonstrativoDAO dao = new DemonstrativoDAO();
 
 		// lista = dao.findDemonstrativoByPeriodo();
 		demonstrativos = new ArrayList<Demonstrativo>();
@@ -57,12 +58,14 @@ public class DemonstrativoTableModel extends AbstractTableModel implements
 		switch (col) {
 		case 0:
 			return l.getEmpid();
-		case 2:
+		case 1:
 			return l.getRodada();
-		case 3:
+		case 2:
 			return l.getResultado();
-		case 4:
+		case 3:
 			return l.getVendas();
+		case 4:
+			return l.getDemanda();
 		default:
 			return "*ERRO*";
 		}
@@ -72,27 +75,32 @@ public class DemonstrativoTableModel extends AbstractTableModel implements
 	public String getColumnName(int col) {
 		switch (col) {
 		case 0:
-			return "Codigo";
-		case 1:
 			return "EmpId";
-		case 2:
+		case 1:
 			return "Rodada";
-		case 3:
+		case 2:
 			return "Resultado";
-		case 4:
+		case 3:
 			return "Vendas";
+		case 4:
+			return "Demanda";
 		default:
 			return "*ERRO*";
 		}
 	}
 
 	public void step(int rodada) {
-		// for (Decisao d : decisaoModel) {
-		// System.out.println(d);
-		// }
-		demonstrativos.add(new Demonstrativo(rodada, 10, 20, 1.0));
+		int firstRow = demonstrativos.size();
+
+		for (Decisao d : decisaoModel) {
+			//FIXME: select * from decisoes where rodada = ?
+			if (d.getRodada() == rodada) {
+				demonstrativos.add(new Demonstrativo(d.getEmpId(), rodada, 10,
+						20, 1.0));
+			}
+		}
 		int lastRow = demonstrativos.size();
-		int firstRow = lastRow - 1;
+
 		fireTableRowsInserted(firstRow, lastRow);
 	}
 

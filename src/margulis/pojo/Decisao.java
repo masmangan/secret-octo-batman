@@ -22,6 +22,13 @@ public class Decisao {
 	private int producao;
 
 	/**
+	 * Default values for initial decision.
+	 */
+	public Decisao() {
+		this(-1, -1,  -1,  80.0,  20000.0, 5000);
+	}	
+	
+	/**
 	 * 
 	 * @param empId
 	 * @param rodada
