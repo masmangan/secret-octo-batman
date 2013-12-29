@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 
+import margulis.model.MargulisModel;
+
 /**
  * @author mauricio.victor.carvalho@gmail.com
  */
@@ -27,7 +29,7 @@ public class JSetupPanel extends JPanel {
 	 * @param frame
 	 * @param card
 	 */
-	public JSetupPanel(JTabbedPane frame) {
+	public JSetupPanel(JTabbedPane frame, MargulisModel model) {
 
 		// this.frame = frame;
 
@@ -40,7 +42,7 @@ public class JSetupPanel extends JPanel {
 		add(demandaPanel);
 
 		JDecisaoInicialPanel decisaoInicialPanel = new JDecisaoInicialPanel(
-				frame);
+				model);
 		add(decisaoInicialPanel);
 
 		// JButton botaoum = new JButton("Zerar simulação");
@@ -62,7 +64,7 @@ public class JSetupPanel extends JPanel {
 		JFrame frame = new JFrame("Teste");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		frame.getContentPane().add(new JSetupPanel(null));
+		frame.getContentPane().add(new JSetupPanel(null, null));
 
 		frame.setPreferredSize(new Dimension(800, 200));
 		frame.pack();

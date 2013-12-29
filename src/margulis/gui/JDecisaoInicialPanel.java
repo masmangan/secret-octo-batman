@@ -6,15 +6,14 @@ import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
-import margulis.pojo.DecisaoInicial;
+import margulis.model.MargulisModel;
+import margulis.pojo.Decisao;
 
 /**
  * 
  * @author
- * 
  */
 public class JDecisaoInicialPanel extends JPanel {
 
@@ -38,32 +37,10 @@ public class JDecisaoInicialPanel extends JPanel {
 	 */
 	private JTextField quantidade;
 
-	// private JFrame frame;
-
-	/**
-	 * 
-	 * @return
-	 */
-	public DecisaoInicial getDecisaoInicial() {
-		return new DecisaoInicial(Double.parseDouble(preco.getText()),
-				Double.parseDouble(marketing.getText()),
-				Integer.parseInt(quantidade.getText()));
-	}
-
 	/**
 	 * 
 	 */
-	public void clear() {
-
-		preco.setText("");
-		marketing.setText("");
-		quantidade.setText("");
-	}
-
-	/**
-	 * 
-	 */
-	public JDecisaoInicialPanel(JTabbedPane frame) {
+	public JDecisaoInicialPanel(MargulisModel model) {
 		JLabel label;
 		setLayout(new FlowLayout());
 
@@ -85,6 +62,21 @@ public class JDecisaoInicialPanel extends JPanel {
 		label.setLabelFor(quantidade);
 		add(quantidade);
 
+		updateUI(model);
+
+	}
+
+	/**
+	 * 
+	 * @param model
+	 */
+	private void updateUI(MargulisModel model) {
+		if (model != null) {
+			Decisao inicial = model.getDecisaoInicial();
+			preco.setText(String.format("%.2f", inicial.getPreco()));
+			marketing.setText(String.format("%.2f", inicial.getMarketing()));
+			quantidade.setText(String.format("%d", inicial.getProducao()));
+		}
 	}
 
 	/**
@@ -94,8 +86,9 @@ public class JDecisaoInicialPanel extends JPanel {
 	private static void createAndShowGUI() {
 		JFrame frame = new JFrame("Teste");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		MargulisModel model = new MargulisModel();
 
-		frame.getContentPane().add(new JDecisaoInicialPanel(null));
+		frame.getContentPane().add(new JDecisaoInicialPanel(model));
 
 		frame.setPreferredSize(new Dimension(800, 200));
 		frame.pack();
@@ -107,8 +100,6 @@ public class JDecisaoInicialPanel extends JPanel {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// Schedule a job for the event-dispatching thread:
-		// creating and showing this application's GUI.
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				createAndShowGUI();

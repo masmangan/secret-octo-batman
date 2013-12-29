@@ -95,7 +95,7 @@ public class MargulisSwing {
 		JPanel resultsPanel = new JDemonstrativoPanel(tabbedPane, model);
 		JPanel chartPanel = new JChartPanel(tabbedPane);
 		// JPanel reportPanel = new JPanel();
-		JPanel configurationPanel = new JSetupPanel(tabbedPane);
+		JPanel configurationPanel = new JSetupPanel(tabbedPane, model);
 
 		JToolBar toolBar = new JToolBar("Controle da simulação");
 
