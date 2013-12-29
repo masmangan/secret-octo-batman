@@ -46,7 +46,8 @@ public class OpenAboutPanelAction extends AbstractAction {
 	@Override
 	public void actionPerformed(final ActionEvent event) {
 		JOptionPane.showMessageDialog(frame,
-				"v. 2.0 (dev) (c) 2013, LAPRO III, FSPOA.",
+				"v. 5.0 (dev) (c) 2013, 2014, LAPRO III, FSPOA.\nMarianne Stampe\nMarco Mangan\n"
+				+"Andrei Mesquita, Bruno Welhausen, Mauricio Carvalho, Gisela Lucena, Paulo Lima e Silva, Thiago Dias",
 				"Sobre Margulis, um Simulador de Mercado",
 				JOptionPane.INFORMATION_MESSAGE);
 	}
