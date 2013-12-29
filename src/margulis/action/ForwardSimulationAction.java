@@ -14,8 +14,11 @@ import margulis.model.MargulisModel;
 /**
  * 
  * @author paulo.limaesilva09@gmail.com
+ * @author marco.mangan@gmail.com
+ * 
  */
 public class ForwardSimulationAction extends AbstractAction {
+	
 	/**
 	 * 
 	 */
@@ -24,8 +27,12 @@ public class ForwardSimulationAction extends AbstractAction {
 	/**
 	 * 
 	 */
-	private MargulisModel model;
+	private final MargulisModel model;
 
+	/**
+	 * 
+	 * @param model
+	 */
 	public ForwardSimulationAction(final MargulisModel model) {
 		super("Processar Rodada");
 		this.model = model;
@@ -38,8 +45,9 @@ public class ForwardSimulationAction extends AbstractAction {
 				.getResource("/margulis/gui/image/StepForward24.gif");
 		ico = new ImageIcon(url);
 		putValue(LARGE_ICON_KEY, ico);
-		putValue(MNEMONIC_KEY, KeyEvent.VK_P);
-		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_P, Toolkit
+		int key = KeyEvent.VK_P;
+		putValue(MNEMONIC_KEY, key);
+		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(key, Toolkit
 				.getDefaultToolkit().getMenuShortcutKeyMask()));
 	}
 
