@@ -25,7 +25,6 @@ public class QuitApplicationAction extends AbstractAction {
 	 */
 	public QuitApplicationAction() {
 		super("Sair");
-
 		putValue(
 				SMALL_ICON,
 				new ImageIcon(OpenAboutPanelAction.class
