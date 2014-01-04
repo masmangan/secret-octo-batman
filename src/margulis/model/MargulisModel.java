@@ -4,6 +4,7 @@ import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 
 import margulis.pojo.Decisao;
+import margulis.pojo.Demonstrativo;
 
 /**
  * Class {@code MargulisModel} is a simple simulation model.
@@ -16,32 +17,36 @@ public class MargulisModel {
 	 * Current round.
 	 */
 	private int round;
-	
+
 	/**
 	 * Simulation already started.
 	 */
 	private boolean started;
-	
+
 	/**
 	 * Holds decisions for each company.
 	 */
 	private DecisaoTableModel decisaoModel;
-	
+
 	/**
 	 * Holds company descriptions.
 	 */
 	private EmpresaTableModel empresaModel;
-	
+
 	/**
 	 * Holds company results.
 	 */
 	private DemonstrativoTableModel demonstrativoModel;
 
-	
 	/**
 	 * 
 	 */
 	private Decisao decisaoInicial;
+
+	/**
+	 * 
+	 */
+	private Demonstrativo demonstrativoInicial;
 
 	/**
 	 * Support for listeners.
@@ -56,8 +61,9 @@ public class MargulisModel {
 		started = false;
 		decisaoModel = new DecisaoTableModel();
 		empresaModel = new EmpresaTableModel();
-		demonstrativoModel = new DemonstrativoTableModel(decisaoModel);
+		demonstrativoModel = new DemonstrativoTableModel(this);
 		decisaoInicial = new Decisao();
+		demonstrativoInicial = new Demonstrativo();
 		addPropertyChangeListener(demonstrativoModel);
 	}
 
@@ -126,13 +132,21 @@ public class MargulisModel {
 	public DemonstrativoTableModel getDemonstrativoModel() {
 		return demonstrativoModel;
 	}
-	
+
 	/**
 	 * 
 	 * @return
 	 */
 	public Decisao getDecisaoInicial() {
 		return decisaoInicial;
-	}	
-	
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public Demonstrativo getDemonstrativoInicial() {
+		return demonstrativoInicial;
+	}
+
 }

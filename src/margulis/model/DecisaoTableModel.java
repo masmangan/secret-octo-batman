@@ -24,16 +24,20 @@ public class DecisaoTableModel extends AbstractTableModel implements
 	/**
 	 * 
 	 */
-	private List<Decisao> listadedecisoes;
+	private transient final List<Decisao> listadedecisoes;
+
+	/**
+	 * 
+	 */
+	private transient final DecisaoDAO dao;
 
 	/**
 	 * 
 	 */
 	public DecisaoTableModel() {
-		DecisaoDAO dao = new DecisaoDAO();
-
+		super();
+		dao = new DecisaoDAO();
 		listadedecisoes = dao.findDecisaoByPeriodo();
-
 	}
 
 	@Override
@@ -48,47 +52,105 @@ public class DecisaoTableModel extends AbstractTableModel implements
 
 	@Override
 	public Object getValueAt(int lin, int col) {
-		Decisao l = listadedecisoes.get(lin);
+		final Decisao decision = listadedecisoes.get(lin);
+		Object value;
+
 		switch (col) {
 		case 0:
-			return l.getDecisaoId();
+			value = decision.getDecisaoId();
+			break;
 		case 1:
-			return l.getEmpId();
+			value = decision.getEmpId();
+			break;
+
 		case 2:
-			return l.getRodada();
+			value = decision.getRodada();
+			break;
+
 		case 3:
-			return l.getPreco();
+			value = decision.getPreco();
+			break;
+
 		case 4:
-			return l.getMarketing();
+			value = decision.getMarketing();
+			break;
+
 		case 5:
-			return l.getProducao();
+			value = decision.getProducao();
+			break;
+
 		default:
-			return "*ERRO*";
+			value = "*ERRO*";
+			break;
+
 		}
+
+		return value;
 	}
 
 	@Override
-	public String getColumnName(int col) {
+	public String getColumnName(final int col) {
+		String columnName;
+
 		switch (col) {
 		case 0:
-			return "Codigo";
+			columnName = "Codigo";
+			break;
+
 		case 1:
-			return "EmpId";
+			columnName = "EmpId";
+			break;
+
 		case 2:
-			return "Rodada";
+			columnName = "Rodada";
+			break;
+
 		case 3:
-			return "Preco";
+			columnName = "Preco";
+			break;
+
 		case 4:
-			return "Marketing";
+			columnName = "Marketing";
+			break;
+
 		case 5:
-			return "Producao";
+			columnName = "Producao";
+			break;
+
 		default:
-			return "*ERRO*";
+			columnName = "*ERRO*";
+			break;
+
 		}
+
+		return columnName;
 	}
 
 	@Override
 	public Iterator<Decisao> iterator() {
 		return listadedecisoes.iterator();
+	}
+
+	/**
+	 * Média harmônica do preço em cada decisão.
+	 * 
+	 * @param rodada
+	 * @return
+	 */
+	public double getMediaPreco(int rodada) {
+		double media = 0;
+		double soma = 0;
+		int n = 0;
+		for (Decisao d : this) {
+			if (d.getRodada() == rodada) {
+				n++;
+				soma += (1.0 / d.getPreco());
+			}
+		}
+		if (n == 0 || soma == 0) {
+			return 0.0;
+		}
+		media = n / soma;
+		return media;
 	}
 }

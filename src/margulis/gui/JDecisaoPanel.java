@@ -19,11 +19,11 @@ import margulis.model.MargulisModel;
 public class JDecisaoPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 
-	private JTable table;
+	private final JTable table;
 
 	// private JTabbedPane frame;
 
-	public JDecisaoPanel(JTabbedPane frame, MargulisModel model) {
+	public JDecisaoPanel(final JTabbedPane frame, final MargulisModel model) {
 		// this.frame = frame;
 
 		setLayout(new BorderLayout());

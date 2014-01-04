@@ -23,48 +23,51 @@ public class DemonstrativoDAO {
 	 * @return
 	 */
 	public List<Demonstrativo> findDemonstrativos() {
-		String cmd = "select * from demonstrativos";
-		List<Demonstrativo> demonstrativo = new ArrayList<Demonstrativo>();
+		final String cmd = "select * from demonstrativos";
+		final List<Demonstrativo> demonstrativo = new ArrayList<Demonstrativo>();
 
-		Connection db = null;
-		PreparedStatement st = null;
-		ResultSet rs = null;
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
 
 		try {
 			Class.forName("org.sqlite.JDBC");
-			Properties props = new Properties();
+			final Properties props = new Properties();
 			props.load(new FileInputStream("margulis.properties"));
-			String url = props.getProperty("url");
+			final String url = props.getProperty("url");
 
-			db = DriverManager.getConnection(url, props);
+			connection = DriverManager.getConnection(url, props);
 
-			st = db.prepareStatement(cmd);
+			statement = connection.prepareStatement(cmd);
 			
-			rs = st.executeQuery();
+			resultSet = statement.executeQuery();
 
-			while (rs.next()) {
-				int rodada = rs.getInt(1);
-				int empid = rs.getInt(2);
-				float resultado = rs.getInt(3);
-				int vendas =rs.getInt(4);
-				double demanda =rs.getDouble(4);
+			while (resultSet.next()) {
+				int rodada = resultSet.getInt(1);
+				int empid = resultSet.getInt(2);
+				float resultado = resultSet.getInt(3);
+				int vendas =resultSet.getInt(4);
+				int demanda =resultSet.getInt(4);
 
-				
-				demonstrativo.add(new Demonstrativo(rodada,empid, resultado, vendas, demanda));
+				Demonstrativo de;
+				demonstrativo.add(de = new Demonstrativo(rodada,empid));
+				de.resultado = resultado;
+						de.vendas = vendas;
+						de.demanda = demanda;
 			}
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (rs != null) {
-					rs.close();
+				if (resultSet != null) {
+					resultSet.close();
 				}
-				if (st != null) {
-					st.close();
+				if (statement != null) {
+					statement.close();
 				}
-				if (db != null) {
-					db.close();
+				if (connection != null) {
+					connection.close();
 				}
 			} catch (Exception e2) {
 				e2.printStackTrace();
@@ -77,11 +80,11 @@ public class DemonstrativoDAO {
 	 * 
 	 * @param d
 	 */
-	public void insereDemonstrativo(Demonstrativo d) {
-		String cmd = "insert into demonstrativos(periodo, resultado, vendas) values (?, ?, ?)";
+	public void insereDemonstrativo(final Demonstrativo d) {
+		final String cmd = "insert into demonstrativos(periodo, resultado, vendas) values (?, ?, ?)";
 
-		Connection db = null;
-		PreparedStatement st = null;
+		Connection connection = null;
+		PreparedStatement statement = null;
 
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -89,13 +92,13 @@ public class DemonstrativoDAO {
 			props.load(new FileInputStream("margulis.properties"));
 			String url = props.getProperty("url");
 
-			db = DriverManager.getConnection(url, props);
+			connection = DriverManager.getConnection(url, props);
 
-			st = db.prepareStatement(cmd);
-			st.setInt(1, d.getRodada());
-			st.setFloat(2, d.getResultado());
-			st.setInt(3, d.getVendas());
-			int r = st.executeUpdate();
+			statement = connection.prepareStatement(cmd);
+			statement.setInt(1, d.getRodada());
+			statement.setDouble(2, d.getResultado());
+			statement.setInt(3, d.getVendas());
+			int r = statement.executeUpdate();
 
 			if (r != 1) {
 				throw new UnexpectedExecuteUpdateRuntimeException("ERRO AO INSERIR Demonstrativo!");
@@ -105,11 +108,11 @@ public class DemonstrativoDAO {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (st != null) {
-					st.close();
+				if (statement != null) {
+					statement.close();
 				}
-				if (db != null) {
-					db.close();
+				if (connection != null) {
+					connection.close();
 				}
 			} catch (Exception e2) {
 				e2.printStackTrace();

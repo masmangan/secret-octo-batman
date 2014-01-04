@@ -1,11 +1,10 @@
 package margulis.pojo;
 
 /**
- * Records the decisions of a company 
- * in a single simulation round.
+ * Records the decisions of a company in a single simulation round.
  * 
- * There are three decisions, product price,
- *  marketing investiment, and production order.
+ * There are three decisions, product price, marketing investiment, and
+ * production order.
  * 
  * @author Dias
  * @author marco.mangan@gmail.com
@@ -14,9 +13,9 @@ public class Decisao {
 
 	private int decisaoId;
 	private int empId;
-	
+
 	private int rodada;
-	
+
 	private double preco;
 	private double marketing;
 	private int producao;
@@ -25,9 +24,9 @@ public class Decisao {
 	 * Default values for initial decision.
 	 */
 	public Decisao() {
-		this(-1, -1,  -1,  80.0,  20000.0, 5000);
-	}	
-	
+		this(-1, -1, -1, 80.0, 20000.0, 5000);
+	}
+
 	/**
 	 * 
 	 * @param empId
@@ -38,7 +37,7 @@ public class Decisao {
 	 */
 	public Decisao(int empId, int rodada, double preco, double marketing,
 			int producao) {
-		this(-1, empId,  rodada,  preco,  marketing, producao);
+		this(-1, empId, rodada, preco, marketing, producao);
 	}
 
 	/**

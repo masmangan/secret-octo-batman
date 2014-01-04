@@ -39,25 +39,25 @@ public class MargulisSwing {
 	 * 
 	 */
 	private static void createAndShowGUI() {
-		MargulisModel model = new MargulisModel();
-		JFrame frame = new JFrame("Margulis");
-		JTabbedPane tabbedPane = new JTabbedPane();
-		JMenuBar mb = new JMenuBar();
+		final MargulisModel model = new MargulisModel();
+		final JFrame frame = new JFrame("Margulis");
+		final JTabbedPane tabbedPane = new JTabbedPane();
+		final JMenuBar menubar = new JMenuBar();
 
 		configureFrame(frame);
-		frame.setJMenuBar(mb);
+		frame.setJMenuBar(menubar);
 
-		JMenu arquivo = new JMenu("Arquivo");
+		final JMenu arquivo = new JMenu("Arquivo");
 		arquivo.setMnemonic(KeyEvent.VK_A);
-		mb.add(arquivo);
+		menubar.add(arquivo);
 
 		JMenu window = new JMenu("Janelas");
 		arquivo.setMnemonic(KeyEvent.VK_J);
-		mb.add(window);
+		menubar.add(window);
 
 		JMenu ajuda = new JMenu("Ajuda");
 		ajuda.setMnemonic(KeyEvent.VK_U);
-		mb.add(ajuda);
+		menubar.add(ajuda);
 
 		JMenuItem forward = new JMenuItem(new ForwardSimulationAction(model));
 		arquivo.add(forward);
@@ -95,7 +95,7 @@ public class MargulisSwing {
 		JPanel resultsPanel = new JDemonstrativoPanel(tabbedPane, model);
 		JPanel chartPanel = new JChartPanel(tabbedPane);
 		// JPanel reportPanel = new JPanel();
-		JPanel configurationPanel = new JSetupPanel(tabbedPane, model);
+		JPanel configurationPanel = new JSetupPanel(model);
 
 		JToolBar toolBar = new JToolBar("Controle da simulação");
 
@@ -134,7 +134,7 @@ public class MargulisSwing {
 		frame.setVisible(true);
 	}
 
-	private static void configureFrame(JFrame frame) {
+	private static void configureFrame(final JFrame frame) {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		URL iconFile = MargulisSwing.class
@@ -146,7 +146,7 @@ public class MargulisSwing {
 	 * 
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				createAndShowGUI();

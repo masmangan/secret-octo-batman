@@ -6,7 +6,6 @@ import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
@@ -28,9 +27,7 @@ public class JInfoSobreDemandaPanel extends JPanel {
 	private JTextField influenciaPreco;
 	private JTextField influenciaMarketing;
 
-	//private JTabbedPane frame;
-
-	public JInfoSobreDemandaPanel(JTabbedPane frame) {
+	public JInfoSobreDemandaPanel() {
 
 		setLayout(new BorderLayout());
 
@@ -95,7 +92,7 @@ public class JInfoSobreDemandaPanel extends JPanel {
 		JFrame frame = new JFrame("Teste");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		frame.getContentPane().add(new JInfoSobreDemandaPanel(null));
+		frame.getContentPane().add(new JInfoSobreDemandaPanel());
 
 		frame.setPreferredSize(new Dimension(800, 200));
 		frame.pack();

@@ -27,11 +27,11 @@ public class EmpresaDAO {
 	 * 
 	 * @param emp
 	 */
-	public void insertEmpresa(Empresa emp) {
-		String cmd = "insert into empresas(nome, responsavel) values (?, ?)";
+	public void insertEmpresa(final Empresa emp) {
+		final String cmd = "insert into empresas(nome, responsavel) values (?, ?)";
 
-		Connection db = null;
-		PreparedStatement st = null;
+		Connection connection = null;
+		PreparedStatement statement = null;
 
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -43,17 +43,17 @@ public class EmpresaDAO {
 				throw new UnexpectedExecuteUpdateRuntimeException("Erro ao inserir Empresa!");
 			}
 
-			db = DriverManager.getConnection(url, props);
+			connection = DriverManager.getConnection(url, props);
 
-			st = db.prepareStatement(cmd);
-			st.setString(1, emp.getNome());
-			st.setString(2, emp.getResponsavel());
-			int r = st.executeUpdate();
+			statement = connection.prepareStatement(cmd);
+			statement.setString(1, emp.getNome());
+			statement.setString(2, emp.getResponsavel());
+			int r = statement.executeUpdate();
 			if (r != 1) {
 				throw new UnexpectedExecuteUpdateRuntimeException("Erro ao inserir Empresa!");
 			}
 			
-			ResultSet x = st.getGeneratedKeys();
+			ResultSet x = statement.getGeneratedKeys();
 			x.next();
 			int k = x.getInt(1);
 			emp.setEmpId(k);
@@ -62,11 +62,11 @@ public class EmpresaDAO {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (st != null) {
-					st.close();
+				if (statement != null) {
+					statement.close();
 				}
-				if (db != null) {
-					db.close();
+				if (connection != null) {
+					connection.close();
 				}
 			} catch (Exception e2) {
 				e2.printStackTrace();

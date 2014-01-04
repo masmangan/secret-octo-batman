@@ -15,7 +15,7 @@ public class JDemonstrativoPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 
-	private JTable table;
+	private final JTable table;
 
 	// private JFrame frame;
 
@@ -25,7 +25,7 @@ public class JDemonstrativoPanel extends JPanel {
 	 * @param card
 	 * @param frame
 	 */
-	public JDemonstrativoPanel(JTabbedPane frame, MargulisModel model) {
+	public JDemonstrativoPanel(final JTabbedPane frame, final MargulisModel model) {
 
 		setLayout(new BorderLayout());
 		table = new JTable(model.getDemonstrativoModel());

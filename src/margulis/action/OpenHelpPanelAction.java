@@ -15,16 +15,14 @@ import javax.swing.JOptionPane;
 import javax.swing.KeyStroke;
 
 /**
- * Margulis simulator user guide action. 
- * User documentation is provided by a 
- * GitHub hosted wiki page.
+ * Margulis simulator user guide action.
  * 
  * <p>
- * If Internet connection is down, wiki 
- * is unavaliable, or some other event 
- * prevents the contact with GitHub, 
- * a generic error message appears 
- * on a dialog.
+ * User documentation is provided by a GitHub hosted wiki page.
+ * 
+ * <p>
+ * If some event prevents the contact with GitHub, a generic error message
+ * appears on a dialog.
  * 
  * @author Ândrei
  * 
@@ -35,17 +33,16 @@ public class OpenHelpPanelAction extends AbstractAction {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	/**
 	 * 
 	 */
 	private transient final JFrame frame;
-	
+
 	/**
 	 * 
 	 */
-	private static String address = 
-			"https://github.com/masmangan/secret-octo-batman/wiki/Manual";
+	private static String address = "https://github.com/masmangan/secret-octo-batman/wiki/Manual";
 
 	/**
 	 * 
@@ -59,8 +56,8 @@ public class OpenHelpPanelAction extends AbstractAction {
 				new ImageIcon(OpenHelpPanelAction.class
 						.getResource("/margulis/gui/image/help.png")));
 		putValue(MNEMONIC_KEY, KeyEvent.VK_H);
-		putValue(ACCELERATOR_KEY,
-				KeyStroke.getKeyStroke(KeyEvent.VK_H, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+		putValue(ACCELERATOR_KEY, KeyStroke.getKeyStroke(KeyEvent.VK_H, Toolkit
+				.getDefaultToolkit().getMenuShortcutKeyMask()));
 	}
 
 	@Override

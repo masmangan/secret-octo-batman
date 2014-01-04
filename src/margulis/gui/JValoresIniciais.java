@@ -32,6 +32,7 @@ public class JValoresIniciais extends JPanel {
 	 * Create the panel.
 	 */
 	public JValoresIniciais() {
+		super();
 		setLayout(new FormLayout(
 				new ColumnSpec[] { FormFactory.RELATED_GAP_COLSPEC,
 						FormFactory.DEFAULT_COLSPEC,

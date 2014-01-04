@@ -30,9 +30,24 @@ INSERT INTO decisoes (iddecisao, idempresa, periodo, preco, marketing, producao)
 CREATE TABLE demonstrativos (
 	iddemonstrativo INTEGER PRIMARY KEY AUTOINCREMENT,
 	periodo INTEGER(11) NOT NULL,
+	caixa DOUBLE,
+	estoque DOUBLE,	
+	estoqueEmUN INTEGER,
+	maquinas DOUBLE,
+	depreciacao DOUBLE,
+	contas DOUBLE,
+	provisao DOUBLE,
 	resultado DOUBLE,
 	vendas DOUBLE, 
-	demanda DOUBLE,
+	demanda INTEGER,
 	idempresa INTEGER,
+	
+	
+	
+	
+	
+	
+	
+	
 	FOREIGN KEY (idempresa) REFERENCES empresas(empresaid)
 );

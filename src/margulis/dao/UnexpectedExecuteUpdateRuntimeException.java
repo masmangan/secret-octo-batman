@@ -9,15 +9,15 @@ public class UnexpectedExecuteUpdateRuntimeException extends RuntimeException {
 
 	/**
 	 * 
-	 * @param string
 	 */
-	public UnexpectedExecuteUpdateRuntimeException(String string) {
-		super(string);
-	}
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 
+	 * @param message
 	 */
-	private static final long serialVersionUID = 1L;
+	public UnexpectedExecuteUpdateRuntimeException(final String message) {
+		super(message);
+	}
 
 }

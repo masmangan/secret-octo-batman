@@ -14,7 +14,9 @@ public class DemonstrativoDAOTeste {
 
 		DemonstrativoDAO dao = new DemonstrativoDAO();
 
-		Demonstrativo demos = new Demonstrativo(1, 4, 5, 1.0);
+		Demonstrativo demos = new Demonstrativo(1, 4);
+		demos.vendas = 5;
+		demos.demanda = 1;
 		dao.insereDemonstrativo(demos);
 
 		List<Demonstrativo> teste = dao.findDemonstrativos();

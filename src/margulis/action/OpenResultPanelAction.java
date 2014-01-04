@@ -9,7 +9,7 @@ import javax.swing.JTabbedPane;
 import javax.swing.KeyStroke;
 
 /**
- * 
+ * Margulis simulator open results action.
  * 
  */
 public class OpenResultPanelAction extends AbstractAction {

@@ -5,7 +5,6 @@ import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
 
 import margulis.model.MargulisModel;
 
@@ -21,24 +20,18 @@ public class JSetupPanel extends JPanel {
 
 	/**
 	 * 
-	 */
-	// private JTabbedPane frame;
-
-	/**
-	 * 
 	 * @param frame
 	 * @param card
 	 */
-	public JSetupPanel(JTabbedPane frame, MargulisModel model) {
-
-		// this.frame = frame;
+	public JSetupPanel(final MargulisModel model) {
+		super();
 
 		setLayout(new FlowLayout());
 
 		JValoresIniciais valoresIniciaisPanel = new JValoresIniciais();
 		add(valoresIniciaisPanel);
 
-		JInfoSobreDemandaPanel demandaPanel = new JInfoSobreDemandaPanel(frame);
+		JInfoSobreDemandaPanel demandaPanel = new JInfoSobreDemandaPanel();
 		add(demandaPanel);
 
 		JDecisaoInicialPanel decisaoInicialPanel = new JDecisaoInicialPanel(
@@ -64,7 +57,7 @@ public class JSetupPanel extends JPanel {
 		JFrame frame = new JFrame("Teste");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		frame.getContentPane().add(new JSetupPanel(null, null));
+		frame.getContentPane().add(new JSetupPanel(null));
 
 		frame.setPreferredSize(new Dimension(800, 200));
 		frame.pack();

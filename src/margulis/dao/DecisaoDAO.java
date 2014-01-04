@@ -16,9 +16,7 @@ import margulis.pojo.Decisao;
  * @author 
  */
 public class DecisaoDAO {
-	
-	private Decisao dec;
-	
+		
 	/**
 	 * 
 	 * @param periodo
@@ -26,31 +24,31 @@ public class DecisaoDAO {
 	 */
 	public List<Decisao> findDecisaoByPeriodo() {
 
-		List<Decisao> decisoes = new ArrayList<Decisao>();
-		String cmd = "select * from decisoes";
+		final List<Decisao> decisoes = new ArrayList<Decisao>();
+		final String cmd = "select * from decisoes";
 
-		Connection db = null;
-		PreparedStatement st = null;
-		ResultSet rs = null;
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
 
 		try {
 			Class.forName("org.sqlite.JDBC");
-			Properties props = new Properties();
+			final Properties props = new Properties();
 			props.load(new FileInputStream("margulis.properties"));
 			String url = props.getProperty("url");
 
-			db = DriverManager.getConnection(url, props);
+			connection = DriverManager.getConnection(url, props);
 
-			st = db.prepareStatement(cmd);
-			rs = st.executeQuery();
+			statement = connection.prepareStatement(cmd);
+			resultSet = statement.executeQuery();
 
-			while (rs.next()) {
-				int decisaoid = rs.getInt("iddecisao");
-				int empid = rs.getInt("idempresa");
-				int periodoBD = rs.getInt("periodo");
-				double preco = rs.getDouble("preco");
-				double marketing = rs.getDouble("marketing");
-				int producao = rs.getInt("producao");
+			while (resultSet.next()) {
+				int decisaoid = resultSet.getInt("iddecisao");
+				int empid = resultSet.getInt("idempresa");
+				int periodoBD = resultSet.getInt("periodo");
+				double preco = resultSet.getDouble("preco");
+				double marketing = resultSet.getDouble("marketing");
+				int producao = resultSet.getInt("producao");
 				decisoes.add(new Decisao(decisaoid, empid, periodoBD, preco, marketing, producao));
 			}
 
@@ -58,14 +56,14 @@ public class DecisaoDAO {
 			e.printStackTrace();
 		} finally {
 			try {
-				if (rs != null) {
-					rs.close();
+				if (resultSet != null) {
+					resultSet.close();
 				}
-				if (st != null) {
-					st.close();
+				if (statement != null) {
+					statement.close();
 				}
-				if (db != null) {
-					db.close();
+				if (connection != null) {
+					connection.close();
 				}
 			} catch (Exception e2) {
 				e2.printStackTrace();
@@ -125,7 +123,7 @@ public class DecisaoDAO {
 		return dec;
 	}
 
-	public void insertDecisao() {
+	public void insertDecisao(Decisao dec) {
 		String cmd = "insert into decisao(idempresa, periodo, preco, marketing, quantidade) values (?, ?, ?, ?, ?, ?)";
 
 		Connection db = null;
@@ -140,7 +138,7 @@ public class DecisaoDAO {
 			db = DriverManager.getConnection(url, props);
 
 			st = db.prepareStatement(cmd);
-			dec = null;
+			//Decisao dec = null;
 			st.setInt(1, dec.getEmpId());
 			st.setInt(2, dec.getRodada());
 			st.setDouble(3, dec.getPreco());
@@ -168,7 +166,7 @@ public class DecisaoDAO {
 		}
 	}
 
-	public void updateDecisao(int decisaoid) {
+	public void updateDecisao(Decisao dec) {
 		String cmd = "update decisao set periodo = ?, preco = ?, marketing = ?, quantidade = ? where decisaoid = ?";
 
 		Connection db = null;
@@ -183,12 +181,14 @@ public class DecisaoDAO {
 			db = DriverManager.getConnection(url, props);
 
 			st = db.prepareStatement(cmd);
-			dec = null;
+			//Decisao dec = null;
 			st.setInt(1, dec.getRodada());
 			st.setDouble(2, dec.getPreco());
 			st.setDouble(3, dec.getMarketing());
 			st.setInt(4, dec.getProducao());
-			st.setInt(5, decisaoid);
+			//st.setInt(5, decisaoid);
+			st.setInt(5, dec.getDecisaoId());
+
 			int r = st.executeUpdate();
 
 			if (r != 1) {

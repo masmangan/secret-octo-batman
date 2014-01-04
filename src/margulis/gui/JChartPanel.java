@@ -132,7 +132,8 @@ public class JChartPanel extends JPanel {
 		return chart;
 	}
 
-	public JChartPanel(JTabbedPane frame) {
+	public JChartPanel(final JTabbedPane frame) {
+		super();
 		//this.frame = frame;
 		//
 		final CategoryDataset dataset = createDataset();
@@ -149,7 +150,7 @@ public class JChartPanel extends JPanel {
 	 * invoked from the event-dispatching thread.
 	 */
 	private static void createAndShowGUI() {
-		JFrame frame = new JFrame("Teste");
+		final JFrame frame = new JFrame("Teste");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		frame.getContentPane().add(new JChartPanel(null));
@@ -159,7 +160,7 @@ public class JChartPanel extends JPanel {
 		frame.setVisible(true);
 	}
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		javax.swing.SwingUtilities.invokeLater(new Runnable() {
 			public void run() {
 				createAndShowGUI();

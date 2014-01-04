@@ -1,12 +1,31 @@
 package margulis.pojo;
 
 /**
+ * A sensibilidade do preço é calculada pelo valor inicial da influência do
+ * preço.
+ * 
+ * <p>
+ * Cada faixa é separada pelo intervalo ((valor inicial) - 0.1)/16.
+ * 
+ * <p>
+ * A primeira faixa inicia no valor zero, cada faixa é separada pelo intervalo
+ * 5.
+ * 
+ * <p>
+ * As primeiras faixas são (0; 0,90), (5; 0,85), (10; 0,80)...(85; 0,05), (90;
+ * 0), (95; 0,05)...(185; -0,95), (190; -1,00), (195; -1,00)... (290; -1,00)
+ * 
+ * <p>
+ * A influência negativa é limitada no valor -1.
  * 
  * @author marco
- *
+ * 
  */
 public class SensibilidadePreco {
 
+	/**
+	 * 
+	 */
 	public static double[][] tabela = { { 0, 0.90 }, { 5, 0.85 }, { 10, 0.80 },
 			{ 15, 0.75 }, { 20, 0.70 }, { 25, 0.65 }, { 30, 0.60 },
 			{ 35, 0.55 }, { 40, 0.50 }, { 45, 0.45 }, { 50, 0.40 },
